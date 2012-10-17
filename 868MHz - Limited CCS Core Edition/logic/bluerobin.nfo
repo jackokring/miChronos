@@ -1,0 +1,118 @@
+MSP430 C/C++ Optimizer                  v4.1.1
+Build Number 1MF4S-JIK27-UARAR-SAW-ZACIF_U_R_R
+
+		======File-level Analysis Summary======
+
+
+extern void display_selection_User_Gender() is called from 0 sites in this file.
+    It appears to be inlineable (size = 18 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	display_chars() (1 times)
+
+extern void get_bluerobin_data() is called from 0 sites in this file.
+    It appears to be inlineable (size = 89 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	stop_bluerobin() (1 times)
+	BRRX_GetDistance_u16() (1 times)
+	BRRX_GetSpeed_u8() (1 times)
+	BRRX_GetHeartRate_u8() (1 times)
+	BRRX_GetState_t() (1 times)
+
+extern unsigned char is_bluerobin() is called from 0 sites in this file.
+    It appears to be inlineable (size = 6 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+extern unsigned char is_bluerobin_searching() is called from 0 sites in this file.
+    It appears to be inlineable (size = 6 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+extern void reset_bluerobin() is called from 0 sites in this file.
+    It appears to be inlineable (size = 31 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+extern void stop_bluerobin() is called from 1 sites in this file.
+    It appears to be inlineable (size = 32 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	display_symbol() (4 times)
+	close_radio() (1 times)
+	BRRX_Stop_v() (1 times)
+
+
+These functions may be recursive:
+	display_selection_User_Gender()
+	get_bluerobin_data()
+	stop_bluerobin()
+
+These external functions are called but not defined here:
+	BRRX_Stop_v()
+	close_radio()
+	display_symbol()
+	BRRX_GetState_t()
+	BRRX_GetHeartRate_u8()
+	BRRX_GetSpeed_u8()
+	BRRX_GetDistance_u16()
+	display_chars()
+
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+extern void stop_bluerobin() is called from 1 sites in this file.
+    It appears to be inlineable (size = 32 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+==============================================================================
+
+extern void reset_bluerobin() is called from 0 sites in this file.
+    It appears to be inlineable (size = 31 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+==============================================================================
+
+extern unsigned char is_bluerobin_searching() is called from 0 sites in this file.
+    It appears to be inlineable (size = 6 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+==============================================================================
+
+extern unsigned char is_bluerobin() is called from 0 sites in this file.
+    It appears to be inlineable (size = 6 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+==============================================================================
+
+extern void get_bluerobin_data() is called from 0 sites in this file.
+    It appears to be inlineable (size = 89 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	stop_bluerobin() (1 times)
+
+==============================================================================
+
+extern void display_selection_User_Gender() is called from 0 sites in this file.
+    It appears to be inlineable (size = 18 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==

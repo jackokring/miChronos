@@ -1,0 +1,1 @@
+"../logic/acceleration.c" "../logic/alarm.c" "../logic/altitude.c" "../logic/battery.c" "../logic/bluerobin.c" "../logic/clock.c" "../logic/date.c" "../logic/menu.c" "../logic/rfbsl.c" "../logic/rfsimpliciti.c" "../logic/slide.c" "../logic/stopwatch.c" "../logic/temperature.c" "../logic/user.c" 

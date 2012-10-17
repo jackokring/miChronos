@@ -1,0 +1,61 @@
+MSP430 C/C++ Optimizer                  v4.1.1
+Build Number 1MF4S-JIK27-UARAR-SAW-ZACIF_U_R_R
+
+		======File-level Analysis Summary======
+
+
+extern void do_acceleration_measurement() is called from 0 sites in this file.
+    It appears to be inlineable (size = 8 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	as_get_data() (1 times)
+
+extern unsigned char is_acceleration_measurement() is called from 0 sites in this file.
+    It appears to be inlineable (size = 19 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+extern void reset_acceleration() is called from 0 sites in this file.
+    It appears to be inlineable (size = 10 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+
+These functions may be recursive:
+	do_acceleration_measurement()
+
+These external functions are called but not defined here:
+	as_get_data()
+
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+extern void reset_acceleration() is called from 0 sites in this file.
+    It appears to be inlineable (size = 10 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+==============================================================================
+
+extern unsigned char is_acceleration_measurement() is called from 0 sites in this file.
+    It appears to be inlineable (size = 19 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+==============================================================================
+
+extern void do_acceleration_measurement() is called from 0 sites in this file.
+    It appears to be inlineable (size = 8 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==
