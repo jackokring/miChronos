@@ -104,7 +104,6 @@ void set_value(s32 * value, u8 digits, u8 blanks, s32 limitLow, s32 limitHigh, u
 {
     u8 update;
     s16 stepValue = 1;
-    u8 doRound = 0;
     u8 stopwatch_state;
     u32 val;
 
@@ -210,30 +209,19 @@ void set_value(s32 * value, u8 digits, u8 blanks, s32 limitLow, s32 limitHigh, u
             {
                 case 0:
                     stepValue = 1;
-                    doRound = 0;
                     break;
                 case 10:
                 case -10:
                     stepValue = 10;
-                    doRound = 1;
                     break;
                 case 20:
                 case -20:
                     stepValue = 100;
-                    doRound = 1;
                     break;
                 case 30:
                 case -30:
                     stepValue = 1000;
-                    doRound = 1;
                     break;
-            }
-
-            // Round value to avoid odd numbers on display
-            if (stepValue != 1 && doRound == 1)
-            {
-                *value -= *value % stepValue;
-                doRound = 0;
             }
         }
 
@@ -253,7 +241,7 @@ void set_value(s32 * value, u8 digits, u8 blanks, s32 limitLow, s32 limitHigh, u
                 {
                     display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
                     display_symbol(LCD_SYMB_ARROW_DOWN, SEG_ON);
-                    val = *value * (-1);
+                    val = -(*value);
                 }
             }
             else

@@ -40,10 +40,6 @@
 // *************************************************************************************************
 // Defines section
 
-//defines to get fixed point 8.24 bit format
-#define ONE (((s32)1) << 24)
-#define AS_824(x)	(((s32)x) << 24)
-
 // *************************************************************************************************
 // Prototypes section
 extern void sx_slide();
@@ -51,15 +47,14 @@ extern void mx_slide();
 extern void display_slide(u8 update);
 
 //fixed point calculation functions exported
-extern s32 mulfix(s32 x, s32 y);
-extern s32 square(s32 x);
-extern s32 irt(s32 x);
-extern s32 inv(s32 x);
-extern s32 sqrt(s32 x);
-extern s32 rel(s32 x);
-extern s32 bend(s32 x);
-extern s32 log(s32 x);
-extern s32 atan(s32 x);
+extern float square(float x);
+extern float irt(float x);
+extern float inv(float x);
+extern float sqrt(float x);
+extern float rel(float x);
+extern float bend(float x);
+extern float log(float x);
+extern float atan(float x);
 
 
 #endif                          /*SLIDE_H_ */

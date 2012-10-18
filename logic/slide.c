@@ -76,120 +76,86 @@ AT - Arc Tangent	atan(x)		scaled to provide maximum for 45 degrees
 
 */
 
-u32 mul16(u16 a, u16 b)
-{
-	return (u32)a * (u32)b;
+float square(float x) {
+	return x * x;
 }
 
-u8 negative(s32 *x) {
-	if(*x < 0) {
-		*x = -(*x);
-		return 1;
-	}
-	return 0;
-}
-
-/* a 32*32 bit multiply to 32 bit, using 8.24 bit fixed point */
-s32 mulfix(s32 x, s32 y) {
-	u8 sign = negative(&x) ^ negative(&y);
-	s32 t = mul16((u16)(x), (u16)(y))>>24;
-	t += mul16((u16)(x>>16), (u16)(y))>>8;
-	t += mul16((u16)(x), (u16)(y>>16))>>8;
-	t += mul16((u16)(x>>16), (u16)(y>>16))<<8;
-	if(sign) t = -t;
+/* use initial estimate and y'=y*(3-x*y*y)/2 with iterations */
+float irt(float x) {
+    	// Watchdog triggers after 16 seconds when not cleared
 #ifdef USE_WATCHDOG
-    // Service watchdog
-    WDTCTL = WDTPW + WDTIS__512K + WDTSSEL__ACLK + WDTCNTCL;
+    	WDTCTL = WDTPW + WDTIS__512K + WDTSSEL__ACLK;
+#else
+    	WDTCTL = WDTPW + WDTHOLD;
 #endif
-	return t;
+	u32 i;
+        float x2;
+        const float threehalfs = 1.5F;
+	x2 = x * 0.5F;
+        i  = * ( long * ) &x;                       // evil floating point bit level hacking
+        i  = 0x5f3759df - ( i >> 1 );
+        x  = * ( float * ) &i;
+	for(i = 0; i < 4; i++)
+        	x  *= ( threehalfs - ( x2 * x * x ) );   //iteration
+        return x;
 }
 
-s32 square(s32 x) {
-	return mulfix(x, x);
-}
-
-/* use initial estimate of y=1/2th and y'=y*(3-x*y*y)/2 with iterations */
-s32 irt(s32 x) {
-	if(x <= 0) return 0;
-	s8 shft = 0;
-	u8 i;
-	s32 a = x;//initial estimate
-	u32 t;
-	while(a > 0) {
-		a <<= 1;
-		shft++;
-	}
-	t = (u32)a;
-	t >>= 8;
-	if(shft & 1 == 1) t >>= 1;
-	shft = ((shft - 8) >> 1);
-	if(shft >= 0) t <<= shft; else t >>= -shft;
-	a = (s32)t;
-	for(i = 0;i < 32;i++) {
-        a = mulfix(a, (AS_824(3) - mulfix(x, square(a))) >> 1);
-    }
-	return a;
-}
-
-s32 inv(s32 x) {
-	if(x <= 0) return 0;
+float inv(float x) {
 	x = irt(x);
 	return square(x);
 }
 
-s32 sqrt(s32 x) {
-	if(x <= 0) return 0;
-	return mulfix(x, irt(x));
+float sqrt(float x) {
+	return x * irt(x);
 }
 
-s32 bend(s32 x) {		/* x/(1+sqrt(1+x*x)) */
-	return mulfix(x, inv(ONE+sqrt(ONE+square(x))));
+float bend(float x) {		/* x/(1+sqrt(1+x*x)) */
+	return x * inv(1.0F+sqrt(1.0F+square(x))));
 }
 
-s32 atanh(s32 x, s8 i2) {
-	s32 acc = x;
-	s32 mul = x;
+float atanh(float x, s8 i2) {
+	float acc = x;
+	float mul = x;
 	x = square(x);
 	x = i2 < 0 ? -x : x;
 	u8 i;
 	for(i = 3;i < 64;i+=2) {
-			mul = mulfix(mul, x);//overflow?
-            acc += mulfix(mul, inv(AS_824(i)));
+			mul = mul * x;
+            acc += mul * inv(i);
         }
 	return acc;
 }
 
-s32 log(s32 x) { //base e
-	if(x <= 0) return 0;
+float log(float x) { //base e
 	x = irt(x);//make between 0 and 1 for this code now
-	return -atanh(mulfix((x-ONE), inv(x+ONE)), 1) << 2;
+	return -atanh((x-1.0F) * inv(x+1.0F), 1) * 4.0F;
 }
 
-s32 atan(s32 x) {
-	return atanh(bend(x), -1) << 1;
+float atan(float x) {
+	return atanh(bend(x), -1) * 2.0F;
 }
 
-s32 rel(s32 x) {
-	return sqrt(ONE-square(x));
+float rel(float x) {
+	if(x <= 0) return 0;
+	return sqrt(1.0F-square(x));
 }
 
-const u8 named_calc[][2] = { 	"SQ", "IR", "IV", "RT",
-								"RL", "BD", "LG", "AT" };
+const u8 named_calc[][4] = { 	"SQRE", "INRT", " INV", "ROOT",
+								" REL", "BEND", "LOGS", "ATAN" };
 
-const s32 pre_scale[] = { 		ONE / 100, ONE, ONE, ONE,
-								ONE / 100, ONE, ONE, ONE / 100};
+const s32 pre_scale[] = { 		0.0001F, 1.0F, 1.0F, 1.0F,
+								0.0001F, 0.0001F, 0.01F, 0.0001F};
 
-const s32 scale[] = { 			ONE, ONE, ONE, ONE / 10,
-								ONE, ONE, INV_LOG_E100, FOUR_INV_PI };
+const s32 scale[] = { 			10000.0F, 10000.0F, 1000.0F, 100.0F,
+								10000.0F, 10000.0F, 2.17147240952e-1F, 12732.3954474F };
 
 u8 fn_calc = 6;
-s32 in_calc = 50;
-s16 out_calc = 0;
+u16 in_calc = 5000;
+u16 out_calc = 0;
 
 void calc_slide() {
-	s32 out = AS_824(in_calc);
-	s16 tst;
-	out = mulfix(out, pre_scale[fn_calc]);//suitable range
+	float out = (float)in_calc;
+	out *= pre_scale[fn_calc];//suitable range
 	switch(fn_calc) {
 	case 0: out = square(out); break;
 	case 1: out = irt(out); break;
@@ -199,16 +165,9 @@ void calc_slide() {
 	case 5: out = bend(out); break;
 	case 6: out = log(out); break;
 	case 7: out = atan(out); break;
-	default: break;
 	}
-	out = mulfix(out, scale[fn_calc]);// 0 to 1
-	out = mulfix(out, AS_824(100));
-	out >>= 8;
-	out = mulfix(out, AS_824(100));
-	tst = ((s16)out);
-	out >>= 16;
-	if(tst < 0) out++;//round
-	out_calc = out;
+	out *= scale[fn_calc];// 0 to 10000
+	out_calc = (u16)out;
 }
 
 void mx_slide()
@@ -230,8 +189,8 @@ void mx_slide()
             break;
         }
 
-        set_value(&in_calc, 2, 0, 1, 100, SETVALUE_ROLLOVER_VALUE + SETVALUE_DISPLAY_VALUE +
-                          SETVALUE_NEXT_VALUE, LCD_SEG_L2_1_0,
+        set_value(&in_calc, 4, 0, 1, 10000, SETVALUE_ROLLOVER_VALUE + SETVALUE_DISPLAY_VALUE +
+                          SETVALUE_NEXT_VALUE + SETVALUE_FAST_MODE, LCD_SEG_L2_3_0,
                           display_value);
         calc_slide();
         //and the result
@@ -250,6 +209,5 @@ void sx_slide()
 
 void display_slide(u8 update)
 {
-	display_chars(LCD_SEG_L2_3_2, (u8 *)named_calc[fn_calc], SEG_ON);
-	display_chars(LCD_SEG_L2_1_0, int_to_array(in_calc, 2, 0), SEG_ON);
+	display_chars(LCD_SEG_L2_3_0, (u8 *)named_calc[fn_calc], SEG_ON);
 }
