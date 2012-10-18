@@ -5,32 +5,30 @@ Build Number 1MF4S-JIK27-UARAR-SAW-ZACIF_U_R_R
 
 "../logic/slide.c": Warning - Reverting to -op0: file has no entry functions!
 
-extern long atan() is called from 1 sites in this file.
+extern float atan() is called from 1 sites in this file.
     It appears to be inlineable (size = 8 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	bend() (1 times)
 	atanh() (1 times)
 
-extern long atanh() is called from 2 sites in this file.
-    It appears to be inlineable (size = 34 units)
+extern float atanh() is called from 2 sites in this file.
+    It appears to be inlineable (size = 31 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	inv() (1 times)
-	mulfix() (2 times)
 	square() (1 times)
 
-extern long bend() is called from 2 sites in this file.
+extern float bend() is called from 2 sites in this file.
     It appears to be inlineable (size = 11 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	square() (1 times)
 	sqrt() (1 times)
 	inv() (1 times)
-	mulfix() (1 times)
 
 extern void calc_slide() is called from 1 sites in this file.
-    It appears to be inlineable (size = 97 units)
+    It appears to be inlineable (size = 96 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	square() (1 times)
@@ -41,49 +39,32 @@ extern void calc_slide() is called from 1 sites in this file.
 	bend() (1 times)
 	log() (1 times)
 	atan() (1 times)
-	mulfix() (4 times)
 
 extern void display_slide() is called from 2 sites in this file.
-    It appears to be inlineable (size = 18 units)
+    It appears to be inlineable (size = 10 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	int_to_array() (1 times)
-	display_chars() (2 times)
+	display_chars() (1 times)
 
-extern long inv() is called from 4 sites in this file.
-    It appears to be inlineable (size = 12 units)
+extern float inv() is called from 4 sites in this file.
+    It appears to be inlineable (size = 6 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	square() (1 times)
 	irt() (1 times)
 
-extern long irt() is called from 4 sites in this file.
-    It appears to be inlineable (size = 68 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	square() (1 times)
-	mulfix() (2 times)
-
-extern long log() is called from 1 sites in this file.
-    It appears to be inlineable (size = 22 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	inv() (1 times)
-	mulfix() (1 times)
-	atanh() (1 times)
-	irt() (1 times)
-
-extern unsigned long mul16() is called from 4 sites in this file.
-    It appears to be inlineable (size = 8 units)
+extern float irt() is called from 6 sites in this file.
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
 
-extern long mulfix() is called from 12 sites in this file.
+extern float log() is called from 1 sites in this file.
+    It appears to be inlineable (size = 18 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	mul16() (4 times)
-	negative() (2 times)
+	inv() (1 times)
+	atanh() (1 times)
+	irt() (3 times)
 
 extern void mx_slide() is called from 0 sites in this file.
     It appears to be inlineable (size = 41 units)
@@ -96,31 +77,24 @@ extern void mx_slide() is called from 0 sites in this file.
 	display_slide() (1 times)
 	clear_display_all() (1 times)
 
-extern unsigned char negative() is called from 2 sites in this file.
-    It appears to be inlineable (size = 14 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-extern long rel() is called from 1 sites in this file.
-    It appears to be inlineable (size = 7 units)
+extern float rel() is called from 1 sites in this file.
+    It appears to be inlineable (size = 13 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	square() (1 times)
 	sqrt() (1 times)
 
-extern long sqrt() is called from 3 sites in this file.
-    It appears to be inlineable (size = 11 units)
+extern float sqrt() is called from 3 sites in this file.
+    It appears to be inlineable (size = 5 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	irt() (1 times)
-	mulfix() (1 times)
 
-extern long square() is called from 6 sites in this file.
+extern float square() is called from 5 sites in this file.
     It appears to be inlineable (size = 4 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	mulfix() (1 times)
+	<NONE>
 
 extern void sx_slide() is called from 0 sites in this file.
     It appears to be inlineable (size = 10 units)
@@ -137,8 +111,8 @@ These functions may be recursive:
 These external functions are called but not defined here:
 	clear_display_all()
 	set_value()
-	display_chars()
 	int_to_array()
+	display_chars()
 
 
 		======= End file-level Analysis =======
@@ -147,7 +121,7 @@ These external functions are called but not defined here:
 ==============================================================================
 
 extern void display_slide() is called from 2 sites in this file.
-    It appears to be inlineable (size = 18 units)
+    It appears to be inlineable (size = 10 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -162,58 +136,31 @@ extern void sx_slide() is called from 0 sites in this file.
 
 ==============================================================================
 
-extern unsigned char negative() is called from 2 sites in this file.
-    It appears to be inlineable (size = 14 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
-extern unsigned long mul16() is called from 4 sites in this file.
-    It appears to be inlineable (size = 8 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
-extern long mulfix() is called from 12 sites in this file.
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	negative() (2 times)
-	mul16() (4 times)
-
-==============================================================================
-
-extern long square() is called from 6 sites in this file.
+extern float square() is called from 5 sites in this file.
     It appears to be inlineable (size = 4 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	mulfix() (1 times)
+	<NONE>
 
 ==============================================================================
 
-extern long irt() is called from 4 sites in this file.
-    It appears to be inlineable (size = 68 units)
+extern float irt() is called from 6 sites in this file.
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	mulfix() (2 times)
-	square() (1 times)
+	<NONE>
 
 ==============================================================================
 
-extern long sqrt() is called from 3 sites in this file.
-    It appears to be inlineable (size = 11 units)
+extern float sqrt() is called from 3 sites in this file.
+    It appears to be inlineable (size = 5 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	mulfix() (1 times)
 	irt() (1 times)
 
 ==============================================================================
 
-extern long rel() is called from 1 sites in this file.
-    It appears to be inlineable (size = 7 units)
+extern float rel() is called from 1 sites in this file.
+    It appears to be inlineable (size = 13 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	sqrt() (1 times)
@@ -221,8 +168,8 @@ extern long rel() is called from 1 sites in this file.
 
 ==============================================================================
 
-extern long inv() is called from 4 sites in this file.
-    It appears to be inlineable (size = 12 units)
+extern float inv() is called from 4 sites in this file.
+    It appears to be inlineable (size = 6 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	irt() (1 times)
@@ -230,28 +177,26 @@ extern long inv() is called from 4 sites in this file.
 
 ==============================================================================
 
-extern long atanh() is called from 2 sites in this file.
-    It appears to be inlineable (size = 34 units)
+extern float atanh() is called from 2 sites in this file.
+    It appears to be inlineable (size = 31 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	square() (1 times)
-	mulfix() (2 times)
 	inv() (1 times)
 
 ==============================================================================
 
-extern long bend() is called from 2 sites in this file.
+extern float bend() is called from 2 sites in this file.
     It appears to be inlineable (size = 11 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	mulfix() (1 times)
 	inv() (1 times)
 	sqrt() (1 times)
 	square() (1 times)
 
 ==============================================================================
 
-extern long atan() is called from 1 sites in this file.
+extern float atan() is called from 1 sites in this file.
     It appears to be inlineable (size = 8 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -260,22 +205,20 @@ extern long atan() is called from 1 sites in this file.
 
 ==============================================================================
 
-extern long log() is called from 1 sites in this file.
-    It appears to be inlineable (size = 22 units)
+extern float log() is called from 1 sites in this file.
+    It appears to be inlineable (size = 18 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	irt() (1 times)
+	irt() (3 times)
 	atanh() (1 times)
-	mulfix() (1 times)
 	inv() (1 times)
 
 ==============================================================================
 
 extern void calc_slide() is called from 1 sites in this file.
-    It appears to be inlineable (size = 97 units)
+    It appears to be inlineable (size = 96 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	mulfix() (4 times)
 	atan() (1 times)
 	log() (1 times)
 	bend() (1 times)

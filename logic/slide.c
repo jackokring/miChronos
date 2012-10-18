@@ -110,7 +110,7 @@ float sqrt(float x) {
 }
 
 float bend(float x) {		/* x/(1+sqrt(1+x*x)) */
-	return x * inv(1.0F+sqrt(1.0F+square(x))));
+	return x * inv(1.0F+sqrt(1.0F+square(x)));
 }
 
 float atanh(float x, s8 i2) {
@@ -127,8 +127,8 @@ float atanh(float x, s8 i2) {
 }
 
 float log(float x) { //base e
-	x = irt(x);//make between 0 and 1 for this code now
-	return -atanh((x-1.0F) * inv(x+1.0F), 1) * 4.0F;
+	x = irt(irt(irt(x)));//symetry and double triple roots
+	return -atanh((x-1.0F) * inv(x+1.0F), 1) * 16.0F;
 }
 
 float atan(float x) {
@@ -143,15 +143,15 @@ float rel(float x) {
 const u8 named_calc[][4] = { 	"SQRE", "INRT", " INV", "ROOT",
 								" REL", "BEND", "LOGS", "ATAN" };
 
-const s32 pre_scale[] = { 		0.0001F, 1.0F, 1.0F, 1.0F,
-								0.0001F, 0.0001F, 0.01F, 0.0001F};
+const float pre_scale[] = { 		0.0001F, 1.0F, 1.0F, 1.0F,
+								0.0001F, 0.0001F, 1.0F, 0.0001F};
 
-const s32 scale[] = { 			10000.0F, 10000.0F, 1000.0F, 100.0F,
-								10000.0F, 10000.0F, 2.17147240952e-1F, 12732.3954474F };
+const float scale[] = { 			10000.0F, 10000.0F, 10000.0F, 100.0F,
+								10000.0F, 10000.0F, 1.08573620476e+3F, 12732.3954474F };
 
 u8 fn_calc = 6;
-u16 in_calc = 5000;
-u16 out_calc = 0;
+s32 in_calc = 5000;
+s32 out_calc = 0;
 
 void calc_slide() {
 	float out = (float)in_calc;
@@ -168,6 +168,8 @@ void calc_slide() {
 	}
 	out *= scale[fn_calc];// 0 to 10000
 	out_calc = (u16)out;
+	if(out - (float)out_calc >= 0.5F) out_calc++;
+	if(out_calc > 9999) out_calc = 9999;
 }
 
 void mx_slide()
