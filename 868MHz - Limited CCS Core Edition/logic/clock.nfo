@@ -3,6 +3,7 @@ Build Number 1MF4S-JIK27-UARAR-SAW-ZACIF_U_R_R
 
 		======File-level Analysis Summary======
 
+"../logic/clock.c": Warning - Reverting to -op0: file has no entry functions!
 
 extern void clock_tick() is called from 0 sites in this file.
     It appears to be inlineable (size = 66 units)

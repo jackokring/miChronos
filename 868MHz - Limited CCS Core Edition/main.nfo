@@ -113,14 +113,19 @@ extern void wakeup_event() is called from 1 sites in this file.
 	clear_display() (1 times)
 	 ? () (6 times)
 
+Address of global variable is never taken:
+	extern const struct menum *ptrMenu_L2
+	extern const struct menum *ptrMenu_L1
+	extern void (*fptr_lcd_function_line2)()
+	extern void (*fptr_lcd_function_line1)()
+	extern void (*fptr_lcd_function_line2m)()
+	extern void (*fptr_lcd_function_line1m)()
+	extern unsigned char rf_frequoffset
+	extern unsigned char quick
+	extern unsigned char rfBSL_button_confirmation
+
 
 These functions may be recursive:
-	main()
-	display_update()
-	init_global_variables()
-	init_application()
-	process_requests()
-	wakeup_event()
 	line2()
 	line1()
 
@@ -165,6 +170,46 @@ These external functions are called but not defined here:
 
 ==============================================================================
 
+extern void init_application() is called from 1 sites in this file.
+    It appears to be inlineable (size = 113 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+==============================================================================
+
+extern void read_calibration_values() is called from 1 sites in this file.
+    It appears to be inlineable (size = 158 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+==============================================================================
+
+extern void init_global_variables() is called from 1 sites in this file.
+    It appears to be inlineable (size = 64 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	read_calibration_values() (1 times)
+
+==============================================================================
+
+extern void to_lpm() is called from 1 sites in this file.
+    It appears to be inlineable (size = 4 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+==============================================================================
+
+extern void idle_loop() is called from 1 sites in this file.
+    It appears to be inlineable (size = 5 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	to_lpm() (1 times)
+
+==============================================================================
+
 extern void line1() is called from 0 sites in this file.
     It appears to be inlineable (size = 5 units)
     It has 3 non-trivial scope blocks nested 3 deep.
@@ -192,51 +237,11 @@ extern void wakeup_event() is called from 1 sites in this file.
 
 ==============================================================================
 
-extern void to_lpm() is called from 1 sites in this file.
-    It appears to be inlineable (size = 4 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
-extern void read_calibration_values() is called from 1 sites in this file.
-    It appears to be inlineable (size = 158 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
 extern void process_requests() is called from 1 sites in this file.
     It appears to be inlineable (size = 49 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
-
-==============================================================================
-
-extern void init_application() is called from 1 sites in this file.
-    It appears to be inlineable (size = 113 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
-extern void init_global_variables() is called from 1 sites in this file.
-    It appears to be inlineable (size = 64 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	read_calibration_values() (1 times)
-
-==============================================================================
-
-extern void idle_loop() is called from 1 sites in this file.
-    It appears to be inlineable (size = 5 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	to_lpm() (1 times)
 
 ==============================================================================
 

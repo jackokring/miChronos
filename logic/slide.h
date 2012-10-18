@@ -51,6 +51,7 @@ extern void mx_slide();
 extern void display_slide(u8 update);
 
 //fixed point calculation functions exported
+extern s32 mulfix(s32 x, s32 y);
 extern s32 square(s32 x);
 extern s32 irt(s32 x);
 extern s32 inv(s32 x);

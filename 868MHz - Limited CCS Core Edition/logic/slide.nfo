@@ -3,6 +3,7 @@ Build Number 1MF4S-JIK27-UARAR-SAW-ZACIF_U_R_R
 
 		======File-level Analysis Summary======
 
+"../logic/slide.c": Warning - Reverting to -op0: file has no entry functions!
 
 extern long atan() is called from 1 sites in this file.
     It appears to be inlineable (size = 8 units)
@@ -50,21 +51,21 @@ extern void display_slide() is called from 2 sites in this file.
 	display_chars() (2 times)
 
 extern long inv() is called from 4 sites in this file.
-    It appears to be inlineable (size = 10 units)
+    It appears to be inlineable (size = 12 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	square() (1 times)
 	irt() (1 times)
 
 extern long irt() is called from 4 sites in this file.
-    It appears to be inlineable (size = 67 units)
+    It appears to be inlineable (size = 68 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	square() (1 times)
 	mulfix() (2 times)
 
 extern long log() is called from 1 sites in this file.
-    It appears to be inlineable (size = 20 units)
+    It appears to be inlineable (size = 22 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	inv() (1 times)
@@ -109,7 +110,7 @@ extern long rel() is called from 1 sites in this file.
 	sqrt() (1 times)
 
 extern long sqrt() is called from 3 sites in this file.
-    It appears to be inlineable (size = 9 units)
+    It appears to be inlineable (size = 11 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	irt() (1 times)
@@ -194,7 +195,7 @@ extern long square() is called from 6 sites in this file.
 ==============================================================================
 
 extern long irt() is called from 4 sites in this file.
-    It appears to be inlineable (size = 67 units)
+    It appears to be inlineable (size = 68 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	mulfix() (2 times)
@@ -203,7 +204,7 @@ extern long irt() is called from 4 sites in this file.
 ==============================================================================
 
 extern long sqrt() is called from 3 sites in this file.
-    It appears to be inlineable (size = 9 units)
+    It appears to be inlineable (size = 11 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	mulfix() (1 times)
@@ -221,7 +222,7 @@ extern long rel() is called from 1 sites in this file.
 ==============================================================================
 
 extern long inv() is called from 4 sites in this file.
-    It appears to be inlineable (size = 10 units)
+    It appears to be inlineable (size = 12 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	irt() (1 times)
@@ -260,7 +261,7 @@ extern long atan() is called from 1 sites in this file.
 ==============================================================================
 
 extern long log() is called from 1 sites in this file.
-    It appears to be inlineable (size = 20 units)
+    It appears to be inlineable (size = 22 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	irt() (1 times)

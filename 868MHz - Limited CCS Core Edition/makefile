@@ -138,7 +138,7 @@ all: ez430_chronos_868MHz.out
 ez430_chronos_868MHz.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP430 Linker'
-	"/home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/bin/cl430" -vmspx -g -O4 --opt_for_speed=0 --define=__CCE__ --define=ISM_EU --diag_warning=225 --call_assumptions=0 --auto_inline=0 --gen_opt_info=2 --printf_support=minimal -z -m"ez430_chronos_868MHz.map" --stack_size=80 --heap_size=80 --use_hw_mpy=F5 --warn_sections -i"/home/jacko/ti/ccsv5/ccs_base/msp430/include" -i"/home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/lib" -i"/home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/include" -i"/home/jacko/ti/ccsv5/msp430/include" --reread_libs --rom_model -o "ez430_chronos_868MHz.out" $(ORDERED_OBJS)
+	"/home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/bin/cl430" -vmspx -g -O4 --opt_for_speed=0 --define=__CCE__ --define=ISM_EU --diag_warning=225 --call_assumptions=2 --auto_inline=0 --gen_opt_info=2 --printf_support=minimal -z -m"ez430_chronos_868MHz.map" --stack_size=80 --heap_size=80 --use_hw_mpy=F5 --warn_sections -i"/home/jacko/ti/ccsv5/ccs_base/msp430/include" -i"/home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/lib" -i"/home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/include" -i"/home/jacko/ti/ccsv5/msp430/include" --reread_libs --generate_dead_funcs_list=dead_funcs.txt --make_static --no_symtable --rom_model -o "ez430_chronos_868MHz.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build

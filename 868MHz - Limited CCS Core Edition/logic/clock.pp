@@ -4,7 +4,7 @@ logic/clock.obj: ../logic/clock.c
 logic/clock.obj: ../logic/project.h
 logic/clock.obj: /home/jacko/ti/ccsv5/ccs_base/msp430/include/cc430x613x.h
 logic/clock.obj: /home/jacko/ti/ccsv5/ccs_base/msp430/include/in430.h
-logic/clock.obj: /home/jacko/ChronosSource/ez430_chronos/logic/bm.h
+logic/clock.obj: /home/jacko/ChronosSource/ez430_chronos/bluerobin/bm.h
 logic/clock.obj: /home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/include/stddef.h
 logic/clock.obj: /home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/include/limits.h
 logic/clock.obj: /home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/include/float.h
@@ -22,7 +22,7 @@ logic/clock.obj: ../logic/date.h
 ../logic/project.h: 
 /home/jacko/ti/ccsv5/ccs_base/msp430/include/cc430x613x.h: 
 /home/jacko/ti/ccsv5/ccs_base/msp430/include/in430.h: 
-/home/jacko/ChronosSource/ez430_chronos/logic/bm.h: 
+/home/jacko/ChronosSource/ez430_chronos/bluerobin/bm.h: 
 /home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/include/stddef.h: 
 /home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/include/limits.h: 
 /home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/include/float.h: 

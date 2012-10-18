@@ -110,7 +110,7 @@ s32 square(s32 x) {
 
 /* use initial estimate of y=1/2th and y'=y*(3-x*y*y)/2 with iterations */
 s32 irt(s32 x) {
-	if(x == 0) return -1;
+	if(x <= 0) return 0;
 	s8 shft = 0;
 	u8 i;
 	s32 a = x;//initial estimate
@@ -132,13 +132,13 @@ s32 irt(s32 x) {
 }
 
 s32 inv(s32 x) {
-	if(x == 0) return -1;
+	if(x <= 0) return 0;
 	x = irt(x);
 	return square(x);
 }
 
 s32 sqrt(s32 x) {
-	if(x == 0) return 0;
+	if(x <= 0) return 0;
 	return mulfix(x, irt(x));
 }
 
@@ -160,7 +160,7 @@ s32 atanh(s32 x, s8 i2) {
 }
 
 s32 log(s32 x) { //base e
-	if(x == 0) return -1;
+	if(x <= 0) return 0;
 	x = irt(x);//make between 0 and 1 for this code now
 	return -atanh(mulfix((x-ONE), inv(x+ONE)), 1) << 2;
 }

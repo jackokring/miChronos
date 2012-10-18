@@ -222,7 +222,7 @@ void do_altitude_measurement(u8 filter)
     else
     {
         // Filter current pressure
-        pressure = (u32) ((pressure * 0.2) + (sAlt.pressure * 0.8));
+        pressure = (u32) ((pressure >> 2) + (sAlt.pressure >> 2) + (sAlt.pressure >> 1));
 
         // Store average pressure
         sAlt.pressure = pressure;
@@ -258,14 +258,14 @@ void mx_altitude()
     // Clear display
     clear_display_all();
 
+    // Convert global variable to local variable
+    altitude = sAlt.altitude;
+
     // Set lower and upper limits for offset correction
     if (sys.flag.use_metric_units)
     {
         // Display "m" symbol
         display_symbol(LCD_UNIT_L1_M, SEG_ON);
-
-        // Convert global variable to local variable
-        altitude = sAlt.altitude;
 
         // Limits for set_value function
         limit_low = -100;
@@ -275,9 +275,6 @@ void mx_altitude()
     {
         // Display "ft" symbol
         display_symbol(LCD_UNIT_L1_FT, SEG_ON);
-
-        // Convert altitude in meters to feet
-        altitude = sAlt.altitude;
 
         // Convert from meters to feet
         altitude = convert_m_to_ft(altitude);
@@ -372,7 +369,7 @@ void display_altitude(u8 update)
                 }
                 else
                 {
-                    str = int_to_array(sAlt.altitude * (-1), 4, 3);
+                    str = int_to_array(-sAlt.altitude, 4, 3);
                     display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
                     display_symbol(LCD_SYMB_ARROW_DOWN, SEG_ON);
                 }
@@ -395,7 +392,7 @@ void display_altitude(u8 update)
                 }
                 else
                 {
-                    str = int_to_array(ft * (-1), 4, 3);
+                    str = int_to_array(-ft, 4, 3);
                     display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
                     display_symbol(LCD_SYMB_ARROW_DOWN, SEG_ON);
                 }

@@ -4,7 +4,7 @@ logic/alarm.obj: ../logic/alarm.c
 logic/alarm.obj: ../logic/project.h
 logic/alarm.obj: /home/jacko/ti/ccsv5/ccs_base/msp430/include/cc430x613x.h
 logic/alarm.obj: /home/jacko/ti/ccsv5/ccs_base/msp430/include/in430.h
-logic/alarm.obj: /home/jacko/ChronosSource/ez430_chronos/logic/bm.h
+logic/alarm.obj: /home/jacko/ChronosSource/ez430_chronos/bluerobin/bm.h
 logic/alarm.obj: /home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/include/stddef.h
 logic/alarm.obj: /home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/include/limits.h
 logic/alarm.obj: /home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/include/float.h
@@ -20,7 +20,7 @@ logic/alarm.obj: ../logic/user.h
 ../logic/project.h: 
 /home/jacko/ti/ccsv5/ccs_base/msp430/include/cc430x613x.h: 
 /home/jacko/ti/ccsv5/ccs_base/msp430/include/in430.h: 
-/home/jacko/ChronosSource/ez430_chronos/logic/bm.h: 
+/home/jacko/ChronosSource/ez430_chronos/bluerobin/bm.h: 
 /home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/include/stddef.h: 
 /home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/include/limits.h: 
 /home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/include/float.h: 

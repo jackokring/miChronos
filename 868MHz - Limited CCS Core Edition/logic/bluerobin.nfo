@@ -3,6 +3,7 @@ Build Number 1MF4S-JIK27-UARAR-SAW-ZACIF_U_R_R
 
 		======File-level Analysis Summary======
 
+"../logic/bluerobin.c": Warning - Reverting to -op0: file has no entry functions!
 
 extern void display_selection_User_Gender() is called from 0 sites in this file.
     It appears to be inlineable (size = 18 units)
