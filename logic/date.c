@@ -49,6 +49,7 @@
 // logic
 #include "date.h"
 #include "user.h"
+#include "slide.h"
 
 // *************************************************************************************************
 // Prototypes section
@@ -75,9 +76,9 @@ struct date sDate;
 void reset_date(void)
 {
     // Set date
-    sDate.year = 2009;
-    sDate.month = 8;
-    sDate.day = 1;
+    sDate.year = 2012;
+    sDate.month = 12;
+    sDate.day = 21;
 
     // Show day and month on display
     sDate.display = DISPLAY_DEFAULT_VIEW;
@@ -94,11 +95,10 @@ const u8 month_days[] = {	31, 28, 31, 30,
 					31, 30, 31, 31,
 					30, 31, 30, 31 };
 
-
 /* 1. A year that is divisible by 4 is a leap year.
 	Exception 1: a year that is divisible by 100 is not a leap year.
 	Exception 2: a year that is divisible by 400 is a leap year. */
-#define IS_LEAP_YEAR(Y) (((Y)%4 == 0) && (((Y)%100 != 0) || ((Y)%400 == 0)))
+#define IS_LEAP_YEAR(Y) (((Y)&3 == 0) && ((fp_rem(Y, 100) != 0) || (fp_rem(Y, 400) == 0)))
 
 u8 get_numberOfDays(u8 month, u16 year)
 {
@@ -228,7 +228,7 @@ void mx_date()
                 }
                 select = 2;
                 break;
-            case 2:            // Set day
+            case 2:            // Set day in (American non SI units :) )
                 if (sys.flag.use_metric_units)
                 {
                     set_value(
@@ -277,12 +277,17 @@ const u8 dow_offset[] = {	0, 3, 3, 6,
 
 /* compute number of leap years since BASE_YEAR */
 #define BASE_YEAR 1984 /* not a leap year, so no need to add 1 */
-#define LEAPS_SINCE_YEAR(Y) ( ((Y) - BASE_YEAR) + ((Y) - BASE_YEAR) / 4 - ((Y) - 1900)/100 + ((Y) - 1600)/400 )
+#define LEAPS_SINCE_YEAR(Y) ( ((Y) - BASE_YEAR) + (((Y) - BASE_YEAR) >> 2) - fp_div((Y) - 1900, 100) + fp_div((Y) - 1600, 400) )
 
 /* days of week */
 u8 day_names[][2] = { "SU", "MO", "TU", "WE", "TH", "FR", "SA" };
+u8 day_cache = 0;
+u8 * dow_cache = day_name[0];
 
 u8 * get_day() {
+	if(sDate.day == day_cache) {
+		return dow_cache;
+	}
 
 	u8 dow = LEAPS_SINCE_YEAR(sDate.year);
 
@@ -295,8 +300,9 @@ u8 * get_day() {
 	/* add this month's dow value */
 	dow += dow_offset[sDate.month - 1];
 
-	dow = dow % 7;
-	return day_names[dow];
+	dow = fp_rem(dow, 7);
+	dow_cache = day_names[dow];
+	return dow_cache;
 }
 
 // *************************************************************************************************

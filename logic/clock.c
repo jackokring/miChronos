@@ -72,7 +72,7 @@ void conv_24H_to_12H(u8 * hours24, u8 * hours12, u8 * timeAMorPM);
 struct time sTime;
 
 // Display values for time format selection
-const u8 selection_Timeformat[][4] = {
+const u8 selection_Timeformat[][3] = {
     "24H", "12H"
 };
 
@@ -188,7 +188,6 @@ u8 is_hour_am(u8 hour)
 // *************************************************************************************************
 void display_selection_Timeformat1(u8 segments, u32 index, u8 digits, u8 blanks)
 {
-    if (index < 2)
         display_chars(segments, (u8 *) selection_Timeformat[index], SEG_ON_BLINK_ON);
 }
 

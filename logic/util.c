@@ -27,38 +27,25 @@ void sx_util();
 u8 fn_util = 0;
 u16 pin_gen = 0;
 
-void mx_util()
-{
-	switch(fn_util) {
-	case 0: pin_generate(); break;
-	case 1: sx_rf(); break;
-	case 2: sx_sync(); break;
-	case 3: sx_rfbsl(); break;
-	}
-}
-
 void pin_generate()
 {
-	pin_gen = (u16)(log((float)(sBatt.voltage ^ sTime.seconds)) * 155337.0F);
-    while (1)
+	pin_gen += (u16)(log((float)(sBatt.voltage ^ (sTime.seconds << 9))) * 155337.0F);
+    while (!sys.flag.idle_timeout)
+
     {
-        // Idle timeout: exit
-        if (sys.flag.idle_timeout)
-        {
-            break;
-        }
-
-        // Button STAR (short): exit
-        if (button.flag.star)
-        {
-            break;
-        }
-
        	display_chars(LCD_SEG_L1_3_0, int_to_array(pin_gen, 4, 0), SEG_ON);
+	idle_loop();
     }
 
     // Clear button flags
     button.all_flags = 0;
+}
+
+void (*(const util_mxfn[]))() = { pin_generate, sx_rf, sx_sync, sx_rfbsl };
+
+void mx_util()
+{
+	util_mxfn[fn_util]();
 }
 
 void sx_util()
@@ -67,21 +54,16 @@ void sx_util()
     	display_util(0);
 }
 
+void (*(const util_dispfn[]))() = { display_battery_V, display_rf, display_syn, display_rfbsl };
+
 void display_util(u8 update)
 {
-	switch(fn_util) {
-	case 0: display_battery_V(); break;
-	case 1: display_rf(); break;
-	case 2: display_sync(); break;
-	case 3: display_rfbsl(); break;
-	}
+	util_dispfn[fn_util]();
 }
+
+void (*(const util_upfn[]))() = { update_battery_voltage, update_time, update_time, update_time };
 
 void update_util()
 {
-	if(fn_util == 0) {
-		update_battery_voltage();
-		return;
-	}
-	update_time();
+	util_upfn[fn_util]();
 }

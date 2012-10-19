@@ -50,6 +50,7 @@
 // logic
 #include "menu.h"
 #include "battery.h"
+#include "slide.h"
 
 // *************************************************************************************************
 // Prototypes section
@@ -97,7 +98,7 @@ void battery_measurement(void)
     // Convert ADC value to "x.xx V"
     // Ideally we have A11=0->AVCC=0V ... A11=4095(2^12-1)->AVCC=4V
     // --> (A11/4095)*4V=AVCC --> AVCC=(A11*4)/4095
-    voltage = (voltage * 2 * 2) / 41;
+    voltage = (u16)(((float)(voltage << 2)) * 2.43902439024e-2F /* / 41 */);
 
     // Correct measured voltage with calibration value
     voltage += sBatt.offset;
@@ -109,7 +110,7 @@ void battery_measurement(void)
     }
 
     // Filter battery voltage
-    sBatt.voltage = ((voltage * 2) + (sBatt.voltage * 8)) / 10;
+    sBatt.voltage = ((voltage >> 2) + (sBatt.voltage >> 2) + (sBatt.voltage >> 1));
 
     // If battery voltage falls below low battery threshold, set system flag and modify LINE2
     // display function pointer

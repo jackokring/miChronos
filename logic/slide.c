@@ -59,10 +59,6 @@ void sx_slide();
 // *************************************************************************************************
 // Defines section
 
-// *************************************************************************************************
-#define INV_LOG_E100  3643126
-#define FOUR_INV_PI		21361414
-
 /* Functions available, scaled if necessary, and to 4 digits.
 
 IR - Inverse Root 	1/sqrt(x)
@@ -83,6 +79,7 @@ float square(float x) {
 /* use initial estimate and y'=y*(3-x*y*y)/2 with iterations */
 float irt(float x) {
     	// Watchdog triggers after 16 seconds when not cleared
+	// So place here just in case any code uses intense calculaton.
 #ifdef USE_WATCHDOG
     	WDTCTL = WDTPW + WDTIS__512K + WDTSSEL__ACLK;
 #else
@@ -136,9 +133,20 @@ float atan(float x) {
 }
 
 float rel(float x) {
-	if(x <= 0) return 0;
 	return sqrt(1.0F-square(x));
 }
+
+//leap year utility
+
+u16 fp_div(u16 year, float div) {
+	return (u16)(((float)((u16)(((float)year) * inv(div)))) * div);
+}
+
+u16 fp_rem(u16 year, float div) {
+	return year - fp_div(year, div);
+}
+
+//main modulle functions
 
 const u8 named_calc[][4] = { 	"SQRE", "INRT", " INV", "ROOT",
 								" REL", "BEND", "LOGS", "ATAN" };
@@ -153,19 +161,12 @@ u8 fn_calc = 6;
 s32 in_calc = 5000;
 s32 out_calc = 0;
 
+float (*(const slide_fn[]))(float x) = { square, irt, inv, sqrt, rel, bend, log, atan };
+
 void calc_slide() {
 	float out = (float)in_calc;
 	out *= pre_scale[fn_calc];//suitable range
-	switch(fn_calc) {
-	case 0: out = square(out); break;
-	case 1: out = irt(out); break;
-	case 2: out = inv(out); break;
-	case 3: out = sqrt(out); break;
-	case 4: out = rel(out); break;
-	case 5: out = bend(out); break;
-	case 6: out = log(out); break;
-	case 7: out = atan(out); break;
-	}
+	out = slide_fn[fn_calc](out);
 	out *= scale[fn_calc];// 0 to 10000
 	out_calc = (u16)out;
 	if(out - (float)out_calc >= 0.5F) out_calc++;
@@ -191,7 +192,7 @@ void mx_slide()
             break;
         }
 
-        set_value(&in_calc, 4, 0, 1, 10000, SETVALUE_ROLLOVER_VALUE + SETVALUE_DISPLAY_VALUE +
+        set_value(&in_calc, 4, 0, 1, 9999, SETVALUE_ROLLOVER_VALUE + SETVALUE_DISPLAY_VALUE +
                           SETVALUE_NEXT_VALUE + SETVALUE_FAST_MODE, LCD_SEG_L2_3_0,
                           display_value);
         calc_slide();

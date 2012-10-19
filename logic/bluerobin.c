@@ -66,7 +66,7 @@
 struct bluerobin sBlueRobin;
 
 // Display values for user gender selection
-const u8 selection_User_Gender[][4] = { "MALE", "FEMA" };
+//const u8 selection_User_Gender[][4] = { "MALE", "FEMA" };
 
 // *************************************************************************************************
 // Extern section
@@ -85,25 +85,7 @@ extern u8 rf_frequoffset;
 // *************************************************************************************************
 void reset_bluerobin(void)
 {
-    // Reset state is no connection
-    sBlueRobin.state = BLUEROBIN_OFF;
-
-    // Reset value of chest strap ID is 0 --> connect to next best chest strap
-    sBlueRobin.cs_id = 0;
-
-    // No new data available
-    sBlueRobin.update = BLUEROBIN_NO_UPDATE;
-    sBlueRobin.heartrate = 0;
-    sBlueRobin.speed = 0;
-    sBlueRobin.distance = 0;
-    sBlueRobin.calories = 0;
-
-    // Set user data to default
-    sBlueRobin.user_sex = USER_SEX_MALE;
-    sBlueRobin.user_weight = 75;
-
-    // Display calories as default
-    sBlueRobin.caldist_view = 0;
+    
 }
 
 // *************************************************************************************************
@@ -133,11 +115,6 @@ void reset_bluerobin(void)
 // int_to_array result string
 // @return      none
 // *************************************************************************************************
-void display_selection_User_Gender(u8 segments, u32 index, u8 digits, u8 blanks)
-{
-    if (index < 2)
-        display_chars(segments, (u8 *) selection_User_Gender[index], SEG_ON_BLINK_ON);
-}
 
 // *************************************************************************************************
 // @fn          mx_caldist
@@ -207,7 +184,7 @@ void display_selection_User_Gender(u8 segments, u32 index, u8 digits, u8 blanks)
 // *************************************************************************************************
 u8 is_bluerobin(void)
 {
-    return (sBlueRobin.state == BLUEROBIN_CONNECTED);
+    return (0);
 }
 
 // *************************************************************************************************
@@ -218,7 +195,7 @@ u8 is_bluerobin(void)
 // *************************************************************************************************
 u8 is_bluerobin_searching(void)
 {
-    return (sBlueRobin.state == BLUEROBIN_SEARCHING);
+    return (0);
 }
 
 // *************************************************************************************************
@@ -229,52 +206,7 @@ u8 is_bluerobin_searching(void)
 // *************************************************************************************************
 void get_bluerobin_data(void)
 {
-    u16 calories;
-    brtx_state_t bChannelState;
-
-    // Check connection status
-    bChannelState = BRRX_GetState_t(HR_CHANNEL);
-
-    switch (bChannelState)
-    {
-        case TX_ACTIVE:        // Read heart rate data from BlueRobin API
-            sBlueRobin.heartrate = BRRX_GetHeartRate_u8();
-
-            // Read speed from BlueRobin API (only valid if sender is USB dongle)
-            sBlueRobin.speed = BRRX_GetSpeed_u8();
-
-            // Read distance from BlueRobin API (only valid if sender is USB dongle)
-            sBlueRobin.distance = BRRX_GetDistance_u16();
-            if (sBlueRobin.distance > 2000000)
-                sBlueRobin.distance = 0;
-
-            // Heart rate high enough for calorie measurement?
-            if (sBlueRobin.heartrate >= 65 && sBlueRobin.user_weight != 0)
-            {
-                calories = ((sBlueRobin.heartrate - 60) * sBlueRobin.user_weight) / 32;
-
-                // Calorie reduction for female user required?
-                if (sBlueRobin.user_sex == USER_SEX_FEMALE)
-                {
-                    calories -= calories / 4;
-                }
-
-                // Restart from 0 when reaching 199999 kcal
-                sBlueRobin.calories += calories;
-                if (sBlueRobin.calories > 200000000)
-                    sBlueRobin.calories = 0;
-            }
-            sBlueRobin.update = BLUEROBIN_NEW_DATA;
-            break;
-
-        case TX_OFF:           // Shutdown connection
-            stop_bluerobin();
-            break;
-
-        // BR_SEARCH, BR_LEARN, BR_PAUSE: Keep old values until we receive new data
-        default:
-            break;
-    }
+    
 }
 
 // *************************************************************************************************
@@ -285,24 +217,5 @@ void get_bluerobin_data(void)
 // *************************************************************************************************
 void stop_bluerobin(void)
 {
-    // Reset connection status byte
-    sBlueRobin.state = BLUEROBIN_OFF;
-
-    // Stop channel
-    BRRX_Stop_v(HR_CHANNEL);
-
-    // Powerdown radio
-    close_radio();
-
-    // Force full display update to clear heart rate and speed data
-    sBlueRobin.heartrate = 0;
-    sBlueRobin.speed = 0;
-    sBlueRobin.distance = 0;
-    display.flag.full_update = 1;
-
-    // Clear heart and RF symbol
-    display_symbol(LCD_ICON_HEART, SEG_OFF_BLINK_OFF);
-    display_symbol(LCD_ICON_BEEPER1, SEG_OFF_BLINK_OFF);
-    display_symbol(LCD_ICON_BEEPER2, SEG_OFF_BLINK_OFF);
-    display_symbol(LCD_ICON_BEEPER3, SEG_OFF_BLINK_OFF);
+    
 }

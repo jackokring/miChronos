@@ -48,6 +48,7 @@
 #include "display.h"
 #include "adc12.h"
 #include "timer.h"
+#include "slide.h"
 
 // logic
 #include "user.h"
@@ -101,7 +102,7 @@ void temperature_measurement(u8 filter)
     // Temperature in Celsius
     // ((A10/4096*1500mV) - 680mV)*(1/2.25mV) = (A10/4096*667) - 302
     // = (A10 - 1855) * (667 / 4096)
-    temperature = (((s32) ((s32) adc_result - 1855)) * 667 * 10) / 4096;
+    temperature = (s32) (((float) (adc_result - 1855)) * 6670) >> 12;
 
     // Add temperature offset
     temperature += sTemp.offset;
@@ -136,7 +137,7 @@ s16 convert_C_to_F(s16 value)
     s16 DegF;
 
     // Celsius in Fahrenheit = (( TCelsius � 9 ) / 5 ) + 32
-    DegF = ((value * 9 * 10) / 5 / 10) + 32 * 10;
+    DegF = (s16) ((float)value * 1.8F) + 320;
 
     return (DegF);
 }
@@ -152,7 +153,7 @@ s16 convert_F_to_C(s16 value)
     s16 DegC;
 
     // TCelsius =( TFahrenheit - 32 ) � 5 / 9
-    DegC = (((value - 320) * 5)) / 9;
+    DegC = (s16)((float)(value - 320) * 5.55555555556e-1);
 
     return (DegC);
 }

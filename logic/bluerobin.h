@@ -81,15 +81,6 @@ struct bluerobin
     BlueRobin_state_t state;    // BLUEROBIN_OFF, BLUEROBIN_SEARCHING, BLUEROBIN_CONNECTED,
                                 // BLUEROBIN_ERROR
     BlueRobin_update_t update;  // BLUEROBIN_NO_UPDATE, BLUEROBIN_NEW_DATA
-    u32 cs_id;                  // Chest strap ID
-    u8 user_sex;                // User settings
-    u16 user_weight;
-    u8 heartrate;               // Heart rate (1 bpm)
-    u32 calories;               // Calories (1 kCal) - calculated from heart rate, user weight and
-                                // user sex
-    u8 speed;                   // Speed (0.1 km/h) - demo version range is 0.0 to 25.5km/h
-    u32 distance;               // Distance (1 m)
-    u8 caldist_view;            // 0=display calories, 1=display distance
 };
 extern struct bluerobin sBlueRobin;
 
