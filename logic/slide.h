@@ -56,8 +56,4 @@ extern float bend(float x);
 extern float log(float x);
 extern float atan(float x);
 
-//date utility functions
-u16 fp_div(u16 year, float div);
-u16 fp_rem(u16 year, float div);
-
 #endif                          /*SLIDE_H_ */

@@ -49,7 +49,6 @@
 // logic
 #include "date.h"
 #include "user.h"
-#include "slide.h"
 
 // *************************************************************************************************
 // Prototypes section
@@ -98,7 +97,7 @@ const u8 month_days[] = {	31, 28, 31, 30,
 /* 1. A year that is divisible by 4 is a leap year.
 	Exception 1: a year that is divisible by 100 is not a leap year.
 	Exception 2: a year that is divisible by 400 is a leap year. */
-#define IS_LEAP_YEAR(Y) (((Y)&3 == 0) && ((fp_rem(Y, 100) != 0) || (fp_rem(Y, 400) == 0)))
+#define IS_LEAP_YEAR(Y) (((Y)&3 == 0) && (((Y%100) != 0) || ((Y%400) == 0)))
 
 u8 get_numberOfDays(u8 month, u16 year)
 {
@@ -277,7 +276,7 @@ const u8 dow_offset[] = {	0, 3, 3, 6,
 
 /* compute number of leap years since BASE_YEAR */
 #define BASE_YEAR 1984 /* not a leap year, so no need to add 1 */
-#define LEAPS_SINCE_YEAR(Y) ( ((Y) - BASE_YEAR) + (((Y) - BASE_YEAR) >> 2) - fp_div((Y) - 1900, 100) + fp_div((Y) - 1600, 400) )
+#define LEAPS_SINCE_YEAR(Y) ( ((Y) - BASE_YEAR) + (((Y) - BASE_YEAR) >> 2) - (((Y) - 1900)/100) + (((Y) - 1600)/400) )
 
 /* days of week */
 u8 day_names[][2] = { "SU", "MO", "TU", "WE", "TH", "FR", "SA" };
@@ -300,7 +299,7 @@ u8 * get_day() {
 	/* add this month's dow value */
 	dow += dow_offset[sDate.month - 1];
 
-	dow = fp_rem(dow, 7);
+	dow = dow % 7;
 	dow_cache = day_names[dow];
 	return dow_cache;
 }

@@ -136,16 +136,6 @@ float rel(float x) {
 	return sqrt(1.0F-square(x));
 }
 
-//leap year utility
-
-u16 fp_div(u16 year, float div) {
-	return (u16)(((float)((u16)(((float)year) * inv(div)))) * div);
-}
-
-u16 fp_rem(u16 year, float div) {
-	return year - fp_div(year, div);
-}
-
 //main modulle functions
 
 const u8 named_calc[][4] = { 	"SQRE", "INRT", " INV", "ROOT",
