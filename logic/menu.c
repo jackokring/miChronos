@@ -59,6 +59,7 @@
 #include "acceleration.h"
 #include "rfbsl.h"
 #include "slide.h"
+#include "util.h"
 
 // *************************************************************************************************
 // Defines section
@@ -169,9 +170,10 @@ const struct menum menu_L2_Stopwatch = {
     FUNCTION(mx_stopwatch),           // sub menum function
     FUNCTION(display_stopwatchf),      // display function
     FUNCTION(update_stopwatch),       // new display data
-    &menu_L2_Battery,
+    &menu_L2_Util,
 };
 
+/*
 // Line2 - Battery
 const struct menum menu_L2_Battery = {
     FUNCTION(dummy),                  // direct function
@@ -205,5 +207,15 @@ const struct menum menu_L2_RFBSL = {
     FUNCTION(dummy),                  // sub menum function
     FUNCTION(display_rfbsl),          // display function
     FUNCTION(update_time),            // new display data
+    &menu_L2_Date,
+}; */
+
+// Line2 - RFBSL
+
+const struct menum menu_L2_Util = {
+    FUNCTION(sx_util),               // direct function
+    FUNCTION(mx_util),                  // sub menum function
+    FUNCTION(display_util),          // display function
+    FUNCTION(update_util),            // new display data
     &menu_L2_Date,
 };

@@ -75,10 +75,11 @@ extern const struct menum menu_L1_Temperature;
 extern const struct menum menu_L2_Date;
 extern const struct menum menu_L2_Slide;
 extern const struct menum menu_L2_Stopwatch;
-extern const struct menum menu_L2_Battery;
-extern const struct menum menu_L2_Rf;
-extern const struct menum menu_L2_Sync;
-extern const struct menum menu_L2_RFBSL;
+extern const struct menum menu_L2_Util;
+//extern const struct menum menu_L2_Battery;
+//extern const struct menum menu_L2_Rf;
+//extern const struct menum menu_L2_Sync;
+//extern const struct menum menu_L2_RFBSL;
 
 extern u8 quick;
 extern void (*fptr_lcd_function_line1m)(u8 update);
