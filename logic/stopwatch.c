@@ -48,6 +48,8 @@
 #include "ports.h"
 #include "display.h"
 #include "timer.h"
+#include "alarm.h"
+#include "time.h"
 
 // logic
 #include "menu.h"
@@ -198,6 +200,13 @@ void stopwatch_tick(void)
                 sStopwatch.drawFlag++;             // 3
                 sStopwatch.time[4] = '0';
                 sStopwatch.time[3]++;              // minutes L (0 - 9)
+		//alarm beeper		
+		if(sStopwatch.time[3] == '5' || sStopwatch.time[3] == '0') {
+			//a five minute alarm timer if alarm on, so can use
+			//upper alarm display an UP to cancel and enable
+			// Indicate that alarm is on
+            		sAlarm.state = ALARM_ON;
+		}
                 if (sStopwatch.time[3] == 0x3A)
                 {
                     sStopwatch.drawFlag++;         // 4
