@@ -9,14 +9,14 @@ Slide Rule
 ----------
 (v3) So the latest is to have a 4 digit slide rule calculation aid. This gives better inverse conversion for say antilogs.
 The slide rule is placed just after the date on the bottom line. Pressing DOWN selects the function. Pressing #HOLD selects the entry mode. Using UP and DOWN (HOLD for fast) set the input. Press # to calculate. Press STAR to EXIT. The bend function is not scaled as it's use needs the actual result, and not an abstract angle ratio. The other functions are scaled for maximum possible resolution as appropriate. Calculation of inverse functions is somewhat involved repeated use and estimation. The functions are listed below, ad should be with knowledge enough to go a long way in maths. The understanding of why this function set was provided is in itself a long lesson in maths.
-  * LOGE - logarithm of x to the base e
+  * LOGS - logarithm of x scaled
   * ATAN - arc tangent of x scaled such that 45 degrees is 10000
-  * AREA - x to the power of 2
-  * OVRT - 1 over the square root of x
-  * OVER - 1 over x
-  * ROOT - square root of x
+  * AREA - x to the power of 2 scaled for two decimal places input or left hand decimals
+  * OVRT - 1 over the square root of x scaled for digits precision
+  * OVER - 1 over x scaled for digits precision
+  * ROOT - square root of x scaled for digits precision
   * CIRC - square root of 1 minus x squared
-  * BEND - x over 1 plus square root of 1 plus x squared (atan half angle formula)
+  * HALF - x over 1 plus square root of 1 plus x squared (atan half angle formula)
 
 Temperature and Altitude
 ------------------------

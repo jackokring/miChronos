@@ -139,7 +139,7 @@ float rel(float x) {
 //main modulle functions
 
 const u8 named_calc[][4] = { 	"AREA", "OVRT", "OVER", "ROOT",
-								"CIRC", "BEND", "LOGE", "ATAN" };
+								"CIRC", "HALF", "LOGS", "ATAN" };
 
 const float pre_scale[] = { 		0.0001F, 1.0F, 1.0F, 1.0F,
 								0.0001F, 0.0001F, 1.0F, 0.0001F};
