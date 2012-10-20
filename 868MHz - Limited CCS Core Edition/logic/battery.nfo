@@ -6,7 +6,7 @@ Build Number 1MF4S-JIK27-UARAR-SAW-ZACIF_U_R_R
 "../logic/battery.c": Warning - Reverting to -op0: file has no entry functions!
 
 extern void battery_measurement() is called from 0 sites in this file.
-    It appears to be inlineable (size = 67 units)
+    It appears to be inlineable (size = 73 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	display_symbol() (2 times)
@@ -60,7 +60,7 @@ extern void display_battery_V() is called from 0 sites in this file.
 ==============================================================================
 
 extern void battery_measurement() is called from 0 sites in this file.
-    It appears to be inlineable (size = 67 units)
+    It appears to be inlineable (size = 73 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

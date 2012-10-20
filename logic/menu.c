@@ -68,36 +68,32 @@
 // *************************************************************************************************
 // Global Variable section
 
-void display_nothing(u8 update)
-{
-}
-
-u8 update_time(void)
+u8 update_time()
 {
     return (display.flag.update_time);
 }
 
-u8 update_stopwatch(void)
+u8 update_stopwatch()
 {
     return (display.flag.update_stopwatch);
 }
 
-u8 update_date(void)
+u8 update_date()
 {
     return (display.flag.update_date);
 }
 
-u8 update_alarm(void)
+u8 update_alarm()
 {
     return (display.flag.update_alarm);
 }
 
-u8 update_temperature(void)
+u8 update_temperature()
 {
     return (display.flag.update_temperature);
 }
 
-u8 update_battery_voltage(void)
+u8 update_battery_voltage()
 {
     return (display.flag.update_battery_voltage);
 }

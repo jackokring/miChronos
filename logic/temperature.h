@@ -50,6 +50,7 @@ extern void temperature_measurement(u8 filter);
 
 // menu functions
 extern void mx_temperature();
+extern void sx_temperature();
 extern void display_temperature(u8 update);
 
 // *************************************************************************************************

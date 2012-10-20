@@ -41,6 +41,12 @@
 
 // *************************************************************************************************
 // Prototypes section
+u8 update_time();
+u8 update_stopwatch();
+u8 update_date();
+u8 update_alarm();
+u8 update_temperature();
+u8 update_battery_voltage();
 
 // *************************************************************************************************
 // Defines section

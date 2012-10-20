@@ -151,7 +151,7 @@ u8 fn_calc = 6;
 s32 in_calc = 5000;
 s32 out_calc = 0;
 
-float (*(const slide_fn[]))(float x) = { square, irt, inv, sqrt, rel, bend, log, atan };
+float (* const slide_fn[])(float x) = { square, irt, inv, sqrt, rel, bend, log, atan };
 
 void calc_slide() {
 	float out = (float)in_calc;

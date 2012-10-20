@@ -54,7 +54,7 @@ extern void stop_stopwatch() is called from 2 sites in this file.
 	display_symbol() (1 times)
 
 extern void stopwatch_tick() is called from 0 sites in this file.
-    It appears to be inlineable (size = 228 units)
+    It appears to be inlineable (size = 256 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	display_stopwatchf() (2 times)
@@ -149,7 +149,7 @@ extern void reset_stopwatch() is called from 2 sites in this file.
 ==============================================================================
 
 extern void stopwatch_tick() is called from 0 sites in this file.
-    It appears to be inlineable (size = 228 units)
+    It appears to be inlineable (size = 256 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	reset_stopwatch() (1 times)

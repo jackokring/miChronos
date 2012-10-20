@@ -1,0 +1,145 @@
+MSP430 C/C++ Optimizer                  v4.1.1
+Build Number 1MF4S-JIK27-UARAR-SAW-ZACIF_U_R_R
+
+		======File-level Analysis Summary======
+
+"../logic/util.c": Warning - Reverting to -op0: file has no entry functions!
+
+extern void display_pin() is called from 0 sites in this file.
+    It appears to be inlineable (size = 11 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	int_to_array() (1 times)
+	display_chars() (1 times)
+	display_battery_V() (1 times)
+
+extern void display_util() is called from 2 sites in this file.
+    It appears to be inlineable (size = 12 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	pin_generate() (1 times)
+	restore_util() (1 times)
+	display_pin() (1 times)
+	 ? () (1 times)
+
+extern void mx_util() is called from 0 sites in this file.
+    It appears to be inlineable (size = 12 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	display_util() (2 times)
+
+extern void pin_generate() is called from 0 sites in this file.
+    It appears to be inlineable (size = 21 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	log() (1 times)
+
+extern void restore_util() is called from 0 sites in this file.
+    It appears to be inlineable (size = 6 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	display_battery_V() (1 times)
+
+extern void sx_util() is called from 0 sites in this file.
+    It appears to be inlineable (size = 10 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	pin_generate() (1 times)
+	restore_util() (1 times)
+	display_pin() (1 times)
+	 ? () (1 times)
+
+extern unsigned char update_util() is called from 0 sites in this file.
+    It appears to be inlineable (size = 10 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	pin_generate() (1 times)
+	restore_util() (1 times)
+	display_pin() (1 times)
+	 ? () (1 times)
+
+
+These functions may be recursive:
+	mx_util()
+	display_util()
+	sx_util()
+	update_util()
+	pin_generate()
+	restore_util()
+	display_pin()
+
+These external functions are called but not defined here:
+	log()
+	 ? ()
+	display_battery_V()
+	display_chars()
+	int_to_array()
+
+
+		======= End file-level Analysis =======
+
+
+==============================================================================
+
+extern void display_pin() is called from 0 sites in this file.
+    It appears to be inlineable (size = 11 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+==============================================================================
+
+extern void restore_util() is called from 0 sites in this file.
+    It appears to be inlineable (size = 6 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+==============================================================================
+
+extern void pin_generate() is called from 0 sites in this file.
+    It appears to be inlineable (size = 21 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+==============================================================================
+
+extern unsigned char update_util() is called from 0 sites in this file.
+    It appears to be inlineable (size = 10 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	display_pin() (1 times)
+	restore_util() (1 times)
+	pin_generate() (1 times)
+
+==============================================================================
+
+extern void sx_util() is called from 0 sites in this file.
+    It appears to be inlineable (size = 10 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	display_pin() (1 times)
+	restore_util() (1 times)
+	pin_generate() (1 times)
+
+==============================================================================
+
+extern void display_util() is called from 2 sites in this file.
+    It appears to be inlineable (size = 12 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	display_pin() (1 times)
+	restore_util() (1 times)
+	pin_generate() (1 times)
+
+==============================================================================
+
+extern void mx_util() is called from 0 sites in this file.
+    It appears to be inlineable (size = 12 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	display_util() (2 times)
+<<NULL MIX DOMAIN>>
+
+== END OF INFO OUTPUT==

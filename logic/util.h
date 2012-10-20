@@ -13,6 +13,6 @@
 extern void sx_util();
 extern void mx_util();
 extern void display_util(u8 update);
-extern void update_util();
+extern u8 update_util();
 
 #endif                          /* UTIL_H_ */

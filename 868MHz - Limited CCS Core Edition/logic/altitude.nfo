@@ -6,19 +6,19 @@ Build Number 1MF4S-JIK27-UARAR-SAW-ZACIF_U_R_R
 "../logic/altitude.c": Warning - Reverting to -op0: file has no entry functions!
 
 extern int convert_ft_to_m() is called from 1 sites in this file.
-    It appears to be inlineable (size = 9 units)
+    It appears to be inlineable (size = 7 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
 
 extern int convert_m_to_ft() is called from 2 sites in this file.
-    It appears to be inlineable (size = 9 units)
+    It appears to be inlineable (size = 7 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
 
 extern void display_altitude() is called from 1 sites in this file.
-    It appears to be inlineable (size = 147 units)
+    It appears to be inlineable (size = 153 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	display_altitude() (1 times)
@@ -43,7 +43,7 @@ extern unsigned char is_altitude_measurement() is called from 0 sites in this fi
 	<NONE>
 
 extern void mx_altitude() is called from 0 sites in this file.
-    It appears to be inlineable (size = 86 units)
+    It appears to be inlineable (size = 92 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	set_value() (1 times)
@@ -77,7 +77,7 @@ extern void stop_altitude_measurement() is called from 2 sites in this file.
 	ps_stop() (1 times)
 
 extern void sx_altitude() is called from 0 sites in this file.
-    It appears to be inlineable (size = 1 units)
+    It appears to be inlineable (size = 4 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -112,7 +112,7 @@ These external functions are called but not defined here:
 ==============================================================================
 
 extern void sx_altitude() is called from 0 sites in this file.
-    It appears to be inlineable (size = 1 units)
+    It appears to be inlineable (size = 4 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -152,7 +152,7 @@ extern void reset_altitude_measurement() is called from 0 sites in this file.
 ==============================================================================
 
 extern int convert_m_to_ft() is called from 2 sites in this file.
-    It appears to be inlineable (size = 9 units)
+    It appears to be inlineable (size = 7 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -160,7 +160,7 @@ extern int convert_m_to_ft() is called from 2 sites in this file.
 ==============================================================================
 
 extern int convert_ft_to_m() is called from 1 sites in this file.
-    It appears to be inlineable (size = 9 units)
+    It appears to be inlineable (size = 7 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -168,7 +168,7 @@ extern int convert_ft_to_m() is called from 1 sites in this file.
 ==============================================================================
 
 extern void mx_altitude() is called from 0 sites in this file.
-    It appears to be inlineable (size = 86 units)
+    It appears to be inlineable (size = 92 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	convert_m_to_ft() (1 times)
@@ -185,7 +185,7 @@ extern unsigned char is_altitude_measurement() is called from 0 sites in this fi
 ==============================================================================
 
 extern void display_altitude() is called from 1 sites in this file.
-    It appears to be inlineable (size = 147 units)
+    It appears to be inlineable (size = 153 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	stop_altitude_measurement() (1 times)

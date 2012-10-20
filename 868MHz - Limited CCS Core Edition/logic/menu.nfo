@@ -5,12 +5,6 @@ Build Number 1MF4S-JIK27-UARAR-SAW-ZACIF_U_R_R
 
 "../logic/menu.c": Warning - Reverting to -op0: file has no entry functions!
 
-extern void display_nothing() is called from 0 sites in this file.
-    It appears to be inlineable (size = 1 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
 extern unsigned char update_alarm() is called from 0 sites in this file.
     It appears to be inlineable (size = 5 units)
     It has 3 non-trivial scope blocks nested 3 deep.
@@ -96,14 +90,6 @@ extern unsigned char update_battery_voltage() is called from 0 sites in this fil
 
 extern unsigned char update_alarm() is called from 0 sites in this file.
     It appears to be inlineable (size = 5 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
-extern void display_nothing() is called from 0 sites in this file.
-    It appears to be inlineable (size = 1 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

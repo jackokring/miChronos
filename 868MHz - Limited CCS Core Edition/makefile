@@ -6,6 +6,7 @@ CG_TOOL_ROOT := /home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
+"./logic/util.obj" \
 "./logic/user.obj" \
 "./logic/temperature.obj" \
 "./logic/stopwatch.obj" \
@@ -146,8 +147,8 @@ ez430_chronos_868MHz.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(MSP430_EXECUTABLE_OUTPUTS__QUOTED) "ez430_chronos_868MHz.out"
-	-$(RM) "main.pp" "logic/acceleration.pp" "logic/alarm.pp" "logic/altitude.pp" "logic/battery.pp" "logic/bluerobin.pp" "logic/clock.pp" "logic/date.pp" "logic/menu.pp" "logic/rfbsl.pp" "logic/rfsimpliciti.pp" "logic/slide.pp" "logic/stopwatch.pp" "logic/temperature.pp" "logic/user.pp" 
-	-$(RM) "main.obj" "logic/acceleration.obj" "logic/alarm.obj" "logic/altitude.obj" "logic/battery.obj" "logic/bluerobin.obj" "logic/clock.obj" "logic/date.obj" "logic/menu.obj" "logic/rfbsl.obj" "logic/rfsimpliciti.obj" "logic/slide.obj" "logic/stopwatch.obj" "logic/temperature.obj" "logic/user.obj" 
+	-$(RM) "main.pp" "logic/acceleration.pp" "logic/alarm.pp" "logic/altitude.pp" "logic/battery.pp" "logic/bluerobin.pp" "logic/clock.pp" "logic/date.pp" "logic/menu.pp" "logic/rfbsl.pp" "logic/rfsimpliciti.pp" "logic/slide.pp" "logic/stopwatch.pp" "logic/temperature.pp" "logic/user.pp" "logic/util.pp" 
+	-$(RM) "main.obj" "logic/acceleration.obj" "logic/alarm.obj" "logic/altitude.obj" "logic/battery.obj" "logic/bluerobin.obj" "logic/clock.obj" "logic/date.obj" "logic/menu.obj" "logic/rfbsl.obj" "logic/rfsimpliciti.obj" "logic/slide.obj" "logic/stopwatch.obj" "logic/temperature.obj" "logic/user.obj" "logic/util.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
