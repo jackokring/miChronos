@@ -280,13 +280,13 @@ const u8 dow_offset[] = {	0, 3, 3, 6,
 
 /* days of week */
 u8 day_names[][2] = { "SU", "MO", "TU", "WE", "TH", "FR", "SA" };
-u8 day_cache = 0;
-u8 * dow_cache = day_name[0];
+//u8 day_cache = 0;
+//u8 * dow_cache = day_name[0];
 
 u8 * get_day() {
-	if(sDate.day == day_cache) {
-		return dow_cache;
-	}
+//	if(sDate.day == day_cache) {
+//		return dow_cache;
+//	}
 
 	u8 dow = LEAPS_SINCE_YEAR(sDate.year);
 
@@ -300,8 +300,9 @@ u8 * get_day() {
 	dow += dow_offset[sDate.month - 1];
 
 	dow = dow % 7;
-	dow_cache = day_names[dow];
-	return dow_cache;
+//	dow_cache = day_names[dow];
+//	return dow_cache;
+	return day_names[dow];//power save if no buttons
 }
 
 // *************************************************************************************************
