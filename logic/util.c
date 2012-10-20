@@ -49,8 +49,9 @@ void sx_util()
 //well hidden
 void mx_util()
 {
+	display_util(DISPLAY_LINE_CLEAR);
     	fn_util = (++fn_util)&3;//fixed
-    	display_util(0);
+    	display_util(DISPLAY_LINE_UPDATE_FULL);
 }
 
 void display_pin(u8 update) {
@@ -62,7 +63,7 @@ void (*(const util_dispfn[]))(u8 update) = { display_battery_V, display_rf, disp
 
 void display_util(u8 update)
 {
-	util_dispfn[fn_util]();
+	util_dispfn[fn_util](update);
 }
 
 void (*(const util_upfn[]))() = { update_battery_voltage, update_time, update_time, update_time, update_date };

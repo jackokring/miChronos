@@ -130,7 +130,7 @@ const struct menum menu_L1_Alarm = {
 
 // Line1 - Temperature
 const struct menum menu_L1_Temperature = {
-    FUNCTION(dummy),                  // direct function
+    FUNCTION(sx_temperature),         // direct function
     FUNCTION(mx_temperature),         // sub menum function
     FUNCTION(display_temperature),    // display function
     FUNCTION(update_temperature),     // new display data

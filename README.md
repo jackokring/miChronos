@@ -7,9 +7,21 @@ With this in mind the calculation became floating point.
 
 Slide Rule
 ----------
-So the latest is to have a 4 digit in float based slide calc. This gives better inverse conversion for say antilogs.
+(v2) So the latest is to have a 4 digit in float based slide calc. This gives better inverse conversion for say antilogs.
 The slide rule is placed just after the date on the bottom line. Pressing DOWN selects the function. Pressing and holding # selects the entry mode. Using UP and DOWN (HOLD for fast) set the input. Press # to calculate. Press STAR to EXIT.
 Important points are the atan function is 9999 (full scale) at 45 degrees. The bend function is not scaled as it's use needs THE result, and not an abstract angle ratio. The functions are scaled for maximum possible resolution as appropriate. Calculation of inverse functions is somewhat involved repeated use and estimation.
+
+Temperature and Altitude
+------------------------
+(v3) Pressing the UP button will switch from imperial to metric units. This does not alter the settings internal to the watch, and a different choice for temperature and altitude is possible. This allows then 12H or 24H format with any units. The changing of the time format will change all units to the opposite of those set. This then would need a few extra button pushes to restore your favourite units.
+
+Stopwatch Reminder
+------------------
+(v3) If the alarm is set to ON, then every five minutes the stopwatch will trigger the alarm. If the alarm is off, this will not happen. This allows an egg timer flexibility for the smallest code size. A more featured countdown timer will not be provided.
+
+Utility Menu
+------------
+(v3) The bottom line now has less items. The ACC/SYNC/RFBSL functions have not disappeared. Go to the battery function, and press #HOLD. Each time the function in this menu slot will change. A little added bonus is the DOWN button on the battery display generates a random 4 digit number. This number generator is the suggested location for custom application entry.
 
 Bytes
 -----

@@ -232,6 +232,8 @@ void do_altitude_measurement(u8 filter)
     sAlt.altitude = conv_pa_to_meter(sAlt.pressure, sAlt.temperature);
 }
 
+u8 flip_alt = 0;
+
 // *************************************************************************************************
 // @fn          sx_altitude
 // @brief       Altitude direct function.
@@ -240,8 +242,7 @@ void do_altitude_measurement(u8 filter)
 // *************************************************************************************************
 void sx_altitude()
 {
-    // Function can be empty
-    // Restarting of altitude measurement will be done by subsequent full display update
+    flip_alt ^= 1;
 }
 
 // *************************************************************************************************
@@ -262,7 +263,7 @@ void mx_altitude()
     altitude = sAlt.altitude;
 
     // Set lower and upper limits for offset correction
-    if (sys.flag.use_metric_units)
+    if (sys.flag.use_metric_units ^ flip_alt)
     {
         // Display "m" symbol
         display_symbol(LCD_UNIT_L1_M, SEG_ON);
@@ -295,7 +296,7 @@ void mx_altitude()
         if (button.flag.star)
         {
             // When using English units, convert ft back to m before updating pressure table
-            if (!sys.flag.use_metric_units)
+            if (!(sys.flag.use_metric_units ^ flip_alt))
                 altitude = convert_ft_to_m((s16) altitude);
 
             // Update pressure table
@@ -339,7 +340,7 @@ void display_altitude(u8 update)
         // Start measurement
         start_altitude_measurement();
 
-        if (sys.flag.use_metric_units)
+        if (sys.flag.use_metric_units ^ flip_alt)
         {
             // Display "m" symbol
             display_symbol(LCD_UNIT_L1_M, SEG_ON);
@@ -358,7 +359,7 @@ void display_altitude(u8 update)
         // Update display only while measurement is active
         if (sAlt.timeout > 0)
         {
-            if (sys.flag.use_metric_units)
+            if (sys.flag.use_metric_units ^ flip_alt)
             {
                 // Display altitude in xxxx m format, allow 3 leading blank digits
                 if (sAlt.altitude >= 0)

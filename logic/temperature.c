@@ -169,6 +169,12 @@ u8 is_temp_measurement(void)
     return (sTemp.state == MENU_ITEM_VISIBLE);
 }
 
+u8 flip_temp = 0;
+
+void sx_temperature() {
+	flip_temp ^= 1;
+}
+
 // *************************************************************************************************
 // @fn          mx_temperature
 // @brief       Mx button handler to set the temperature offset.
@@ -187,7 +193,7 @@ void mx_temperature()
 
     // When using English units, convert internal �C to �F before handing over value to set_value
     // function
-    if (!sys.flag.use_metric_units)
+    if (!(sys.flag.use_metric_units ^ flip_temp))
     {
         // Convert global variable to local variable
         temperature = convert_C_to_F(sTemp.degrees);
@@ -211,7 +217,7 @@ void mx_temperature()
         if (button.flag.star)
         {
             // For English units, convert set �F to �C
-            if (!sys.flag.use_metric_units)
+            if (!(sys.flag.use_metric_units ^ flip_temp))
             {
                 temperature1 = convert_F_to_C(temperature);
             }
@@ -234,7 +240,7 @@ void mx_temperature()
         }
 
         // Display �C or �F depending on unit system
-        if (sys.flag.use_metric_units)
+        if (sys.flag.use_metric_units ^ flip_temp)
             display_char(LCD_SEG_L1_0, 'C', SEG_ON);
         else
             display_char(LCD_SEG_L1_0, 'F', SEG_ON);
@@ -272,7 +278,7 @@ void display_temperature(u8 update)
         // Display �C / �F
         display_symbol(LCD_SEG_L1_DP1, SEG_ON);
         display_symbol(LCD_UNIT_L1_DEGREE, SEG_ON);
-        if (sys.flag.use_metric_units)
+        if (sys.flag.use_metric_units ^ flip_temp)
             display_char(LCD_SEG_L1_0, 'C', SEG_ON);
         else
             display_char(LCD_SEG_L1_0, 'F', SEG_ON);
@@ -286,7 +292,7 @@ void display_temperature(u8 update)
     else if (update == DISPLAY_LINE_UPDATE_PARTIAL)
     {
         // When using English units, convert �C to �F (temp*1.8+32)
-        if (!sys.flag.use_metric_units)
+        if (!(sys.flag.use_metric_units ^ flip_temp))
         {
             temperature = convert_C_to_F(sTemp.degrees);
         }
