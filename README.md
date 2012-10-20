@@ -2,14 +2,21 @@ miChronos
 =========
 Edited source of the eZ430-Chronos development kit. Some changes for smaller space, and a calculation slide rule application. Designed with the 16KB limit of CCS in mind. Things to note:
 It is impossible to remove the drivers library, as this contains 4 symbols to use the radio (appears so).
-It is impossible to lose the float support, as the function update_pressure_table remains linked (appears so).
+It is impossible to lose the float support, as the function update-pressure-table remains linked (appears so).
 With this in mind the calculation became floating point.
 
 Slide Rule
 ----------
-(v2) So the latest is to have a 4 digit in float based slide calc. This gives better inverse conversion for say antilogs.
-The slide rule is placed just after the date on the bottom line. Pressing DOWN selects the function. Pressing and holding # selects the entry mode. Using UP and DOWN (HOLD for fast) set the input. Press # to calculate. Press STAR to EXIT.
-Important points are the atan function is 9999 (full scale) at 45 degrees. The bend function is not scaled as it's use needs THE result, and not an abstract angle ratio. The functions are scaled for maximum possible resolution as appropriate. Calculation of inverse functions is somewhat involved repeated use and estimation.
+(v3) So the latest is to have a 4 digit slide rule calculation aid. This gives better inverse conversion for say antilogs.
+The slide rule is placed just after the date on the bottom line. Pressing DOWN selects the function. Pressing #HOLD selects the entry mode. Using UP and DOWN (HOLD for fast) set the input. Press # to calculate. Press STAR to EXIT. The bend function is not scaled as it's use needs the actual result, and not an abstract angle ratio. The other functions are scaled for maximum possible resolution as appropriate. Calculation of inverse functions is somewhat involved repeated use and estimation. The functions are listed below, ad should be with knowledge enough to go a long way in maths. The understanding of why this function set was provided is in itself a long lesson in maths.
+  * LOGE - logarithm of x to the base e
+  * ATAN - arc tangent of x scaled such that 45 degrees is 10000
+  * AREA - x to the power of 2
+  * OVRT - 1 over the square root of x
+  * OVER - 1 over x
+  * ROOT - square root of x
+  * CIRC - square root of 1 minus x squared
+  * BEND - x over 1 plus square root of 1 plus x squared (atan half angle formula)
 
 Temperature and Altitude
 ------------------------
@@ -21,7 +28,7 @@ Stopwatch Reminder
 
 Utility Menu
 ------------
-(v3) The bottom line now has less items. The ACC/SYNC/RFBSL functions have not disappeared. Go to the battery function, and press #HOLD. Each time the function in this menu slot will change. A little added bonus is the DOWN button on the battery display generates a random 4 digit number. This number generator is the suggested location for custom application entry.
+(v3) The bottom line now has less items. The ACC/SYNC/RFBSL functions have not disappeared. Go to the battery function, and press #HOLD. Each time the function in this menu slot will change. A little added bonus is the DOWN button on the battery display generates a random 4 digit number based on time and battery voltage with a little number feedback. It's not a perfect generator, but is random as it uses environment sampling.
 
 Bytes
 -----

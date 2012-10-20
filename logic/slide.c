@@ -116,7 +116,7 @@ float atanh(float x, s8 i2) {
 	x = square(x);
 	x = i2 < 0 ? -x : x;
 	u8 i;
-	for(i = 3;i < 64;i+=2) {
+	for(i = 3;i < 32;i+=2) {
 			mul = mul * x;
             acc += mul * inv(i);
         }
@@ -129,7 +129,7 @@ float log(float x) { //base e
 }
 
 float atan(float x) {
-	return atanh(bend(x), -1) * 2.0F;
+	return atanh(bend(bend(x)), -1) * 4.0F;
 }
 
 float rel(float x) {
@@ -138,8 +138,8 @@ float rel(float x) {
 
 //main modulle functions
 
-const u8 named_calc[][4] = { 	"SQRE", "INRT", " INV", "ROOT",
-								" REL", "BEND", "LOGS", "ATAN" };
+const u8 named_calc[][4] = { 	"AREA", "OVRT", "OVER", "ROOT",
+								"CIRC", "BEND", "LOGE", "ATAN" };
 
 const float pre_scale[] = { 		0.0001F, 1.0F, 1.0F, 1.0F,
 								0.0001F, 0.0001F, 1.0F, 0.0001F};
