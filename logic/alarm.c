@@ -65,11 +65,11 @@ struct alarm sAlarm;
 // *************************************************************************************************
 // Extern section
 
-u8 tricky[] = { 5, 3, 5, 8, 3, 5, 8, 11 };//a series of 4ths and 5ths
-float tune_idx = 1;
+u8 tricky[] = { 2, 3, 5, 7, 8, 9, 11, 14 };//a series of 4ths and 5ths
+float tune_idx;
 
-void tune(float idx) {
-	tune_idx = idx;
+void tune(u16 * idx) {
+	tune_idx = (float)(*idx) * 1.61803398875F;//an irrational phi
 	sAlarm.state = ALARM_ON;
 }
 
@@ -109,7 +109,7 @@ void check_alarm(void)
         if (sTime.hour == sAlarm.hour)
         {
             // Indicate that alarm is on
-            tune((float)(*((u16 *)(getDay())));//freaky cast
+            tune((u16 *)getDay());//freaky cast of day
         }
     }
 }
