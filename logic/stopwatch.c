@@ -201,7 +201,7 @@ void stopwatch_tick(void)
                 sStopwatch.time[4] = '0';
                 sStopwatch.time[3]++;              // minutes L (0 - 9)
 		//alarm beeper		
-		if((sAlarm.state == ALARM_ENABLED)&&(sStopwatch.time[3] == '5' || sStopwatch.time[3] == '0')) {
+		if((sAlarm.state == ALARM_ENABLED)&&(sStopwatch.time[3] == '5' || sStopwatch.time[3] == 0x3A)) {
 			//a five minute alarm timer if alarm on, so can use
 			//upper alarm display an UP to cancel and enable
 			// Indicate that alarm is on

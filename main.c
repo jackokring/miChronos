@@ -546,6 +546,8 @@ void wakeup_event(void)
     sys.flag.idle_timeout_enabled = 0;
 }
 
+u16 tricky[] = { 5, 3, 5, 11, 5, 5, 11, 3 };
+
 // *************************************************************************************************
 // @fn          process_requests
 // @brief       Process requested actions outside ISR context.
@@ -573,6 +575,7 @@ void process_requests(void)
     // Generate alarm (two signals every second)
     if (request.flag.buzzer)
         start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
+	TA1CCR0 = tricky[sAlarm.duration & 7];
 
     // Reset request flag
     request.all_flags = 0;

@@ -243,6 +243,7 @@ u8 flip_alt = 0;
 void sx_altitude()
 {
     flip_alt ^= 1;
+	display_altitude(DISPLAY_LINE_CLEAR);
 }
 
 // *************************************************************************************************

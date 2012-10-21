@@ -6,7 +6,7 @@ Edited source of the eZ430-Chronos development kit. Some changes for smaller spa
 
 Day of Week
 -----------
-(v3) This simply displays the day of the week and day number in month where the date is in the default source. The calculation is accurate and will not fail in 400 years time, when your antique watch is a family hierloom. This is a bit tougne in cheek, but the millenium bug is past history. I built in this feature as I find it more useful to know the day of the week than the month I'm on. The day names are shown as the first three letters of the english day, but due to the limited display (power efficient though), do not always display well. The actual display font is part of the library, and it can't be changed in the limited edition of CCS.
+(v3.1) This simply displays the day of the week and day number in month where the date is in the default source. The calculation is accurate and will not fail in 400 years time, when your antique watch is a family hierloom. This is a bit tougne in cheek, but the millenium bug is past history. I built in this feature as I find it more useful to know the day of the week than the month I'm on. The day names are shown as the first two letters of the english day, but due to the limited display (power efficient though), do not always display well. The actual display font is part of the library, and it can't be changed in the limited edition of CCS.
 
 Slide Rule
 ----------

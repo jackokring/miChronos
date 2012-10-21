@@ -8,14 +8,11 @@
 #include "project.h"
 
 // logic
-#include "menu.h"
 #include "util.h"
-#include "user.h"
-
+#include "clock.h"
 #include "rfbsl.h"
 #include "rfsimpliciti.h"
 #include "battery.h"
-#include "clock.h"
 #include "slide.h"
 #include "display.h"
 
@@ -31,7 +28,7 @@ u16 pin_gen = 0;
 //a four digit random number generator on the sx function of the battery
 void pin_generate()
 {
-	pin_gen += (u16)(log((float)(sBatt.voltage ^ (sTime.second << 9))) * 155337.0F);
+	pin_gen += (u16)(irt((float)(((sBatt.voltage + pin_gen) & 63) ^ sTime.second)) * 655377.0F);
 	fn_util = 4;
 }
 
