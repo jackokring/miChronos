@@ -205,7 +205,7 @@ void stopwatch_tick(void)
 			//a five minute alarm timer if alarm on, so can use
 			//upper alarm display an UP to cancel and enable
 			// Indicate that alarm is on
-            		sAlarm.state = ALARM_ON;
+            		tune(3.2F * (float)sStopwatch.time[2]);
 		}
                 if (sStopwatch.time[3] == 0x3A)
                 {

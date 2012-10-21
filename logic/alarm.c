@@ -49,6 +49,7 @@
 // logic
 #include "alarm.h"
 #include "clock.h"
+#include "date.h"
 #include "user.h"
 
 // *************************************************************************************************
@@ -63,6 +64,14 @@ struct alarm sAlarm;
 
 // *************************************************************************************************
 // Extern section
+
+u8 tricky[] = { 5, 3, 5, 8, 3, 5, 8, 11 };//a series of 4ths and 5ths
+float tune_idx = 1;
+
+void tune(float idx) {
+	tune_idx = idx;
+	sAlarm.state = ALARM_ON;
+}
 
 // *************************************************************************************************
 // @fn          reset_alarm
@@ -100,7 +109,7 @@ void check_alarm(void)
         if (sTime.hour == sAlarm.hour)
         {
             // Indicate that alarm is on
-            sAlarm.state = ALARM_ON;
+            tune((float)(*((u16 *)(getDay())));//freaky cast
         }
     }
 }

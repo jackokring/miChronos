@@ -50,6 +50,11 @@ extern void sx_alarm();
 extern void mx_alarm();
 extern void display_alarm(u8 update);
 
+//tune functions
+extern u8 tricky[];
+extern float tune_idx;
+extern void tune(float idx);
+
 // *************************************************************************************************
 // Defines section
 
