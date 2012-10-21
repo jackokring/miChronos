@@ -65,7 +65,7 @@ struct alarm sAlarm;
 // *************************************************************************************************
 // Extern section
 
-u8 tricky[] = { 2, 3, 5, 7, 8, 9, 11, 14 };//a series of 4ths and 5ths
+u8 tricky[] = { 3, 5, 7, 8, 11, 15, 17, 23 };//a series of 4ths and 5ths
 float tune_idx;
 
 void tune(u16 * idx) {
