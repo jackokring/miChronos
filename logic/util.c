@@ -8,6 +8,7 @@
 #include "project.h"
 
 // logic
+#include "menu.h"
 #include "util.h"
 #include "clock.h"
 #include "rfbsl.h"

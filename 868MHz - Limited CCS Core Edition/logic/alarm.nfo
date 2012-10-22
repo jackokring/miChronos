@@ -6,10 +6,11 @@ Build Number 1MF4S-JIK27-UARAR-SAW-ZACIF_U_R_R
 "../logic/alarm.c": Warning - Reverting to -op0: file has no entry functions!
 
 extern void check_alarm() is called from 0 sites in this file.
-    It appears to be inlineable (size = 31 units)
+    It appears to be inlineable (size = 30 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	<NONE>
+	get_day() (1 times)
+	tune() (1 times)
 
 extern void display_alarm() is called from 0 sites in this file.
     It appears to be inlineable (size = 78 units)
@@ -49,8 +50,15 @@ extern void sx_alarm() is called from 0 sites in this file.
     It calls these functions:
 	<NONE>
 
+extern void tune() is called from 1 sites in this file.
+    It appears to be inlineable (size = 12 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
 
 These functions may be recursive:
+	check_alarm()
 	display_alarm()
 	mx_alarm()
 	stop_alarm()
@@ -64,10 +72,19 @@ These external functions are called but not defined here:
 	display_chars()
 	int_to_array()
 	display_am_pm_symbol()
+	get_day()
 
 
 		======= End file-level Analysis =======
 
+
+==============================================================================
+
+extern void tune() is called from 1 sites in this file.
+    It appears to be inlineable (size = 12 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
 
 ==============================================================================
 
@@ -112,10 +129,10 @@ extern void display_alarm() is called from 0 sites in this file.
 ==============================================================================
 
 extern void check_alarm() is called from 0 sites in this file.
-    It appears to be inlineable (size = 31 units)
+    It appears to be inlineable (size = 30 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	<NONE>
+	tune() (1 times)
 <<NULL MIX DOMAIN>>
 
 == END OF INFO OUTPUT==

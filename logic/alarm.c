@@ -109,7 +109,7 @@ void check_alarm(void)
         if (sTime.hour == sAlarm.hour)
         {
             // Indicate that alarm is on
-            tune((u16 *)getDay());//freaky cast of day
+            tune((u16 *)get_day());//freaky cast of day
         }
     }
 }

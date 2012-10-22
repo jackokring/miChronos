@@ -83,7 +83,7 @@ extern int main() is called from 0 sites in this file.
 	init_application() (1 times)
 
 extern void process_requests() is called from 1 sites in this file.
-    It appears to be inlineable (size = 49 units)
+    It appears to be inlineable (size = 65 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	start_buzzer() (1 times)
@@ -112,6 +112,9 @@ extern void wakeup_event() is called from 1 sites in this file.
 	line2() (1 times)
 	clear_display() (1 times)
 	 ? () (6 times)
+
+Variable has no explicitly assigned value:
+	extern float tune_idx
 
 Address of global variable is never taken:
 	extern const struct menum *ptrMenu_L2
@@ -238,7 +241,7 @@ extern void wakeup_event() is called from 1 sites in this file.
 ==============================================================================
 
 extern void process_requests() is called from 1 sites in this file.
-    It appears to be inlineable (size = 49 units)
+    It appears to be inlineable (size = 65 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

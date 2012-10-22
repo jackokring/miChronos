@@ -29,10 +29,10 @@ extern void mx_util() is called from 0 sites in this file.
 	display_util() (2 times)
 
 extern void pin_generate() is called from 0 sites in this file.
-    It appears to be inlineable (size = 21 units)
+    It appears to be inlineable (size = 23 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	log() (1 times)
+	irt() (1 times)
 
 extern void restore_util() is called from 0 sites in this file.
     It appears to be inlineable (size = 6 units)
@@ -69,7 +69,7 @@ These functions may be recursive:
 	display_pin()
 
 These external functions are called but not defined here:
-	log()
+	irt()
 	 ? ()
 	display_battery_V()
 	display_chars()
@@ -98,7 +98,7 @@ extern void restore_util() is called from 0 sites in this file.
 ==============================================================================
 
 extern void pin_generate() is called from 0 sites in this file.
-    It appears to be inlineable (size = 21 units)
+    It appears to be inlineable (size = 23 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

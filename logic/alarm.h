@@ -53,7 +53,7 @@ extern void display_alarm(u8 update);
 //tune functions
 extern u8 tricky[];
 extern float tune_idx;
-extern void tune(float idx);
+extern void tune(u16 * idx);
 
 // *************************************************************************************************
 // Defines section

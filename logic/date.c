@@ -279,7 +279,7 @@ const u8 dow_offset[] = {	0, 3, 3, 6,
 #define LEAPS_SINCE_YEAR(Y) ( ((Y) - BASE_YEAR) + (((Y) - BASE_YEAR) >> 2) - (((Y) - 1900)/100) + (((Y) - 1600)/400) )
 
 /* days of week */
-u8 day_names[][2] = { "SU", "MO", "TU", "WE", "TH", "FR", "SA" };
+u8 day_names[][3] = { "SU ", "MO ", "TU ", "WE ", "TH ", "FR ", "SA " };
 //u8 day_cache = 0;
 //u8 * dow_cache = day_name[0];
 
@@ -323,7 +323,7 @@ void display_date(u8 update)
         {
             // Convert day of week to string
             str = get_day();
-            display_chars(LCD_SEG_L2_4_3, str, SEG_ON);
+            display_chars(LCD_SEG_L2_4_2, str, SEG_ON);
 
             // Convert day to string
             str = int_to_array(sDate.day, 2, 0);

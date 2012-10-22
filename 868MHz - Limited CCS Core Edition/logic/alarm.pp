@@ -14,6 +14,7 @@ logic/alarm.obj: /home/jacko/ChronosSource/ez430_chronos/driver/buzzer.h
 logic/alarm.obj: /home/jacko/ChronosSource/ez430_chronos/driver/ports.h
 logic/alarm.obj: ../logic/alarm.h
 logic/alarm.obj: ../logic/clock.h
+logic/alarm.obj: ../logic/date.h
 logic/alarm.obj: ../logic/user.h
 
 ../logic/alarm.c: 
@@ -30,4 +31,5 @@ logic/alarm.obj: ../logic/user.h
 /home/jacko/ChronosSource/ez430_chronos/driver/ports.h: 
 ../logic/alarm.h: 
 ../logic/clock.h: 
+../logic/date.h: 
 ../logic/user.h: 

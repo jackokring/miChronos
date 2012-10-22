@@ -47,6 +47,7 @@ extern void add_day(void);
 extern void mx_date();
 extern void sx_date();
 extern void display_date(u8 update);
+extern u8 * get_day();
 
 // *************************************************************************************************
 // Defines section
