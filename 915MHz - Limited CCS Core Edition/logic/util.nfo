@@ -28,7 +28,7 @@ extern void mx_util() is called from 0 sites in this file.
 	display_util() (2 times)
 
 extern void pin_generate() is called from 0 sites in this file.
-    It appears to be inlineable (size = 23 units)
+    It appears to be inlineable (size = 28 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	irt() (1 times)
@@ -97,7 +97,7 @@ extern void restore_util() is called from 0 sites in this file.
 ==============================================================================
 
 extern void pin_generate() is called from 0 sites in this file.
-    It appears to be inlineable (size = 23 units)
+    It appears to be inlineable (size = 28 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

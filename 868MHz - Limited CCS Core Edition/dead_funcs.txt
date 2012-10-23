@@ -9,7 +9,7 @@
 <osname>Unix</osname>
 </creator>
 <dependencies>
-<timestamp>0x5085d8f2</timestamp>
+<timestamp>0x5085ee97</timestamp>
 </dependencies>
 <function>
 <file>/home/jacko/ti/ccsv5/tools/compiler/msp430_4.1.1/lib/rts430x.lib&lt;asr32.obj&gt;</file>
@@ -337,12 +337,12 @@
 <size>0x10</size>
 </function>
 <function>
-<file>/tmp/13437J8pBvM</file>
+<file>/tmp/08217sElg8C</file>
 <name>WritePATable</name>
 <size>0x66</size>
 </function>
 <function>
-<file>/tmp/13437J8pBvM</file>
+<file>/tmp/08217sElg8C</file>
 <name>WriteBurstReg</name>
 <size>0x44</size>
 </function>

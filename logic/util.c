@@ -25,11 +25,13 @@ void sx_util();
 //main stuff
 u8 fn_util = 0;
 u16 pin_gen = 0;
+float pin_temp;
 
 //a four digit random number generator on the sx function of the battery
 void pin_generate()
 {
-	pin_gen += (u16)(irt((float)(((sBatt.voltage + pin_gen) & 63) ^ sTime.second)) * 655377.0F);
+	pin_temp = irt((float)(((sBatt.voltage + pin_gen) & 63) ^ sTime.second)) * 655377.0F;
+	pin_gen += *((u16 *)&pin_temp);
 	fn_util = 4;
 }
 

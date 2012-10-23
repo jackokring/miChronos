@@ -39,7 +39,7 @@ Utility Menu
 
 Bytes
 -----
-The bytes left in version 3.1 is 3719. The intent is to make some custom software in these bytes. There are still some further size savings possible, but they would increase power consumption in standby time display, due to an extra function call overhead. As time display is the main use a watch is put, this is somewhat important. Reclaiming some byte space in the setting routines, is however useful, even though this takes a fraction more power, as the setting modes are infrequently used, even though utility is perhaps the focus of this project. Everyone sleeps. I now have to think of some brilliant modes for later versions.
+The bytes left in version 3.2 is 3705. The intent is to make some custom software in these bytes. There are still some further size savings possible, but they would increase power consumption in standby time display, due to an extra function call overhead. As time display is the main use a watch is put, this is somewhat important. Reclaiming some byte space in the setting routines, is however useful, even though this takes a fraction more power, as the setting modes are infrequently used, even though utility is perhaps the focus of this project. Everyone sleeps. I now have to think of some brilliant modes for later versions.
 
 Energy
 ------

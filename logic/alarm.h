@@ -63,8 +63,8 @@ extern void tune(u16 * idx);
 #define ALARM_ENABLED           (1u)
 #define ALARM_ON                        (2u)
 
-// Keep alarm for 30 on-off cycles
-#define ALARM_ON_DURATION       (30u)
+// Keep alarm for 10 on-off cycles
+#define ALARM_ON_DURATION       (10u)
 
 // *************************************************************************************************
 // Global Variable section

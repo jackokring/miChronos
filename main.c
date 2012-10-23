@@ -546,6 +546,8 @@ void wakeup_event(void)
     sys.flag.idle_timeout_enabled = 0;
 }
 
+float tune_tmp;
+
 // *************************************************************************************************
 // @fn          process_requests
 // @brief       Process requested actions outside ISR context.
@@ -574,7 +576,8 @@ void process_requests(void)
     if (request.flag.buzzer)
         start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
 	//tune
-	TA1CCR0 = (u16)tricky[(u16)((float)(sAlarm.duration) * tune_idx) & 7];
+	tune_tmp = (float)(sAlarm.duration) * tune_idx;
+	TA1CCR0 = (u16)tricky[*((u16 *)(&tune_tmp)) & 7];
 
     // Reset request flag
     request.all_flags = 0;
