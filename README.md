@@ -15,7 +15,7 @@ Day of Week
 Slide Rule
 ----------
 (v3) So the latest is to have a 4 digit slide rule calculation aid. This gives better inverse conversion for say antilogs.
-The slide rule is placed just after the date on the bottom line. Pressing DOWN selects the function. Pressing #HOLD selects the entry mode. Using UP and DOWN (HOLD for fast) set the input. Press # to calculate. Press STAR to EXIT. The bend function is not scaled as it's use needs the actual result, and not an abstract angle ratio. The other functions are scaled for maximum possible resolution as appropriate. Calculation of inverse functions is somewhat involved repeated use and estimation. The functions are listed below, and should be with knowledge enough to go a long way in maths. The understanding of why this function set was provided is in itself a long lesson in maths.
+The slide rule is placed just after the date on the bottom line. Pressing DOWN selects the function. Pressing #HOLD selects the entry mode. Using UP and DOWN (HOLD for fast) set the input. Press # to calculate. Press STAR to EXIT. The half function is not scaled as it's use needs the actual result, and not an abstract angle ratio. The other functions are scaled for maximum possible resolution as appropriate. Calculation of inverse functions is somewhat involved repeated use and estimation. The functions are listed below, and should be with knowledge enough to go a long way in maths. The understanding of why this function set was provided is in itself a long lesson in maths.
   * LOGS - logarithm of x scaled
   * ATAN - arc tangent of x scaled such that 45 degrees is 10000
   * AREA - x to the power of 2 scaled for two decimal places input or left hand decimals
