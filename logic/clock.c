@@ -99,6 +99,11 @@ void reset_clock(void)
     sTime.last_activity = 0;
 }
 
+//sidereal functionality variables
+u8 shour;
+u8 sminute;
+u16 sday;
+
 // *************************************************************************************************
 // @fn          clock_tick
 // @brief       Add 1 second to system time and to display time
@@ -137,6 +142,7 @@ void clock_tick(void)
             if (sTime.hour == 24)
             {
                 sTime.hour = 0;
+		if(sday < 180) sday++;//sidereal day offsets
                 add_day();
             }
         }
@@ -204,8 +210,6 @@ void mx_time()
     s16 timeformat1;
     s32 hours;
     s32 minutes;
-    s32 seconds;
-    u8 *str;
 
     // Clear display
     clear_display_all();
@@ -223,7 +227,6 @@ void mx_time()
     timeformat1 = timeformat;
     hours = sTime.hour;
     minutes = sTime.minute;
-    seconds = sTime.second;
 
     // Init value index
     select = 0;
@@ -250,9 +253,11 @@ void mx_time()
             Timer0_Stop();
 
             // Store local variables in global clock time
-            sTime.hour = hours;
-            sTime.minute = minutes;
-            sTime.second = seconds;
+            shour = sTime.hour = hours;
+            sminutes = sTime.minute = minutes;
+            sday = sTime.second = 0;
+
+		//sidereal basis^^^
 
             // Start clock timer
             Timer0_Start();
@@ -283,16 +288,10 @@ void mx_time()
                 break;
 
             case 1:            // Display HH:MM (LINE1) and .SS (LINE2)
-                str = int_to_array(hours, 2, 0);
-                display_chars(LCD_SEG_L1_3_2, str, SEG_ON);
+                display_chars(LCD_SEG_L1_3_2, int_to_array(hours, 2, 0), SEG_ON);
                 display_symbol(LCD_SEG_L1_COL, SEG_ON);
 
-                str = int_to_array(minutes, 2, 0);
-                display_chars(LCD_SEG_L1_1_0, str, SEG_ON);
-
-                str = int_to_array(seconds, 2, 0);
-                display_chars(LCD_SEG_L2_1_0, str, SEG_ON);
-                display_symbol(LCD_SEG_L2_DP, SEG_ON);
+                display_chars(LCD_SEG_L1_1_0, int_to_array(minutes, 2, 0), SEG_ON);
 
                 // Set hours
                 set_value(&hours, 2, 0, 0, 23, SETVALUE_ROLLOVER_VALUE + SETVALUE_DISPLAY_VALUE +
@@ -304,13 +303,6 @@ void mx_time()
             case 2:            // Set minutes
                 set_value(&minutes, 2, 0, 0, 59, SETVALUE_ROLLOVER_VALUE + SETVALUE_DISPLAY_VALUE +
                           SETVALUE_NEXT_VALUE, LCD_SEG_L1_1_0,
-                          display_value);
-                select = 3;
-                break;
-
-            case 3:            // Set seconds
-                set_value(&seconds, 2, 0, 0, 59, SETVALUE_ROLLOVER_VALUE + SETVALUE_DISPLAY_VALUE +
-                          SETVALUE_NEXT_VALUE, LCD_SEG_L2_1_0,
                           display_value);
                 select = 0;
                 break;
@@ -347,6 +339,8 @@ void sx_time()
 void display_time(u8 update)
 {
     u8 hour12;
+	float sidereal;
+	s32 sideint;
 
     // Partial update
     if (update == DISPLAY_LINE_UPDATE_PARTIAL)
@@ -380,8 +374,7 @@ void display_time(u8 update)
             }
             else
             {
-                // Seconds are always updated
-                display_chars(LCD_SEG_L1_1_0, int_to_array(sTime.second, 2, 0), SEG_ON);
+                display_time(DISPLAY_LINE_UPDATE_FULL);
             }
         }
     }
@@ -391,29 +384,29 @@ void display_time(u8 update)
         if (sTime.line1ViewStyle == DISPLAY_DEFAULT_VIEW)
         {
             // Display 24H/12H time
-            if (sys.flag.use_metric_units)
-            {
-                // Display 24H time "HH"
-                display_chars(LCD_SEG_L1_3_2, int_to_array(sTime.hour, 2, 0), SEG_ON);
-            }
-            else
+		hour12 = sTime.hour;
+            if (!sys.flag.use_metric_units)
             {
                 // Display 12H time "HH" + AM/PM information
-                hour12 = convert_hour_to_12H_format(sTime.hour);
-                display_chars(LCD_SEG_L1_3_2, int_to_array(hour12, 2, 0), SEG_ON);
+                hour12 = convert_hour_to_12H_format(hour12);
                 display_am_pm_symbol(sTime.hour);
             }
-
+		display_chars(LCD_SEG_L1_3_2, int_to_array(hour12, 2, 0), SEG_ON);
             // Display minute
             display_chars(LCD_SEG_L1_1_0, int_to_array(sTime.minute, 2, 0), SEG_ON);
-            display_symbol(LCD_SEG_L1_COL, SEG_ON_BLINK_ON);
         }
         else
         {
-            // Display seconds
-            display_chars(LCD_SEG_L1_1_0, int_to_array(sTime.second, 2, 0), SEG_ON);
-            display_symbol(LCD_SEG_L1_DP1, SEG_ON);
+            // Display sidereal
+		display_symbol(LCD_ICON_RECORD, SEG_ON);
+		sidereal = (sTime.second + 60.0F * ((sTime.minute - sminute) + 60.0F * ((sTime.hour - shour) + 24.0F * sday))) * 0.99726956633F;
+		sideint = (s32)sidereal / 60;//sidereal minutes
+		display_chars(LCD_SEG_L1_1_0, int_to_array(sideint % 60, 2, 0), SEG_ON);
+		sideint /= 60;//sidereal hours
+		display_chars(LCD_SEG_L1_3_2, int_to_array(sideint % 24, 2, 0), SEG_ON);
+		if(sday < 0 || sday > 180) display_chars(LCD_SEG_L1_3_0, (u8 *) "SYNC", SEG_ON);//out of range
         }
+	display_symbol(LCD_SEG_L1_COL, SEG_ON_BLINK_ON);
     }
     else if (update == DISPLAY_LINE_CLEAR)
     {
@@ -422,6 +415,7 @@ void display_time(u8 update)
         sTime.line1ViewStyle = DISPLAY_DEFAULT_VIEW;
         // Clean up AM/PM icon
         display_symbol(LCD_SYMB_AM, SEG_OFF);
+	display_symbol(LCD_ICON_RECORD, SEG_OFF);
     }
 }
 
