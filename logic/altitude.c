@@ -48,6 +48,7 @@
 #include "vti_ps.h"
 #include "ports.h"
 #include "timer.h"
+#include "temperature.h"
 
 // logic
 #include "user.h"
@@ -329,8 +330,7 @@ void mx_altitude()
 // *************************************************************************************************
 void display_altitude(u8 update)
 {
-    u8 *str;
-    s16 ft;
+    s16 alt;
 
     // redraw whole screen
     if (update == DISPLAY_LINE_UPDATE_FULL)
@@ -360,46 +360,14 @@ void display_altitude(u8 update)
         // Update display only while measurement is active
         if (sAlt.timeout > 0)
         {
-            if (sys.flag.use_metric_units ^ flip_alt)
+		alt = sAlt.altitude;
+            if (!sys.flag.use_metric_units ^ flip_alt)
             {
-                // Display altitude in xxxx m format, allow 3 leading blank digits
-                if (sAlt.altitude >= 0)
-                {
-                    str = int_to_array(sAlt.altitude, 4, 3);
-                    display_symbol(LCD_SYMB_ARROW_UP, SEG_ON);
-                    display_symbol(LCD_SYMB_ARROW_DOWN, SEG_OFF);
-                }
-                else
-                {
-                    str = int_to_array(-sAlt.altitude, 4, 3);
-                    display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
-                    display_symbol(LCD_SYMB_ARROW_DOWN, SEG_ON);
-                }
+                alt = convert_m_to_ft(alt);
             }
-            else
-            {
-                // Convert from meters to feet
-                ft = convert_m_to_ft(sAlt.altitude);
-
-                // Limit to 9999ft (3047m)
-                if (ft > 9999)
-                    ft = 9999;
-
-                // Display altitude in xxxx ft format, allow 3 leading blank digits
-                if (ft >= 0)
-                {
-                    str = int_to_array(ft, 4, 3);
-                    display_symbol(LCD_SYMB_ARROW_UP, SEG_ON);
-                    display_symbol(LCD_SYMB_ARROW_DOWN, SEG_OFF);
-                }
-                else
-                {
-                    str = int_to_array(-ft, 4, 3);
-                    display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
-                    display_symbol(LCD_SYMB_ARROW_DOWN, SEG_ON);
-                }
-            }
-            display_chars(LCD_SEG_L1_3_0, str, SEG_ON);
+		// Display altitude in xxxx m format, allow 3 leading blank digits
+		alt = norm_arrow(alt);
+            display_chars(LCD_SEG_L1_3_0, int_to_array(alt, 4, 3), SEG_ON);
         }
     }
     else if (update == DISPLAY_LINE_CLEAR)

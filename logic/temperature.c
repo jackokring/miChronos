@@ -257,6 +257,17 @@ void mx_temperature()
     button.all_flags = 0;
 }
 
+s16 norm_arrow(s16 value) {
+	if(value < 0) {
+		display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
+        	display_symbol(LCD_SYMB_ARROW_DOWN, SEG_ON);
+		return -value;
+	}
+	display_symbol(LCD_SYMB_ARROW_UP, SEG_ON);
+        display_symbol(LCD_SYMB_ARROW_DOWN, SEG_OFF);
+	return value;
+}
+
 // *************************************************************************************************
 // @fn          display_temperature
 // @brief       Common display routine for metric and English units.
@@ -302,20 +313,7 @@ void display_temperature(u8 update)
         }
 
         // Indicate temperature sign through arrow up/down icon
-        if (temperature < 0)
-        {
-            // Convert negative to positive number
-            temperature = ~temperature;
-            temperature += 1;
-
-            display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
-            display_symbol(LCD_SYMB_ARROW_DOWN, SEG_ON);
-        }
-        else                    // Temperature is >= 0
-        {
-            display_symbol(LCD_SYMB_ARROW_UP, SEG_ON);
-            display_symbol(LCD_SYMB_ARROW_DOWN, SEG_OFF);
-        }
+	temperature = norm_arrow(temperature);
 
         // Limit min/max temperature to +/- 99.9 �C / �F
         if (temperature > 999)

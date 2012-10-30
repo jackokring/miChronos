@@ -47,6 +47,7 @@
 extern void reset_temp_measurement(void);
 extern u8 is_temp_measurement(void);
 extern void temperature_measurement(u8 filter);
+extern s16 norm_arrow(s16 value);
 
 // menu functions
 extern void mx_temperature();

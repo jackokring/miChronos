@@ -52,6 +52,7 @@
 #include "clock.h"
 #include "user.h"
 #include "stopwatch.h"
+#include "temperature.h"
 
 // *************************************************************************************************
 // Prototypes section
@@ -231,18 +232,7 @@ void set_value(s32 * value, u8 digits, u8 blanks, s32 limitLow, s32 limitHigh, u
             // Display up or down arrow according to sign of value
             if ((mode & SETVALUE_DISPLAY_ARROWS) == SETVALUE_DISPLAY_ARROWS)
             {
-                if (*value >= 0)
-                {
-                    display_symbol(LCD_SYMB_ARROW_UP, SEG_ON);
-                    display_symbol(LCD_SYMB_ARROW_DOWN, SEG_OFF);
-                    val = *value;
-                }
-                else
-                {
-                    display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
-                    display_symbol(LCD_SYMB_ARROW_DOWN, SEG_ON);
-                    val = -(*value);
-                }
+		val = norm_arrow(*value);
             }
             else
             {
