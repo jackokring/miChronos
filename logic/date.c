@@ -151,6 +151,8 @@ void mx_date()
     s16 max_days;
     u8 *str;
     u8 *str1;
+	u8 loc;
+	u8 loc1;
 
     // Clear display
     clear_display_all();
@@ -164,25 +166,23 @@ void mx_date()
     select = 0;
 
     // Init display
-    // LINE1: DD.MM (metric units) or MM.DD (English units)
+    // LINE1: DD.MM (metric units) or MM.DD (English units) - this is wrong! SI UNITS and UK date DD.MM
     // LINE2: YYYY (will be drawn by set_value)
+	str = int_to_array(day, 2, 0);
+        str1 = int_to_array(month, 2, 0);
 
     if (sys.flag.use_metric_units)
     {
-        str = int_to_array(day, 2, 0);
-        display_chars(LCD_SEG_L1_3_2, str, SEG_ON);
-
-        str1 = int_to_array(month, 2, 0);
-        display_chars(LCD_SEG_L1_1_0, str1, SEG_ON);
+	loc = LCD_SEG_L1_3_2;
+	loc1 = LCD_SEG_L1_1_0;
     }
     else                        // English units
     {
-        str = int_to_array(day, 2, 0);
-        display_chars(LCD_SEG_L1_1_0, str, SEG_ON);
-
-        str1 = int_to_array(month, 2, 0);
-        display_chars(LCD_SEG_L1_3_2, str1, SEG_ON);
+	loc = LCD_SEG_L1_1_0;
+	loc1 = LCD_SEG_L1_3_2;
     }
+	display_chars(loc, str, SEG_ON);
+	display_chars(loc1, str1, SEG_ON);
     display_symbol(LCD_SEG_L1_DP1, SEG_ON);
 
     // Loop values until all are set or user breaks set
@@ -207,39 +207,21 @@ void mx_date()
         switch (select)
         {
             case 0:            // Set year
-                set_value(&year, 4, 0, 2012, 2112, SETVALUE_DISPLAY_VALUE + SETVALUE_NEXT_VALUE,
+                set_value(&year, 4, 0, 2012, 9999, SETVALUE_DISPLAY_VALUE + SETVALUE_NEXT_VALUE  + SETVALUE_FAST_MODE,
                           LCD_SEG_L2_3_0,
                           display_value);
                 select = 1;
                 break;
             case 1:            // Set month
-                if (sys.flag.use_metric_units)
-                {
                     set_value(
                         &month, 2, 0, 1, 12, SETVALUE_ROLLOVER_VALUE + SETVALUE_DISPLAY_VALUE +
-                        SETVALUE_NEXT_VALUE, LCD_SEG_L1_1_0, display_value);
-                }
-                else           // English units
-                {
-                    set_value(
-                        &month, 2, 0, 1, 12, SETVALUE_ROLLOVER_VALUE + SETVALUE_DISPLAY_VALUE +
-                        SETVALUE_NEXT_VALUE, LCD_SEG_L1_3_2, display_value);
-                }
+                        SETVALUE_NEXT_VALUE, loc1, display_value);
                 select = 2;
                 break;
             case 2:            // Set day in (American non SI units :) )
-                if (sys.flag.use_metric_units)
-                {
                     set_value(
                         &day, 2, 0, 1, max_days, SETVALUE_ROLLOVER_VALUE + SETVALUE_DISPLAY_VALUE +
-                        SETVALUE_NEXT_VALUE, LCD_SEG_L1_3_2, display_value);
-                }
-                else           // English units
-                {
-                    set_value(
-                        &day, 2, 0, 1, max_days, SETVALUE_ROLLOVER_VALUE + SETVALUE_DISPLAY_VALUE +
-                        SETVALUE_NEXT_VALUE, LCD_SEG_L1_1_0, display_value);
-                }
+                        SETVALUE_NEXT_VALUE, loc, display_value);
                 select = 0;
                 break;
         }
@@ -271,12 +253,14 @@ void sx_date()
 
 const u8 dow_offset[] = {	0, 3, 3, 6,
 					1, 4, 6, 2,
-					5, 0, 3, 5,
-					0, 0, 0, 0 };
+					5, 0, 3, 5 };
 
 /* compute number of leap years since BASE_YEAR */
 #define BASE_YEAR 1984 /* not a leap year, so no need to add 1 */
-#define LEAPS_SINCE_YEAR(Y) ( ((Y) - BASE_YEAR) + (((Y) - BASE_YEAR) >> 2) - (((Y) - 1900)/100) + (((Y) - 1600)/400) )
+u16 leaps_count(u16 year) {
+	return (((year) - BASE_YEAR) >> 2) - (((year) - 1900)/100) + (((year) - 1600)/400);
+}
+#define LEAPS_SINCE_YEAR(Y) ( ((Y) - BASE_YEAR) + leaps_count(Y) )
 
 /* days of week */
 u8 day_names[][3] = { "SU ", "MO ", "TU ", "WE ", "TH ", "FR ", "SA " };
@@ -305,6 +289,32 @@ u8 * get_day() {
 	return day_names[dow];//power save if no buttons
 }
 
+const u16 days_offset[] = {	0, 31, 59, 90,
+					120, 151, 181, 212,
+					243, 273, 304, 334 };
+
+u32 get_cycle() { //cycle since a new moon
+
+	u32 days = leaps_count(sDate.year);//from 1984!
+	u32 cycles;
+
+	if ((29 == get_numberOfDays(2, sDate.year)) && (sDate.month < 3))
+		days--; /* if this is a leap year but before February 29 */
+	days -= leaps_count(1999);//for new moon in 1999.
+
+	/* add day of current month */
+	days += sDate.day;
+
+	/* add this month's value */
+	days += days_offset[sDate.month - 1];
+
+	days += (u32)(365.0F * (float)(sDate.year - 1999) - 223);//Aug 11th (1999) = 223
+	cycles = (u32)((float)days * 3.38631918246e-2F);//number of whole cycles
+	days = (u32)((float)days - (float)cycles * 29.530589F);//remainder days... 0 to 29
+
+	return days + 1;
+}
+
 // *************************************************************************************************
 // @fn          display_date
 // @brief       Display date in DD.MM format (metric units) or MM.DD (English units).
@@ -315,25 +325,21 @@ u8 * get_day() {
 // *************************************************************************************************
 void display_date(u8 update)
 {
-    u8 *str;
 
     if (update == DISPLAY_LINE_UPDATE_FULL)
     {
         if (sDate.display == DISPLAY_DEFAULT_VIEW)
         {
             // Convert day of week to string
-            str = get_day();
-            display_chars(LCD_SEG_L2_4_2, str, SEG_ON);
+            display_chars(LCD_SEG_L2_4_2, get_day(), SEG_ON);
 
             // Convert day to string
-            str = int_to_array(sDate.day, 2, 0);
-            display_chars(LCD_SEG_L2_1_0, str, SEG_ON);
+            display_chars(LCD_SEG_L2_1_0, int_to_array(sDate.day, 2, 0), SEG_ON);
         }
         else
         {
-            // Convert year to string
-            str = int_to_array(sDate.year, 4, 0);
-            display_chars(LCD_SEG_L2_3_0, str, SEG_ON);
+            // Convert moon day to string
+            display_chars(LCD_SEG_L2_1_0, int_to_array(get_cycle(), 2, 0), SEG_ON);
         }
     }
     else if (update == DISPLAY_LINE_CLEAR)
