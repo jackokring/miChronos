@@ -149,8 +149,6 @@ void mx_date()
     s32 month;
     s32 year;
     s16 max_days;
-    u8 *str;
-    u8 *str1;
 	u8 loc;
 	u8 loc1;
 
@@ -168,8 +166,6 @@ void mx_date()
     // Init display
     // LINE1: DD.MM (metric units) or MM.DD (English units) - this is wrong! SI UNITS and UK date DD.MM
     // LINE2: YYYY (will be drawn by set_value)
-	str = int_to_array(day, 2, 0);
-        str1 = int_to_array(month, 2, 0);
 
     if (sys.flag.use_metric_units)
     {
@@ -181,8 +177,8 @@ void mx_date()
 	loc = LCD_SEG_L1_1_0;
 	loc1 = LCD_SEG_L1_3_2;
     }
-	display_chars(loc, str, SEG_ON);
-	display_chars(loc1, str1, SEG_ON);
+	display_chars(loc, int_to_array(day, 2, 0), SEG_ON);
+	display_chars(loc1, int_to_array(month, 2, 0), SEG_ON);
     display_symbol(LCD_SEG_L1_DP1, SEG_ON);
 
     // Loop values until all are set or user breaks set
@@ -300,7 +296,7 @@ u32 get_cycle() { //cycle since a new moon
 
 	if ((29 == get_numberOfDays(2, sDate.year)) && (sDate.month < 3))
 		days--; /* if this is a leap year but before February 29 */
-	days -= leaps_count(1999);//for new moon in 1999.
+	days -= leaps_count(2012);//for new moon in 1999.
 
 	/* add day of current month */
 	days += sDate.day;
@@ -308,7 +304,7 @@ u32 get_cycle() { //cycle since a new moon
 	/* add this month's value */
 	days += days_offset[sDate.month - 1];
 
-	days += (u32)(365.0F * (float)(sDate.year - 1999) - 223);//Aug 11th (1999) = 223
+	days += (u32)(365.0F * (float)(sDate.year - 2012) - 295);//Oct 22th (2012) = 295
 	cycles = (u32)((float)days * 3.38631918246e-2F);//number of whole cycles
 	days = (u32)((float)days - (float)cycles * 29.530589F);//remainder days... 0 to 29
 

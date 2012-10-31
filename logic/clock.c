@@ -343,6 +343,7 @@ void display_time(u8 update)
 	s32 sideint;
 
     // Partial update
+	display_symbol(LCD_ICON_RECORD, SEG_OFF);
     if (update == DISPLAY_LINE_UPDATE_PARTIAL)
     {
         if (sTime.drawFlag != 0)
@@ -415,7 +416,6 @@ void display_time(u8 update)
         sTime.line1ViewStyle = DISPLAY_DEFAULT_VIEW;
         // Clean up AM/PM icon
         display_symbol(LCD_SYMB_AM, SEG_OFF);
-	display_symbol(LCD_ICON_RECORD, SEG_OFF);
     }
 }
 

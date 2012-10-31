@@ -47,14 +47,14 @@ extern unsigned leaps_count() is called from 3 sites in this file.
 	<NONE>
 
 extern void mx_date() is called from 0 sites in this file.
-    It appears to be inlineable (size = 145 units)
+    It appears to be inlineable (size = 143 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	get_numberOfDays() (1 times)
 	set_value() (3 times)
 	display_symbol() (1 times)
-	display_chars() (2 times)
 	int_to_array() (2 times)
+	display_chars() (2 times)
 	clear_display_all() (1 times)
 
 extern void reset_date() is called from 0 sites in this file.
@@ -112,7 +112,7 @@ extern unsigned char get_numberOfDays() is called from 4 sites in this file.
 ==============================================================================
 
 extern void mx_date() is called from 0 sites in this file.
-    It appears to be inlineable (size = 145 units)
+    It appears to be inlineable (size = 143 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	get_numberOfDays() (1 times)
