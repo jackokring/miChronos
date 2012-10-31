@@ -17,15 +17,16 @@ extern int convert_m_to_ft() is called from 2 sites in this file.
 	<NONE>
 
 extern void display_altitude() is called from 2 sites in this file.
-    It appears to be inlineable (size = 153 units)
+    It appears to be inlineable (size = 89 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	display_altitude() (1 times)
 	start_altitude_measurement() (1 times)
+	int_to_array() (1 times)
 	display_chars() (1 times)
-	int_to_array() (4 times)
+	norm_arrow() (1 times)
 	convert_m_to_ft() (1 times)
-	display_symbol() (14 times)
+	display_symbol() (6 times)
 	stop_altitude_measurement() (1 times)
 
 extern void do_altitude_measurement() is called from 1 sites in this file.
@@ -102,8 +103,9 @@ These external functions are called but not defined here:
 	ps_get_pa()
 	conv_pa_to_meter()
 	display_symbol()
-	int_to_array()
+	norm_arrow()
 	display_chars()
+	int_to_array()
 
 
 		======= End file-level Analysis =======
@@ -143,7 +145,7 @@ extern void start_altitude_measurement() is called from 2 sites in this file.
 ==============================================================================
 
 extern void display_altitude() is called from 2 sites in this file.
-    It appears to be inlineable (size = 153 units)
+    It appears to be inlineable (size = 89 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	stop_altitude_measurement() (1 times)

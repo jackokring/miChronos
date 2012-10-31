@@ -254,7 +254,7 @@ void mx_time()
 
             // Store local variables in global clock time
             shour = sTime.hour = hours;
-            sminutes = sTime.minute = minutes;
+            sminute = sTime.minute = minutes;
             sday = sTime.second = 0;
 
 		//sidereal basis^^^
@@ -404,7 +404,7 @@ void display_time(u8 update)
 		display_chars(LCD_SEG_L1_1_0, int_to_array(sideint % 60, 2, 0), SEG_ON);
 		sideint /= 60;//sidereal hours
 		display_chars(LCD_SEG_L1_3_2, int_to_array(sideint % 24, 2, 0), SEG_ON);
-		if(sday < 0 || sday > 180) display_chars(LCD_SEG_L1_3_0, (u8 *) "SYNC", SEG_ON);//out of range
+		if(sday > 180) display_chars(LCD_SEG_L1_3_0, (u8 *) "SYNC", SEG_ON);//out of range
         }
 	display_symbol(LCD_SEG_L1_COL, SEG_ON_BLINK_ON);
     }

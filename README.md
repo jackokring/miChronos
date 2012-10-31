@@ -6,7 +6,7 @@ Edited source of the eZ430-Chronos development kit. Some changes for smaller spa
 
 Sidereal and Moon Day
 ---------------------
-(v4.0) The seconds display has been replaced by a 180 day sidereal clock. This clock is synchronized to 0:00 when the time is set. It is useful for calculation of longitude and will display the same time for the same star rising above the horizon. The regular clock seconds are set to zero when the clock is set (to make an easy synchronize watches). The R icon is displayed when sidereal time is displayed, and SYNC is displayed instead of the sidereal time when the calculation range exceeds 180 days. A moon day number replaces the year display as the date second function. A number around 14 is at the full moon. Much size optimization has been done to bring this feature in a small number of bytes.
+(v4) The seconds display has been replaced by a 180 day sidereal clock. This clock is synchronized to 0:00 when the time is set. It is useful for calculation of longitude and will display the same time for the same star rising above the horizon. The regular clock seconds are set to zero when the clock is set (to make an easy synchronize watches). The R icon is displayed when sidereal time is displayed, and SYNC is displayed instead of the sidereal time when the calculation range exceeds 180 days. A moon day number replaces the year display as the date second function. A number around 14 is at the full moon. Much size optimization has been done to bring this feature in a small number of bytes.
 
 Tune Alarm
 ----------
@@ -43,7 +43,7 @@ Utility Menu
 
 Bytes
 -----
-The bytes left in version 3.2 is 3705. The intent is to make some custom software in these bytes. There are still some further size savings possible, but they would increase power consumption in standby time display, due to an extra function call overhead. As time display is the main use a watch is put, this is somewhat important. Reclaiming some byte space in the setting routines, is however useful, even though this takes a fraction more power, as the setting modes are infrequently used, even though utility is perhaps the focus of this project. Everyone sleeps. I now have to think of some brilliant modes for later versions.
+The bytes left in version v4 is 3465. The intent is to make some custom software in these bytes. There are still some further size savings possible, but they would increase power consumption in standby time display, due to an extra function call overhead. As time display is the main use a watch is put, this is somewhat important. Reclaiming some byte space in the setting routines, is however useful, even though this takes a fraction more power, as the setting modes are infrequently used, even though utility is perhaps the focus of this project. Everyone sleeps. I now have to think of some brilliant modes for later versions.
 
 Energy
 ------

@@ -6,7 +6,7 @@ Build Number 1MF4S-JIK27-UARAR-SAW-ZACIF_U_R_R
 "../logic/clock.c": Warning - Reverting to -op0: file has no entry functions!
 
 extern void clock_tick() is called from 0 sites in this file.
-    It appears to be inlineable (size = 66 units)
+    It appears to be inlineable (size = 75 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	add_day() (1 times)
@@ -23,15 +23,16 @@ extern void display_selection_Timeformat1() is called from 0 sites in this file.
     It calls these functions:
 	display_chars() (1 times)
 
-extern void display_time() is called from 0 sites in this file.
-    It appears to be inlineable (size = 169 units)
+extern void display_time() is called from 1 sites in this file.
+    It appears to be inlineable (size = 208 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	display_am_pm_symbol() (2 times)
-	int_to_array() (8 times)
+	display_time() (1 times)
+	int_to_array() (7 times)
 	display_chars() (8 times)
+	display_am_pm_symbol() (2 times)
 	convert_hour_to_12H_format() (2 times)
-	display_symbol() (4 times)
+	display_symbol() (5 times)
 
 extern unsigned char is_hour_am() is called from 0 sites in this file.
     It appears to be inlineable (size = 10 units)
@@ -40,15 +41,15 @@ extern unsigned char is_hour_am() is called from 0 sites in this file.
 	<NONE>
 
 extern void mx_time() is called from 0 sites in this file.
-    It appears to be inlineable (size = 202 units)
+    It appears to be inlineable (size = 173 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	Timer0_Start() (1 times)
 	Timer0_Stop() (1 times)
-	display_chars() (3 times)
-	int_to_array() (3 times)
-	set_value() (4 times)
-	display_symbol() (5 times)
+	int_to_array() (2 times)
+	display_chars() (2 times)
+	set_value() (3 times)
+	display_symbol() (4 times)
 	clear_display() (1 times)
 	clear_display_all() (1 times)
 
@@ -78,8 +79,8 @@ These external functions are called but not defined here:
 	Timer0_Stop()
 	Timer0_Start()
 	display_symbol()
-	int_to_array()
 	display_am_pm_symbol()
+	int_to_array()
 	display_chars()
 	add_day()
 
@@ -106,7 +107,7 @@ extern void reset_clock() is called from 0 sites in this file.
 ==============================================================================
 
 extern void mx_time() is called from 0 sites in this file.
-    It appears to be inlineable (size = 202 units)
+    It appears to be inlineable (size = 173 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -129,11 +130,12 @@ extern unsigned char convert_hour_to_12H_format() is called from 2 sites in this
 
 ==============================================================================
 
-extern void display_time() is called from 0 sites in this file.
-    It appears to be inlineable (size = 169 units)
+extern void display_time() is called from 1 sites in this file.
+    It appears to be inlineable (size = 208 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	convert_hour_to_12H_format() (2 times)
+	display_time() (1 times)
 
 ==============================================================================
 
@@ -146,7 +148,7 @@ extern void display_selection_Timeformat1() is called from 0 sites in this file.
 ==============================================================================
 
 extern void clock_tick() is called from 0 sites in this file.
-    It appears to be inlineable (size = 66 units)
+    It appears to be inlineable (size = 75 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

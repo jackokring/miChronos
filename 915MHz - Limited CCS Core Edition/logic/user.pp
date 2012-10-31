@@ -17,6 +17,7 @@ logic/user.obj: ../logic/date.h
 logic/user.obj: ../logic/clock.h
 logic/user.obj: ../logic/user.h
 logic/user.obj: ../logic/stopwatch.h
+logic/user.obj: ../logic/temperature.h
 
 ../logic/user.c: 
 ../logic/project.h: 
@@ -35,3 +36,4 @@ logic/user.obj: ../logic/stopwatch.h
 ../logic/clock.h: 
 ../logic/user.h: 
 ../logic/stopwatch.h: 
+../logic/temperature.h: 

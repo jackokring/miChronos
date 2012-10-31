@@ -16,8 +16,9 @@ extern void set_value() is called from 0 sites in this file.
     It calls these functions:
 	idle_loop() (1 times)
 	 ? () (1 times)
+	norm_arrow() (1 times)
 	button_repeat_off() (1 times)
-	display_symbol() (6 times)
+	display_symbol() (2 times)
 	set_blink_rate() (2 times)
 	button_repeat_on() (1 times)
 	stop_buzzer() (1 times)
@@ -34,6 +35,7 @@ These external functions are called but not defined here:
 	set_blink_rate()
 	display_symbol()
 	button_repeat_off()
+	norm_arrow()
 	 ? ()
 	idle_loop()
 

@@ -18,7 +18,7 @@ extern int convert_F_to_C() is called from 1 sites in this file.
 	<NONE>
 
 extern void display_temperature() is called from 1 sites in this file.
-    It appears to be inlineable (size = 123 units)
+    It appears to be inlineable (size = 102 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	display_temperature() (1 times)
@@ -26,8 +26,9 @@ extern void display_temperature() is called from 1 sites in this file.
 	display_char() (2 times)
 	display_chars() (1 times)
 	int_to_array() (1 times)
+	norm_arrow() (1 times)
 	convert_C_to_F() (1 times)
-	display_symbol() (10 times)
+	display_symbol() (6 times)
 
 extern unsigned char is_temp_measurement() is called from 0 sites in this file.
     It appears to be inlineable (size = 6 units)
@@ -44,6 +45,12 @@ extern void mx_temperature() is called from 0 sites in this file.
 	display_char() (2 times)
 	convert_C_to_F() (1 times)
 	clear_display_all() (1 times)
+
+extern int norm_arrow() is called from 1 sites in this file.
+    It appears to be inlineable (size = 21 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	display_symbol() (4 times)
 
 extern void reset_temp_measurement() is called from 0 sites in this file.
     It appears to be inlineable (size = 6 units)
@@ -66,6 +73,7 @@ extern void temperature_measurement() is called from 2 sites in this file.
 These functions may be recursive:
 	display_temperature()
 	mx_temperature()
+	norm_arrow()
 	reset_temp_measurement()
 	temperature_measurement()
 
@@ -107,6 +115,14 @@ extern void reset_temp_measurement() is called from 0 sites in this file.
 
 ==============================================================================
 
+extern int norm_arrow() is called from 1 sites in this file.
+    It appears to be inlineable (size = 21 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
+==============================================================================
+
 extern int convert_C_to_F() is called from 2 sites in this file.
     It appears to be inlineable (size = 10 units)
     It has 3 non-trivial scope blocks nested 3 deep.
@@ -140,10 +156,11 @@ extern unsigned char is_temp_measurement() is called from 0 sites in this file.
 ==============================================================================
 
 extern void display_temperature() is called from 1 sites in this file.
-    It appears to be inlineable (size = 123 units)
+    It appears to be inlineable (size = 102 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	convert_C_to_F() (1 times)
+	norm_arrow() (1 times)
 	temperature_measurement() (1 times)
 	display_temperature() (1 times)
 <<NULL MIX DOMAIN>>

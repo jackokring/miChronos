@@ -14,6 +14,7 @@ logic/altitude.obj: /home/jacko/ChronosSource/ez430_chronos/include/project.h
 logic/altitude.obj: /home/jacko/ChronosSource/ez430_chronos/driver/vti_ps.h
 logic/altitude.obj: /home/jacko/ChronosSource/ez430_chronos/driver/ports.h
 logic/altitude.obj: /home/jacko/ChronosSource/ez430_chronos/driver/timer.h
+logic/altitude.obj: ../logic/temperature.h
 logic/altitude.obj: ../logic/user.h
 
 ../logic/altitude.c: 
@@ -30,4 +31,5 @@ logic/altitude.obj: ../logic/user.h
 /home/jacko/ChronosSource/ez430_chronos/driver/vti_ps.h: 
 /home/jacko/ChronosSource/ez430_chronos/driver/ports.h: 
 /home/jacko/ChronosSource/ez430_chronos/driver/timer.h: 
+../logic/temperature.h: 
 ../logic/user.h: 

@@ -11,34 +11,49 @@ extern void add_day() is called from 0 sites in this file.
 	get_numberOfDays() (1 times)
 
 extern void display_date() is called from 0 sites in this file.
-    It appears to be inlineable (size = 49 units)
+    It appears to be inlineable (size = 43 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
+	get_cycle() (1 times)
 	int_to_array() (2 times)
-	display_chars() (3 times)
 	get_day() (1 times)
+	display_chars() (3 times)
 
-extern unsigned char *get_day() is called from 1 sites in this file.
-    It appears to be inlineable (size = 76 units)
+extern unsigned long get_cycle() is called from 1 sites in this file.
+    It appears to be inlineable (size = 73 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	get_numberOfDays() (1 times)
+	leaps_count() (2 times)
 
-extern unsigned char get_numberOfDays() is called from 3 sites in this file.
+extern unsigned char *get_day() is called from 1 sites in this file.
+    It appears to be inlineable (size = 57 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	get_numberOfDays() (1 times)
+	leaps_count() (1 times)
+
+extern unsigned char get_numberOfDays() is called from 4 sites in this file.
     It appears to be inlineable (size = 23 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
 
+extern unsigned leaps_count() is called from 3 sites in this file.
+    It appears to be inlineable (size = 17 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	<NONE>
+
 extern void mx_date() is called from 0 sites in this file.
-    It appears to be inlineable (size = 197 units)
+    It appears to be inlineable (size = 145 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	get_numberOfDays() (1 times)
-	set_value() (5 times)
+	set_value() (3 times)
 	display_symbol() (1 times)
-	display_chars() (4 times)
-	int_to_array() (4 times)
+	display_chars() (2 times)
+	int_to_array() (2 times)
 	clear_display_all() (1 times)
 
 extern void reset_date() is called from 0 sites in this file.
@@ -87,7 +102,7 @@ extern void reset_date() is called from 0 sites in this file.
 
 ==============================================================================
 
-extern unsigned char get_numberOfDays() is called from 3 sites in this file.
+extern unsigned char get_numberOfDays() is called from 4 sites in this file.
     It appears to be inlineable (size = 23 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -96,26 +111,45 @@ extern unsigned char get_numberOfDays() is called from 3 sites in this file.
 ==============================================================================
 
 extern void mx_date() is called from 0 sites in this file.
-    It appears to be inlineable (size = 197 units)
+    It appears to be inlineable (size = 145 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	get_numberOfDays() (1 times)
 
 ==============================================================================
 
-extern unsigned char *get_day() is called from 1 sites in this file.
-    It appears to be inlineable (size = 76 units)
+extern unsigned leaps_count() is called from 3 sites in this file.
+    It appears to be inlineable (size = 17 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
+	<NONE>
+
+==============================================================================
+
+extern unsigned char *get_day() is called from 1 sites in this file.
+    It appears to be inlineable (size = 57 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	leaps_count() (1 times)
+	get_numberOfDays() (1 times)
+
+==============================================================================
+
+extern unsigned long get_cycle() is called from 1 sites in this file.
+    It appears to be inlineable (size = 73 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	leaps_count() (2 times)
 	get_numberOfDays() (1 times)
 
 ==============================================================================
 
 extern void display_date() is called from 0 sites in this file.
-    It appears to be inlineable (size = 49 units)
+    It appears to be inlineable (size = 43 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	get_day() (1 times)
+	get_cycle() (1 times)
 
 ==============================================================================
 
