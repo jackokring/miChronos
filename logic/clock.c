@@ -400,7 +400,7 @@ void display_time(u8 update)
         {
             // Display sidereal
 		display_symbol(LCD_ICON_RECORD, SEG_ON);
-		sidereal = (sTime.second + 60.0F * ((sTime.minute - sminute) + 60.0F * ((sTime.hour - shour) + 24.0F * sday))) * 0.99726956633F;
+		sidereal = (sTime.second + 60.0F * ((sTime.minute - sminute) + 60.0F * ((sTime.hour - shour) + 24.0F * sday))) * 1.0027378956F;
 		sideint = (s32)sidereal / 60;//sidereal minutes
 		display_chars(LCD_SEG_L1_1_0, int_to_array(sideint % 60, 2, 0), SEG_ON);
 		sideint /= 60;//sidereal hours
