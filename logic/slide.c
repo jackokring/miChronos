@@ -117,8 +117,8 @@ float atanh(float x, s8 i2) {
 	x = i2 < 0 ? -x : x;
 	u8 i;
 	for(i = 3;i < 32;i+=2) {
-			mul = mul * x;
-            acc += mul * inv(i);
+		mul *= x;
+		acc += mul * inv(i);
         }
 	return acc;
 }
@@ -129,11 +129,42 @@ float log(float x) { //base e
 }
 
 float atan(float x) {
-	return atanh(bend(bend(x)), -1) * 4.0F;
+	return atanh(half(half(x)), -1) * 4.0F;
 }
 
-float rel(float x) {
+float circ(float x) {
 	return sqrt(1.0F-square(x));
+}
+
+float eq(float x, s8 i2) { //base e exponential and Q
+	float acc = 0;
+	float mul = x;
+	float fact = 1;
+	float harm = 1;
+	i8 i;
+	for(i = 2;i < 16;i++) {
+		acc += mul * fact * (i2 == 0 ? 1.0F : harm);
+		harm = inv((float)i);
+		fact = fact * harm;
+		mul *= x;
+        }
+	return acc;
+}
+
+float exp(float x) {
+	return eq(x, 0) + 1.0F;
+}
+
+float qfn(float x) {
+	return eq(x, -1);
+}
+
+float invw(float x) {
+	return x * exp(x);
+}
+
+float ein(float x) {
+	return qfn(x) + log(x);
 }
 
 //main modulle functions
@@ -142,16 +173,16 @@ const u8 named_calc[][4] = { 	"AREA", "OVRT", "OVER", "ROOT",
 								"CIRC", "HALF", "LOGS", "ATAN" };
 
 const float pre_scale[] = { 		0.0001F, 1.0F, 1.0F, 1.0F,
-								0.0001F, 0.0001F, 1.0F, 0.0001F};
+								1.0F, 0.0001F, 0.0001F, 0.0001F };
 
 const float scale[] = { 			10000.0F, 10000.0F, 10000.0F, 100.0F,
-								10000.0F, 10000.0F, 1.08573620476e+3F, 12732.3954474F };
+								1.08573620476e+3F, 10000.0F, 12732.3954474F, 10000.0F };
 
 u8 fn_calc = 6;
 s32 in_calc = 5000;
 s32 out_calc = 0;
 
-float (* const slide_fn[])(float x) = { square, irt, inv, sqrt, rel, bend, log, atan };
+float (* const slide_fn[])(float x) = { square, irt, inv, sqrt, log, half, atan, circ };
 
 void calc_slide() {
 	float out = (float)in_calc;

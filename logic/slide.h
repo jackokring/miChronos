@@ -47,13 +47,23 @@ extern void mx_slide();
 extern void display_slide(u8 update);
 
 //fixed point calculation functions exported
+
+//root basis functions
 extern float square(float x);
 extern float irt(float x);
 extern float inv(float x);
 extern float sqrt(float x);
-extern float rel(float x);
-extern float bend(float x);
+
+//logarithm group of functions
 extern float log(float x);
+extern float half(float x);
 extern float atan(float x);
+extern float circ(float x);
+
+//exponential group of functions
+extern float exp(float x);//exponential function
+extern float qfn(float x);//my q function
+extern float invw(float x);//inverse lambert W function
+extern float ein(float x);//the natural origin Ei function
 
 #endif                          /*SLIDE_H_ */
