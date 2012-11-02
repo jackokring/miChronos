@@ -1,12 +1,13 @@
 miChronos
 =========
 Edited source of the eZ430-Chronos development kit. Some changes for smaller space and less power, and a calculation slide rule application. Designed with the 16KB limit of the free CCS from Texas Instruments in mind. Things to note:
+
   * It is impossible to remove the drivers library, as this contains 4 symbols to use the radio (appears so).
   * It is impossible to lose the float support, as the function update-pressure-table remains linked (appears so).
 
 Sidereal and Moon Day
 ---------------------
-(v4) The seconds display has been replaced by a 180 day sidereal clock. This clock is synchronized to 0:00 when the time is set. It is useful for calculation of longitude and will display the same time for the same star rising above the horizon. The regular clock seconds are set to zero when the clock is set (to make an easy synchronize watches). The R icon is displayed when sidereal time is displayed, and SYNC is displayed instead of the sidereal time when the calculation range exceeds 180 days. A moon day number replaces the year display as the date second function. A number around 14 is at the full moon. Much size optimization has been done to bring this feature in a small number of bytes.
+(v4) The seconds display has been replaced by a 180 day sidereal clock. This clock is synchronised to 0:00 when the time is set. It is useful for calculation of longitude and will display the same time for the same star rising above the horizon. The regular clock seconds are set to zero when the clock is set (to make an easy synchronise watches). The R icon is displayed when sidereal time is displayed, and SYNC is displayed instead of the sidereal time when the calculation range exceeds 180 days. A moon day number replaces the year display as the date second function. A number around 14 is at the full moon. Much size optimisation has been done to bring this feature in a small number of bytes.
 
 Tune Alarm
 ----------
@@ -14,7 +15,7 @@ Tune Alarm
 
 Day of Week
 -----------
-(v3.1) This simply displays the day of the week and day number in month where the date is in the default source. The calculation is accurate and will not fail in 400 years time, when your antique watch is a family hierloom. This is a bit tougne in cheek, but the millenium bug is past history. I built in this feature as I find it more useful to know the day of the week than the month I'm on. The day names are shown as the first two letters of the english day, but due to the limited display (power efficient though), do not always display well. The actual display font is part of the library, and it can't be changed in the limited edition of CCS.
+(v3.1) This simply displays the day of the week and day number in month where the date is in the default source. The calculation is accurate and will not fail in 400 years time, when your antique watch is a family heirloom. This is a bit tougne in cheek, but the millennium bug is past history. I built in this feature as I find it more useful to know the day of the week than the month I'm on. The day names are shown as the first two letters of the English day, but due to the limited display (power efficient though), do not always display well. The actual display font is part of the library, and it can't be changed in the limited edition of CCS.
 
 Slide Rule
 ----------
@@ -24,7 +25,7 @@ The slide rule is placed just after the date on the bottom line. Pressing DOWN s
 The functions are scaled for effect. Calculation of inverse functions is somewhat involved repeated use and estimation. The functions are listed below, and should be with knowledge enough to go a long way in maths. The understanding of why this function set was provided is in itself a long lesson in maths. There are four groups of functions.
 
   * ROOT - root and related functions
-  * LOGS - log and arc tanget and related functions
+  * LOGS - log and arc tangent and related functions
   * EXPS - exponential and related functions
   * XTRA - prime estimate, times, divide and harmonic parallel (think electronics)
 
@@ -41,9 +42,9 @@ The functions are scaled for effect. Calculation of inverse functions is somewha
   * EX - exponential of x to base 10000
   * CU - q function (scaled form 4 decimals to 3 decimals) 
   * ED - x times exponential x (scaled as CU)
-  * EI - exponetial integral at the natural origin (scaled as CU)
+  * EI - exponential integral at the natural origin (scaled as CU)
 
-  * LI - logorithmic integral (scaled to give primes less than estimate)
+  * LI - logarithmic integral (scaled to give primes less than estimate)
   * TI - 2 digits times 2 digits
   * DI - 2 digits over 2 digits (scaled for 2 decimals)
   * HC - 2 digits and 2 digits in parallel (or harmonic) (scaled for 2 decimals)
