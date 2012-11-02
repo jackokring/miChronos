@@ -194,21 +194,25 @@ float harm(float x) {
 }
 
 //main module functions
+const u8 named_calc[][4] = { 	"ROOT", "LOGS", "EXPS", "XTRA" };
 
-const u8 named_calc[][4] = { 	"AREA", "OVRT", "OVER", "ROOT",
-								"CIRC", "HALF", "LOGS", "ATAN" };
 
-const float pre_scale[] = { 		0.0001F, 1.0F, 1.0F, 1.0F,
-								1.0F, 0.0001F, 0.0001F, 0.0001F };
+const u8 named_calc2[][2] = { 	"AR", "IR", "IN", "RT", "LG", "HF", "AT", "CC",
+					"EX", "CU", "ED", "EI", "LI", "TI", "DI", "HC" };
 
-const float scale[] = { 			10000.0F, 10000.0F, 10000.0F, 100.0F,
-								1.08573620476e+3F, 10000.0F, 12732.3954474F, 10000.0F };
+const float pre_scale[] = { 	0.0001F, 1.0F, 1.0F, 1.0F,	1.0F, 0.0001F, 0.0001F, 0.0001F,
+					9.21034037196e-4,,,, 1.0F, 1.0F, 1.0F, 1.0F };
 
-u8 fn_calc = 6;
+const float scale[] = { 	10000.0F, 10000.0F, 10000.0F, 100.0F, 1.08573620476e+3F, 10000.0F, 12732.3954474F, 10000.0F,
+					1.0F,,,, 1.0F, 1.0F, 100.0F, 100.0F };
+
+u8 fn_calc;
+u8 fn_calc2;
 s32 in_calc = 5000;
 s32 out_calc = 0;
 
-float (* const slide_fn[])(float x) = { square, irt, inv, sqrt, log, half, atan, circ };
+float (* const slide_fn[])(float x) = { 	square, irt, inv, sqrt, log, half, atan, circ,
+						exp, qfn, invw, ein, lin, mul, div, harm };
 
 void calc_slide() {
 	float out = (float)in_calc;
@@ -220,8 +224,17 @@ void calc_slide() {
 	if(out_calc > 9999) out_calc = 9999;
 }
 
-void mx_slide()
+void display_fn_choice() {
+	fn_calc = fn_calc2 << 2;
+	display_chars(LCD_SEG_L1_3_2, (u8 *)named_calc2[fn_calc], SEG_ON);
+	display_chars(LCD_SEG_L1_1_0, (u8 *)named_calc2[fn_calc + 1], SEG_ON);
+	display_chars(LCD_SEG_L2_3_2, (u8 *)named_calc2[fn_calc + 2], SEG_ON);
+	display_chars(LCD_SEG_L2_1_0, (u8 *)named_calc2[fn_calc + 3], SEG_ON);
+}
+
+void mx_slide2()
 {
+	if(fn_calc == 255) return;//exit code
     clear_display_all();
     display_slide(0);//fill in
     // Loop values until all are set or user breaks set
@@ -251,13 +264,63 @@ void mx_slide()
     button.all_flags = 0;
 }
 
+// *************************************************************************************************
+// Extern section
+extern void idle_loop(void);
+
+void mx_slide()
+{
+    clear_display_all();
+	display_fn_choice();
+    // Loop values until all are set or user breaks set
+    while (1)
+    {
+        // Idle timeout: exit
+        if (sys.flag.idle_timeout)
+        {	
+		fn_calc = 255;//exit code
+            break;
+        }
+
+        // Button STAR (short)
+        if (button.flag.star)
+        {
+            break;
+        }
+
+        if (button.flag.num)
+        {
+		fn_calc += 2;
+            break;
+        }
+
+        if (button.flag.up)
+        {
+		fn_calc += 1;
+            break;
+        }
+	if (button.flag.down)
+        {
+		fn_calc += 3;
+            break;
+        }
+
+	idle_loop();//idle
+        
+    }
+
+    // Clear button flags
+    button.all_flags = 0;
+	mx_slide2();
+}
+
 void sx_slide()
 {
-    fn_calc = (++fn_calc)&7;//fixed
+    fn_calc2 = (++fn_calc2)&3;//fixed
     display_slide(0);
 }
 
 void display_slide(u8 update)
 {
-	display_chars(LCD_SEG_L2_3_0, (u8 *)named_calc[fn_calc], SEG_ON);
+	display_chars(LCD_SEG_L2_3_0, (u8 *)named_calc[fn_calc2], SEG_ON);
 }
