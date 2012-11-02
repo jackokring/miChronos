@@ -140,16 +140,14 @@ float eq(float x, s8 i2) { //base e exponential and Q
 	float acc = 0;
 	float lacc;
 	float mul = x;
-	float fact = 1;
 	float harm = 1;
 	i8 i = 2;
 	do {
 		lacc = acc;
-		acc += mul * fact * (i2 == 0 ? 1.0F : harm);
+		acc += mul * (i2 == 0 ? 1.0F : harm);
 		harm = inv((float)i);
 		i++;
-		fact = fact * harm;
-		mul *= x;
+		mul *= harm * x;
         } while(lacc != acc);
 	return acc;
 }
