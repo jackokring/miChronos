@@ -618,12 +618,10 @@ void display_update(void)
         else if (message.flag.type_lobatt)
             memcpy(string, "LOBATT", 6);
         else if (message.flag.type_alarm_on)
-        {
             memcpy(string, "    ON", 6);
-        } else if (message.flag.type_alarm_off)
-        {
+        else if (message.flag.type_alarm_off)
             memcpy(string, "   OFF", 6);
-        }
+
         // Clear previous content
         clear_line(LINE2);
         fptr_lcd_function_line2m(DISPLAY_LINE_CLEAR);
@@ -700,16 +698,10 @@ void idle_loop(void)
 // *************************************************************************************************
 void read_calibration_values(void)
 {
-    u8 cal_data[CALIBRATION_DATA_LENGTH]; // Temporary storage for constants
-    u8 i;
-    u8 *flash_mem;                        // Memory pointer
+    u8 *cal_data; // Temporary storage for constants?
 
     // Read calibration data from Info D memory
-    flash_mem = (u8 *) 0x1800;
-    for (i = 0; i < CALIBRATION_DATA_LENGTH; i++)
-    {
-        cal_data[i] = *flash_mem++;
-    }
+    cal_data = (u8 *) 0x1800;
 
     if (cal_data[0] == 0xFF)
     {

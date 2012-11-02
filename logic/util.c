@@ -67,7 +67,7 @@ void display_util(u8 update)
 	util_dispfn[fn_util](update);
 }
 
-u8 (* const util_upfn[])() = { update_battery_voltage, update_time, update_time, update_time, update_date };
+u8 (* const util_upfn[])() = { update_battery_voltage, update_date, update_date, update_date, update_date };
 
 u8 update_util()
 {
