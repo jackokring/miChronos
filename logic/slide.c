@@ -106,7 +106,7 @@ float sqrt(float x) {
 	return x * irt(x);
 }
 
-float bend(float x) {		/* x/(1+sqrt(1+x*x)) */
+float half(float x) {		/* x/(1+sqrt(1+x*x)) */
 	return x * inv(1.0F+sqrt(1.0F+square(x)));
 }
 
@@ -167,7 +167,32 @@ float ein(float x) {
 	return qfn(x) + log(x);
 }
 
-//main modulle functions
+float lin(float x) {
+	return ein(log(x));
+}
+
+float split_mod;
+
+float split_num(float x) {
+	s32 i = (s32)x;
+	split_mod = (float)(x % 100);
+	return (float)(x / 100);
+}
+
+float mul(float x) {
+	return split_num(x) * split_mod;
+}
+
+float div(float x) {
+	return split_num(x) * inv(split_mod);
+}
+
+float harm(float x) {
+	float t = split_num(x);
+	return t * split_mod * inv(t + split_mod);
+}
+
+//main module functions
 
 const u8 named_calc[][4] = { 	"AREA", "OVRT", "OVER", "ROOT",
 								"CIRC", "HALF", "LOGS", "ATAN" };

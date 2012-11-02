@@ -66,4 +66,10 @@ extern float qfn(float x);//my q function
 extern float invw(float x);//inverse lambert W function
 extern float ein(float x);//the natural origin Ei function
 
+//other group of functions
+extern float lin(float x);//the natural origin Li function (primes less than estimate)
+extern float mul(float x);//mul digit pairs
+extern float div(float x);//div digit pairs
+extern float harm(float x);//parallel digit pairs
+
 #endif                          /*SLIDE_H_ */
