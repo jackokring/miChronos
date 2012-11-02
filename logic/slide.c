@@ -59,19 +59,6 @@ void sx_slide();
 // *************************************************************************************************
 // Defines section
 
-/* Functions available, scaled if necessary, and to 4 digits.
-
-IR - Inverse Root 	1/sqrt(x)
-SQ - Square			x*x
-IV - Inverse 		1/x
-RT - Root 		sqrt(x)
-RL - Relativity	sqrt(1-x*x)
-BD - Bend 		x/(1+sqrt(1+x*x))
-LG - Log		log(x)		scaled to provide maximum at 100
-AT - Arc Tangent	atan(x)		scaled to provide maximum for 45 degrees
-
-*/
-
 float square(float x) {
 	return x * x;
 }
@@ -201,10 +188,10 @@ const u8 named_calc2[][2] = { 	"AR", "IR", "IN", "RT", "LG", "HF", "AT", "CC",
 					"EX", "CU", "ED", "EI", "LI", "TI", "DI", "HC" };
 
 const float pre_scale[] = { 	0.0001F, 1.0F, 1.0F, 1.0F,	1.0F, 0.0001F, 0.0001F, 0.0001F,
-					9.21034037196e-4,,,, 1.0F, 1.0F, 1.0F, 1.0F };
+					9.21034037196e-4, 0.0001F, 0.0001F, 0.0001F, 1.0F, 1.0F, 1.0F, 1.0F };
 
 const float scale[] = { 	10000.0F, 10000.0F, 10000.0F, 100.0F, 1.08573620476e+3F, 10000.0F, 12732.3954474F, 10000.0F,
-					1.0F,,,, 1.0F, 1.0F, 100.0F, 100.0F };
+					1.0F, 1000.0F, 1000.0F, 1000.0F, 1.0F, 1.0F, 100.0F, 100.0F };
 
 u8 fn_calc;
 u8 fn_calc2;

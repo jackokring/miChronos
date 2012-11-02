@@ -18,16 +18,35 @@ Day of Week
 
 Slide Rule
 ----------
-(v3) So the latest is to have a 4 digit slide rule calculation aid. This gives better inverse conversion for say antilogs.
-The slide rule is placed just after the date on the bottom line. Pressing DOWN selects the function. Pressing #HOLD selects the entry mode. Using UP and DOWN (HOLD for fast) set the input. Press # to calculate. Press STAR to EXIT. The half function is not scaled as it's use needs the actual result, and not an abstract angle ratio. The other functions are scaled for maximum possible resolution as appropriate. Calculation of inverse functions is somewhat involved repeated use and estimation. The functions are listed below, and should be with knowledge enough to go a long way in maths. The understanding of why this function set was provided is in itself a long lesson in maths.
-  * LOGS - logarithm of x scaled
-  * ATAN - arc tangent of x scaled such that 45 degrees is 10000
-  * AREA - x to the power of 2 scaled for two decimal places input or left hand decimals
-  * OVRT - 1 over the square root of x scaled for digits precision
-  * OVER - 1 over x scaled for digits precision
-  * ROOT - square root of x scaled for digits precision
-  * CIRC - square root of 1 minus x squared
-  * HALF - x over 1 plus square root of 1 plus x squared (atan half angle formula)
+(v5) So the latest is to have a 4 digit slide rule calculation aid. This gives better inverse conversion for say antilogs.
+The slide rule is placed just after the date on the bottom line. Pressing DOWN selects the function set. Pressing #HOLD selects the entry mode after selecting one of four functions indicated by pairs of digits in corresponding corners. Using UP and DOWN (HOLD for fast) set the input. Press # to calculate. Press STAR to EXIT.
+
+The functions are scaled for effect. Calculation of inverse functions is somewhat involved repeated use and estimation. The functions are listed below, and should be with knowledge enough to go a long way in maths. The understanding of why this function set was provided is in itself a long lesson in maths. There are four groups of functions.
+
+  * ROOT - root and related functions
+  * LOGS - log and arc tanget and related functions
+  * EXPS - exponential and related functions
+  * XTRA - prime estimate, times, divide and harmonic parallel (think electronics)
+
+  * AR - x to the power of 2
+  * IR - 1 over the square root of x
+  * IN - 1 over x
+  * RT - square root of x
+
+  * LG - logarithm of x to base 10000
+  * HF - x over 1 plus square root of 1 plus x squared (atan half angle formula)
+  * AT - arc tangent of x (scaled such that 45 degrees is 10000)
+  * CC - square root of 1 minus x squared (circles)
+
+  * EX - exponential of x to base 10000
+  * CU - q function (scaled form 4 decimals to 3 decimals) 
+  * ED - x times exponential x (scaled as CU)
+  * EI - exponetial integral at the natural origin (scaled as CU)
+
+  * LI - logorithmic integral (scaled to give primes less than estimate)
+  * TI - 2 digits times 2 digits
+  * DI - 2 digits over 2 digits (scaled for 2 decimals)
+  * HC - 2 digits and 2 digits in parallel (or harmonic) (scaled for 2 decimals)
 
 Temperature and Altitude
 ------------------------
