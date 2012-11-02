@@ -138,16 +138,19 @@ float circ(float x) {
 
 float eq(float x, s8 i2) { //base e exponential and Q
 	float acc = 0;
+	float lacc;
 	float mul = x;
 	float fact = 1;
 	float harm = 1;
-	i8 i;
-	for(i = 2;i < 16;i++) {
+	i8 i = 2;
+	do {
+		lacc = acc;
 		acc += mul * fact * (i2 == 0 ? 1.0F : harm);
 		harm = inv((float)i);
+		i++;
 		fact = fact * harm;
 		mul *= x;
-        }
+        } while(lacc != acc);
 	return acc;
 }
 
