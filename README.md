@@ -29,20 +29,28 @@ The functions are scaled for effect. Calculation of inverse functions is somewha
   * EXPS - exponential and related functions
   * XTRA - prime estimate, times, divide and harmonic parallel (think electronics)
 
+The root group is
+
   * AR - x to the power of 2
   * IR - 1 over the square root of x
   * IN - 1 over x
   * RT - square root of x
+
+The logs group is
 
   * LG - logarithm of x to base 10000
   * HF - x over 1 plus square root of 1 plus x squared (atan half angle formula)
   * AT - arc tangent of x (scaled such that 45 degrees is 10000)
   * CC - square root of 1 minus x squared (circles)
 
+The exps group is
+
   * EX - exponential of x to base 10000
   * CU - q function (scaled form 4 decimals to 3 decimals) 
   * ED - x times exponential x (scaled as CU)
   * EI - exponential integral at the natural origin (scaled as CU)
+
+The xtra group is
 
   * LI - logarithmic integral (scaled to give primes less than estimate)
   * TI - 2 digits times 2 digits
