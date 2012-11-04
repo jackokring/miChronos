@@ -98,15 +98,15 @@ float half(float x) {		/* x/(1+sqrt(1+x*x)) */
 }
 
 //OSAF FN (flags and function produced)
-//0000 sum of all powers overflow
+//0000
 //0001 expm1
-//0010 non convergent alternation
+//0010
 //0011 expm1(ix)
-//0100 sum of all odd powers overflow
+//0100
 //0101 sinh
-//0110 non convergent alternation
+//0110
 //0111 sin
-//1000 non convergent
+//1000
 //1001 qfn
 //1010
 //1011 
@@ -120,7 +120,7 @@ float eq(float x, s8 over, s8 sq, s8 alt, s8 fact) { //base e exponential and Q+
 	float lacc;
 	float mul = x;
 	float harm = 1;
-	float start = 1;
+	u16 start = 1;
 	if(sq != 0) x = square(x);
 	x = (alt != 0 ? -x : x);
 	do {
