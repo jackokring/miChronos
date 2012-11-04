@@ -194,11 +194,14 @@ const u8 named_calc[][4] = { 	"ROOT", "LOGS", "EXPS", "XTRA" };
 const u8 named_calc2[][2] = { 	"AR", "IR", "IN", "RT", "LG", "HF", "AT", "CC",
 					"EX", "CU", "ED", "EI", "LI", "TI", "DI", "HC" };
 
-const float pre_scale[] = { 	0.0001F, 1.0F, 1.0F, 1.0F,	1.0F, 0.0001F, 0.0001F, 0.0001F,
-					9.21034037196e-4, 0.0001F, 0.0001F, 0.0001F, 1.0F, 1.0F, 1.0F, 1.0F };
+const u8 idx_scale[] = {		0, 1, 1, 2, 3, 0, 4, 0,
+					5, 6, 6, 6, 7, 7, 8, 8 };
 
-const float scale[] = { 	10000.0F, 10000.0F, 10000.0F, 100.0F, 1.08573620476e+3F, 10000.0F, 12732.3954474F, 10000.0F,
-					1.0F, 1000.0F, 1000.0F, 1000.0F, 1.0F, 1.0F, 100.0F, 100.0F };
+const float pre_scale[] = { 	0.0001F, 1.0F, 1.0F, 1.0F, 0.0001F,
+					9.21034037196e-4, 0.0001F, 1.0F, 1.0F };
+
+const float scale[] = { 	10000.0F, 10000.0F, 100.0F, 1.08573620476e+3F, 12732.3954474F,
+					1.0F, 1000.0F, 1.0F, 100.0F };
 
 u8 fn_calc;
 u8 fn_calc2;
@@ -210,9 +213,9 @@ float (* const slide_fn[])(float x) = { 	square, irt, inv, sqrt, log, half, atan
 
 void calc_slide() {
 	float out = (float)in_calc;
-	out *= pre_scale[fn_calc];//suitable range
+	out *= pre_scale[idx_scale[fn_calc]];//suitable range
 	out = slide_fn[fn_calc](out);
-	out *= scale[fn_calc];// 0 to 10000
+	out *= scale[idx_scale[fn_calc]];// 0 to 10000
 	out_calc = (u16)out;
 	if(out - (float)out_calc >= 0.5F) out_calc++;
 	if(out_calc > 9999) out_calc = 9999;
