@@ -93,8 +93,8 @@ float sqrt(float x) {
 	return x * irt(x);
 }
 
-float half(float x) {		/* x/(1+sqrt(1+x*x)) */
-	return x * inv(1.0F+sqrt(1.0F+square(x)));
+float half(float x, u8 sgn) {		/* x/(1+sqrt(1+x*x)) */
+	return x * inv(1.0F + sqrt(1.0F + (sgn > 1? square(x) : -square(x))));
 }
 
 //OSAF FN (flags and function produced)
@@ -139,11 +139,11 @@ float log(float x) { //base e
 }
 
 float atan(float x) {
-	return eq(half(half(x)), 1, 1, 1, 0) * 4.0F;
+	return eq(half(half(x, 1), 1), 1, 1, 1, 0) * 4.0F;
 }
 
 float circ(float x) {
-	return sqrt(1.0F-square(x));
+	return sqrt(1.0F - square(x));
 }
 
 float exp(float x) {
@@ -198,19 +198,19 @@ float a2(float x) {
 }
 //on logs
 float asin(float x) {
-
+	return 2.0F * atan(half(x, -1));
 }
 
 float acos(float x) {
-
+	return 2.0F * atan(circ(x) * inv(x + 1));
 }
 //on exps
 float sin(float x) {
-
+	return eq(x, 0, 1, 1, 1);
 }
 
 float cos(float x) {
-
+	return sin(x + 1.57079632679F);
 }
 //on xtra
 float a3(float x) {
@@ -230,13 +230,13 @@ const u8 named_calc2[][2] = { 	"AR", "IR", "IN", "RT", "LG", "HF", "AT", "CC",
 
 const u8 idx_scale[] = {		0, 1, 1, 2, 3, 0, 4, 0,
 					5, 6, 6, 6, 7, 7, 8, 8,
-					0, 0, 0, 0, 0, 0, 0, 0 };
+					0, 0, 4, 4, 9, 9, 0, 0 };
 
 const float pre_scale[] = { 	0.0001F, 1.0F, 1.0F, 1.0F, 0.0001F,
-					9.21034037196e-4, 0.0001F, 1.0F, 1.0F };
+					9.21034037196e-4, 0.0001F, 1.0F, 1.0F, 7.85398163394e-5F };
 
 const float scale[] = { 	10000.0F, 10000.0F, 100.0F, 1.08573620476e+3F, 12732.3954474F,
-					1.0F, 1000.0F, 1.0F, 100.0F };
+					1.0F, 1000.0F, 1.0F, 100.0F, 10000.0F };
 
 u8 fn_calc;
 u8 fn_calc2;
