@@ -97,6 +97,10 @@ float half(float x, u8 sgn) {		/* x/(1+sqrt(1+x*x)) */
 	return x * inv(1.0F + sqrt(1.0F + (sgn > 1? square(x) : -square(x))));
 }
 
+float halfa(float x) {
+	return half(x, 1);
+}
+
 //OSAF FN (flags and function produced)
 //0000
 //0001 expm1
@@ -243,7 +247,7 @@ u8 fn_calc2;
 s32 in_calc = 5000;
 s32 out_calc = 0;
 
-float (* const slide_fn[])(float x) = { 	square, irt, inv, sqrt, log, half, atan, circ,
+float (* const slide_fn[])(float x) = { 	square, irt, inv, sqrt, log, halfa, atan, circ,
 						exp, qfn, invw, ein, lin, mul, div, harm,
 						a1, a2, asin, acos, sin, cos, a3, a4 };
 
