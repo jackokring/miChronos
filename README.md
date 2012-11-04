@@ -52,7 +52,7 @@ The exps group is
 
 The xtra group is
 
-  * LI - logarithmic integral (scaled to give primes less than estimate)
+  * LI - logarithmic integral at the natural origin (scaled to give primes less than estimate)
   * TI - 2 digits times 2 digits
   * DI - 2 digits over 2 digits (scaled for 2 decimals)
   * HC - 2 digits and 2 digits in parallel (or harmonic) (scaled for 2 decimals)

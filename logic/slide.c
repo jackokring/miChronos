@@ -80,7 +80,7 @@ float irt(float x) {
         i  = 0x5f3759df - ( i >> 1 );
         x  = * ( float * ) &i;
 	for(i = 0; i < 4; i++)
-        	x  *= ( threehalfs - ( x2 * x * x ) );   //iteration
+        	x  *= ( threehalfs - ( x2 * square(x) ) );   //iteration
         return x;
 }
 
@@ -97,54 +97,61 @@ float half(float x) {		/* x/(1+sqrt(1+x*x)) */
 	return x * inv(1.0F+sqrt(1.0F+square(x)));
 }
 
-float atanh(float x, s8 i2) {
-	float acc = x;
+//OSAF FN (flags and function produced)
+//0000 sum of all powers overflow
+//0001 expm1
+//0010 non convergent alternation
+//0011 expm1(ix)
+//0100 sum of all odd powers overflow
+//0101 sinh
+//0110 non convergent alternation
+//0111 sin
+//1000 non convergent
+//1001 qfn
+//1010
+//1011 
+//1100 log with right input transform (is atanh)
+//1101
+//1110 atan
+//1111
+
+float eq(float x, s8 over, s8 sq, s8 alt, s8 fact) { //base e exponential and Q+
+	float acc = 0;
+	float lacc;
 	float mul = x;
-	x = square(x);
-	x = i2 < 0 ? -x : x;
-	u8 i;
-	for(i = 3;i < 32;i+=2) {
-		mul *= x;
-		acc += mul * inv(i);
-        }
+	float harm = 1;
+	float start = 1;
+	if(sq != 0) x = square(x);
+	x = (alt != 0 ? -x : x);
+	do {
+		lacc = acc;
+		acc += mul * (over == 0 ? 1.0F : harm);
+		start += sq + 1;
+		harm = inv((float)start);
+		mul *= x * (fact == 0 ? 1.0F : harm * (sq == 0 ? 1.0F : inv(start - 1)));
+        } while(lacc != acc);
 	return acc;
 }
 
 float log(float x) { //base e
 	x = irt(irt(irt(x)));//symetry and double triple roots
-	return -atanh((x-1.0F) * inv(x+1.0F), 1) * 16.0F;
+	return -eq((x-1.0F) * inv(x+1.0F), 1, 1, 0, 0) * 16.0F;
 }
 
 float atan(float x) {
-	return atanh(half(half(x)), -1) * 4.0F;
+	return eq(half(half(x)), 1, 1, 1, 0) * 4.0F;
 }
 
 float circ(float x) {
 	return sqrt(1.0F-square(x));
 }
 
-float eq(float x, s8 i2) { //base e exponential and Q
-	float acc = 0;
-	float lacc;
-	float mul = x;
-	float harm = 1;
-	i8 i = 2;
-	do {
-		lacc = acc;
-		acc += mul * (i2 == 0 ? 1.0F : harm);
-		harm = inv((float)i);
-		i++;
-		mul *= harm * x;
-        } while(lacc != acc);
-	return acc;
-}
-
 float exp(float x) {
-	return eq(x, 0) + 1.0F;
+	return eq(x, 0, 0, 0, 1) + 1.0F;
 }
 
 float qfn(float x) {
-	return eq(x, -1);
+	return eq(x, 1, 0, 0, 1);
 }
 
 float invw(float x) {
