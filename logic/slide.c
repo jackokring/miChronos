@@ -222,7 +222,7 @@ float tan(float x) {
 }
 
 float entropy(float x) {
-	return x * log(inv(x));
+	return x * log(inv(x)) * 1.44269504089F;//base 2
 }
 
 //main module functions
