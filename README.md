@@ -22,7 +22,7 @@ Slide Rule
 (v5) So the latest is to have a 4 digit slide rule calculation aid. This gives better inverse conversion for say antilogs.
 The slide rule is placed just after the date on the bottom line. Pressing DOWN selects the function set. Pressing #HOLD selects the entry mode after selecting one of four functions indicated by pairs of digits in corresponding corners. Using UP and DOWN (HOLD for fast) set the input. Press # to calculate. Press STAR to EXIT.
 
-The functions are scaled for effect. Calculation of inverse functions is somewhat involved repeated use and estimation. The functions are listed below, and should be with knowledge enough to go a long way in maths. The understanding of why this function set was provided is in itself a long lesson in maths. There are four groups of functions.
+The functions are scaled for effect. Calculation of inverse functions is somewhat involved repeated use and estimation. The functions are listed below, and should be with knowledge enough to go a long way in maths. The understanding of why this function set was provided is in itself a long lesson in maths. There are four groups of functions. An extra two functions per group are provided by long press of STAR and #.
 
   * ROOT - root and related functions
   * LOGS - log and arc tangent and related functions
@@ -35,6 +35,8 @@ The root group is
   * IR - 1 over the square root of x
   * IN - 1 over x
   * RT - square root of x
+  * x over 1 plus square root of 1 minus x squared (asin half angle formula)
+  * square root of 1 minus x squared over x plus 1 (acos half angle formula)
 
 The logs group is
 
@@ -42,6 +44,8 @@ The logs group is
   * HF - x over 1 plus square root of 1 plus x squared (atan half angle formula)
   * AT - arc tangent of x (scaled such that 45 degrees is 10000)
   * CC - square root of 1 minus x squared (circles)
+  * asin of x (scaled such that 45 degrees is 10000)
+  * acos of x (scaled such that 45 degrees is 10000)
 
 The exps group is
 
@@ -49,6 +53,8 @@ The exps group is
   * CU - q function (scaled form 4 decimals to 3 decimals) 
   * ED - x times exponential x (scaled as CU)
   * EI - exponential integral at the natural origin (scaled as CU)
+  * sin of x (scaled such that 45 degrees is 10000)
+  * cos of x (scaled such that 45 degrees is 10000)
 
 The xtra group is
 
@@ -56,6 +62,8 @@ The xtra group is
   * TI - 2 digits times 2 digits
   * DI - 2 digits over 2 digits (scaled for 2 decimals)
   * HC - 2 digits and 2 digits in parallel (or harmonic) (scaled for 2 decimals)
+  * tangent of x (scaled such that 45 degrees is 10000)
+  * entropy of x (scaled to 4 decimals)
 
 Temperature and Altitude
 ------------------------

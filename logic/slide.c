@@ -193,20 +193,20 @@ float harm(float x) {
 
 //extra eight functions
 //on root
-float a1(float x) {
-
+float halfs(float x) {
+	return half(x, -1);
 }
 
-float a2(float x) {
-
+float halfc(float x) {
+	return circ(x) * inv(x + 1);
 }
 //on logs
 float asin(float x) {
-	return 2.0F * atan(half(x, -1));
+	return 2.0F * atan(halfs(x));
 }
 
 float acos(float x) {
-	return 2.0F * atan(circ(x) * inv(x + 1));
+	return 2.0F * atan(halfc(x));
 }
 //on exps
 float sin(float x) {
@@ -217,12 +217,12 @@ float cos(float x) {
 	return sin(x + 1.57079632679F);
 }
 //on xtra
-float a3(float x) {
-
+float tan(float x) {
+	return sin(x) * inv(cos(x));
 }
 
-float a4(float x) {
-
+float entropy(float x) {
+	return x * log(inv(x));
 }
 
 //main module functions
@@ -234,7 +234,7 @@ const u8 named_calc2[][2] = { 	"AR", "IR", "IN", "RT", "LG", "HF", "AT", "CC",
 
 const u8 idx_scale[] = {		0, 1, 1, 2, 3, 0, 4, 0,
 					5, 6, 6, 6, 7, 7, 8, 8,
-					0, 0, 4, 4, 9, 9, 0, 0 };
+					0, 0, 4, 4, 9, 9, 9, 0 };
 
 const float pre_scale[] = { 	0.0001F, 1.0F, 1.0F, 1.0F, 0.0001F,
 					9.21034037196e-4, 0.0001F, 1.0F, 1.0F, 7.85398163394e-5F };
@@ -249,7 +249,7 @@ s32 out_calc = 0;
 
 float (* const slide_fn[])(float x) = { 	square, irt, inv, sqrt, log, halfa, atan, circ,
 						exp, qfn, invw, ein, lin, mul, div, harm,
-						a1, a2, asin, acos, sin, cos, a3, a4 };
+						halfs, halfc, asin, acos, sin, cos, tan, entropy };
 
 void calc_slide() {
 	float out = (float)in_calc;

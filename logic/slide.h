@@ -72,4 +72,14 @@ extern float mul(float x);//mul digit pairs
 extern float div(float x);//div digit pairs
 extern float harm(float x);//parallel digit pairs
 
+//hidden group of functions
+extern float halfs(float x);
+extern float halfc(float x);
+extern float asin(float x);
+extern float acos(float x);
+extern float sin(float x);
+extern float cos(float x);
+extern float tan(float x);
+extern float entropy(float x);
+
 #endif                          /*SLIDE_H_ */
