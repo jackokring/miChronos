@@ -187,6 +187,40 @@ float harm(float x) {
 	return t * split_mod * inv(t + split_mod);
 }
 
+//extra eight functions
+//on root
+float a1(float x) {
+
+}
+
+float a2(float x) {
+
+}
+//on logs
+float asin(float x) {
+
+}
+
+float acos(float x) {
+
+}
+//on exps
+float sin(float x) {
+
+}
+
+float cos(float x) {
+
+}
+//on xtra
+float a3(float x) {
+
+}
+
+float a4(float x) {
+
+}
+
 //main module functions
 const u8 named_calc[][4] = { 	"ROOT", "LOGS", "EXPS", "XTRA" };
 
@@ -195,7 +229,8 @@ const u8 named_calc2[][2] = { 	"AR", "IR", "IN", "RT", "LG", "HF", "AT", "CC",
 					"EX", "CU", "ED", "EI", "LI", "TI", "DI", "HC" };
 
 const u8 idx_scale[] = {		0, 1, 1, 2, 3, 0, 4, 0,
-					5, 6, 6, 6, 7, 7, 8, 8 };
+					5, 6, 6, 6, 7, 7, 8, 8,
+					0, 0, 0, 0, 0, 0, 0, 0 };
 
 const float pre_scale[] = { 	0.0001F, 1.0F, 1.0F, 1.0F, 0.0001F,
 					9.21034037196e-4, 0.0001F, 1.0F, 1.0F };
@@ -209,7 +244,8 @@ s32 in_calc = 5000;
 s32 out_calc = 0;
 
 float (* const slide_fn[])(float x) = { 	square, irt, inv, sqrt, log, half, atan, circ,
-						exp, qfn, invw, ein, lin, mul, div, harm };
+						exp, qfn, invw, ein, lin, mul, div, harm,
+						a1, a2, asin, acos, sin, cos, a3, a4 };
 
 void calc_slide() {
 	float out = (float)in_calc;
@@ -301,7 +337,16 @@ void mx_slide()
 		fn_calc += 3;
             break;
         }
-
+	if (button.flag.star_long)
+	{
+		fn_calc = (fn_calc >> 1) + 16;
+		break;
+	}
+	if (button.flag.num_long)
+	{
+		fn_calc = (fn_calc >> 1) + 17;
+		break;
+	}
 	idle_loop();//idle
         
     }
