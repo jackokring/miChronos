@@ -93,7 +93,7 @@ float sqrt(float x) {
 	return x * irt(x);
 }
 
-float half(float x, u8 sgn) {		/* x/(1+sqrt(1+x*x)) */
+float half(float x, s8 sgn) {		/* x/(1+sqrt(1+x*x)) */
 	return x * inv(1.0F + sqrt(1.0F + (sgn > 1? square(x) : -square(x))));
 }
 
@@ -173,9 +173,9 @@ float lin(float x) {
 float split_mod;
 
 float split_num(float x) {
-	s32 i = (s32)x;
-	split_mod = (float)(x % 100);
-	return (float)(x / 100);
+	s16 i = (s32)x;
+	split_mod = (float)(i % 100);
+	return (float)(i / 100);
 }
 
 float mul(float x) {
@@ -242,10 +242,10 @@ const float pre_scale[] = { 	0.0001F, 1.0F, 1.0F, 1.0F, 0.0001F,
 const float scale[] = { 	10000.0F, 10000.0F, 100.0F, 1.08573620476e+3F, 12732.3954474F,
 					1.0F, 1000.0F, 1.0F, 100.0F, 10000.0F };
 
-u8 fn_calc;
-u8 fn_calc2;
+s8 fn_calc;
+s8 fn_calc2;
 s32 in_calc = 5000;
-s32 out_calc = 0;
+u16 out_calc = 0;
 
 float (* const slide_fn[])(float x) = { 	square, irt, inv, sqrt, log, halfa, atan, circ,
 						exp, qfn, invw, ein, lin, mul, div, harm,
@@ -271,7 +271,7 @@ void display_fn_choice() {
 
 void mx_slide2()
 {
-	if(fn_calc == 255) return;//exit code
+	if(fn_calc == 100) return;//exit code
     clear_display_all();
     display_slide(0);//fill in
     // Loop values until all are set or user breaks set
@@ -315,7 +315,7 @@ void mx_slide()
         // Idle timeout: exit
         if (sys.flag.idle_timeout)
         {	
-		fn_calc = 255;//exit code
+		fn_calc = 100;//exit code
             break;
         }
 

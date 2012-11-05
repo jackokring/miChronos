@@ -56,7 +56,7 @@ extern float sqrt(float x);
 
 //logarithm group of functions
 extern float log(float x);
-extern float half(float x);
+extern float halfa(float x);
 extern float atan(float x);
 extern float circ(float x);
 

@@ -93,7 +93,7 @@ extern void process_requests() is called from 1 sites in this file.
 	temperature_measurement() (1 times)
 
 extern void read_calibration_values() is called from 1 sites in this file.
-    It appears to be inlineable (size = 158 units)
+    It appears to be inlineable (size = 125 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -182,7 +182,7 @@ extern void init_application() is called from 1 sites in this file.
 ==============================================================================
 
 extern void read_calibration_values() is called from 1 sites in this file.
-    It appears to be inlineable (size = 158 units)
+    It appears to be inlineable (size = 125 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
