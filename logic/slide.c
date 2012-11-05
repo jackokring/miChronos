@@ -133,7 +133,7 @@ float eq(float x, s8 over, s8 sq, s8 alt, s8 fact) { //base e exponential and Q+
 		start += sq + 1;
 		harm = inv((float)start);
 		mul *= x * (fact == 0 ? 1.0F : harm * (sq == 0 ? 1.0F : inv(start - 1)));
-        } while(lacc != acc);
+        } while(lacc != acc && start < 200);//term limit
 	return acc;
 }
 
