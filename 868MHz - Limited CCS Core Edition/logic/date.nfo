@@ -21,7 +21,7 @@ extern void display_date() is called from 0 sites in this file.
 	display_chars() (3 times)
 
 extern unsigned long get_cycle() is called from 1 sites in this file.
-    It appears to be inlineable (size = 73 units)
+    It appears to be inlineable (size = 74 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	get_numberOfDays() (1 times)
@@ -137,7 +137,7 @@ extern unsigned char *get_day() is called from 1 sites in this file.
 ==============================================================================
 
 extern unsigned long get_cycle() is called from 1 sites in this file.
-    It appears to be inlineable (size = 73 units)
+    It appears to be inlineable (size = 74 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	leaps_count() (2 times)
