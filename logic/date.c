@@ -304,7 +304,7 @@ u32 get_cycle() { //cycle since a new moon
 	/* add this month's value */
 	days += days_offset[sDate.month - 1];
 
-	days += (u32)(365.0F * (float)(sDate.year - 2012) - 295);//Oct 22th (2012) = 295
+	days += (u32)(365.0F * (float)(sDate.year - 2012) - 288);//Oct 15th (2012) = 288
 	cycles = (u32)((float)days * 3.38631918246e-2F);//number of whole cycles
 	days = (u32)((float)days - (float)cycles * 29.530589F);//remainder days... 0 to 29
 

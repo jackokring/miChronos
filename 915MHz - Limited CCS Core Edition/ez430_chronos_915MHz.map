@@ -1,10 +1,10 @@
 ******************************************************************************
                   MSP430 Linker Unix v4.1.1                    
 ******************************************************************************
->> Linked Mon Nov  5 20:21:09 2012
+>> Linked Tue Nov  6 01:12:46 2012
 
 OUTPUT FILE NAME:   <ez430_chronos_915MHz.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 0000ded6
+ENTRY POINT SYMBOL: "_c_int00"  address: 0000ded4
 
 
 MEMORY CONFIGURATION
@@ -19,7 +19,7 @@ MEMORY CONFIGURATION
   INFOB                 00001900   00000080  00000000  00000080  RWIX
   INFOA                 00001980   00000080  00000000  00000080  RWIX
   RAM                   00001c00   00000ffe  00000377  00000c87  RWIX
-  FLASH                 00008000   00007f80  000075ef  00000991  RWIX
+  FLASH                 00008000   00007f80  000075f3  0000098d  RWIX
   INT00                 0000ff80   00000002  00000000  00000002  RWIX
   INT01                 0000ff82   00000002  00000000  00000002  RWIX
   INT02                 0000ff84   00000002  00000000  00000002  RWIX
@@ -145,7 +145,7 @@ section   page    origin      length       input sections
                   00002bac    00000002     rts430x.lib : boot.obj (.stack)
                   00002bae    0000004e     --HOLE--
 
-.text      0    00008000    00006d7a     
+.text      0    00008000    00006d78     
                   00008000    0000029a     ez430_chronos_drivers.lib : vti_ps.obj (.text:conv_pa_to_meter)
                   0000829a    0000027c     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:BRRX__Scheduler_v)
                   00008516    0000025a     ez430_chronos_drivers.lib : timer.obj (.text:_isr:TIMER0_A0_ISR)
@@ -183,395 +183,395 @@ section   page    origin      length       input sections
                   0000ac16    000000c6     main.obj (.text:init_application)
                   0000acdc    000000c4     ez430_chronos_drivers.lib : display.obj (.text:int_to_array)
                   0000ada0    000000b6     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:SearchPacketHit_u8)
-                  0000ae56    000000b6     date.obj (.text:get_cycle)
-                  0000af0c    000000b6     rts430x.lib : fs_mpy.obj (.text)
-                  0000afc2    000000b6     CC430_End_Device_915MHz.lib : main_ED_BM.obj (.text:simpliciti_link)
-                  0000b078    000000b6                                 : main_ED_BM.obj (.text:simpliciti_main_sync)
-                  0000b12e    000000b2     altitude.obj (.text:display_altitude)
-                  0000b1e0    000000b2     slide.obj (.text:irt)
-                  0000b292    000000b2     rfsimpliciti.obj (.text:start_simpliciti_tx_only)
-                  0000b344    000000a2     CC430_End_Device_915MHz.lib : nwk_frame.obj (.text:nwk_retrieveFrame)
-                  0000b3e6    000000a0     rfsimpliciti.obj (.text:simpliciti_get_ed_data_callback)
-                  0000b486    0000009c     CC430_End_Device_915MHz.lib : nwk_ioctl.obj (.text:nwk_radioControl)
-                  0000b522    0000009c     rfsimpliciti.obj (.text:start_simpliciti_sync)
-                  0000b5be    0000009a     alarm.obj (.text:display_alarm)
-                  0000b658    00000098     ez430_chronos_drivers.lib : vti_ps.obj (.text:ps_twi_sda)
-                  0000b6f0    00000096                               : rf1a.obj (.text:Strobe)
-                  0000b786    00000094     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_nwkInit)
-                  0000b81a    00000094     temperature.obj (.text:temperature_measurement)
-                  0000b8ae    00000090     CC430_End_Device_915MHz.lib : mrfi.obj (.text:mrfiRadioInterfaceCmdStrobe)
-                  0000b93e    00000090                                 : nwk_frame.obj (.text:nwk_buildFrame)
-                  0000b9ce    0000008e     rts430x.lib : fs_div.obj (.text)
-                  0000ba5c    0000008c     slide.obj (.text:calc_slide)
-                  0000bae8    0000008c     CC430_End_Device_915MHz.lib : nwk_frame.obj (.text:dispatchFrame)
-                  0000bb74    0000008c                                 : nwk.obj (.text:nwk_isConnectionValid)
-                  0000bc00    0000008a     altitude.obj (.text:do_altitude_measurement)
-                  0000bc8a    00000086     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:GetData_v)
-                  0000bd10    00000084     ez430_chronos_drivers.lib : timer.obj (.text:_isr:TIMER0_A1_5_ISR)
-                  0000bd94    00000080                               : vti_as.obj (.text:as_start)
-                  0000be14    00000080     CC430_End_Device_915MHz.lib : nwk_frame.obj (.text:nwk_sendAckReply)
-                  0000be94    0000007e     battery.obj (.text:battery_measurement)
-                  0000bf12    0000007e     rts430x.lib : fs_tol.obj (.text)
-                  0000bf90    0000007c     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:TrimACLK_Offset_v)
-                  0000c00c    0000007a     slide.obj (.text:mx_slide)
-                  0000c086    00000078     main.obj (.text:init_global_variables)
-                  0000c0fe    00000078     slide.obj (.text:mx_slide2)
-                  0000c176    00000078     ez430_chronos_drivers.lib : vti_ps.obj (.text:ps_init)
-                  0000c1ee    00000076     CC430_End_Device_915MHz.lib : nwk_QMgmt.obj (.text:nwk_QfindSlot)
-                  0000c264    00000072     ez430_chronos_drivers.lib : display.obj (.text:display_char)
-                  0000c2d6    00000072                               : vti_ps.obj (.text:ps_read_register)
-                  0000c348    00000070     main.obj (.text:process_requests)
-                  0000c3b8    0000006e     BlueRobin_RX_915MHz.lib : BRRX_Radio.obj (.text:BRRX_RadioReceive_v)
-                  0000c426    0000006c     ez430_chronos_drivers.lib : vti_as.obj (.text:as_read_register)
-                  0000c492    00000068                               : adc12.obj (.text:adc12_single_conversion)
-                  0000c4fa    00000068     clock.obj (.text:clock_tick)
-                  0000c562    00000068     rts430x.lib : fs_toi.obj (.text)
-                  0000c5ca    00000068     CC430_End_Device_915MHz.lib : nwk_link.obj (.text:smpl_send_unlink_reply)
-                  0000c632    00000066     ez430_chronos_drivers.lib : vti_as.obj (.text:as_write_register)
-                  0000c698    00000066                               : vti_ps.obj (.text:ps_get_pa)
-                  0000c6fe    00000064     slide.obj (.text:log)
-                  0000c762    00000064     CC430_End_Device_915MHz.lib : mrfi.obj (.text:mrfiRadioInterfaceReadRxFifo)
-                  0000c7c6    00000062                                 : mrfi.obj (.text:MRFI_RadioIsr)
-                  0000c828    0000005e     BlueRobin_RX_915MHz.lib : BRRX_Radio.obj (.text:BRRX_PacketEndTimerTask_v)
-                  0000c886    0000005e     ez430_chronos_drivers.lib : timer.obj (.text:Timer0_A4_Delay)
-                  0000c8e4    0000005e     battery.obj (.text:display_battery_V)
-                  0000c942    0000005e     ez430_chronos_drivers.lib : display.obj (.text:write_lcd_mem)
-                  0000c9a0    0000005a     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:PrepareForFirstPacket_v)
-                  0000c9fa    00000058     slide.obj (.text:display_fn_choice)
-                  0000ca52    00000058     ez430_chronos_drivers.lib : vti_ps.obj (.text:ps_write_register)
-                  0000caaa    00000058     rts430x.lib : div32u.obj (.text)
-                  0000cb02    00000054     rfbsl.obj (.text:sx_rfbsl)
-                  0000cb56    00000052     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:BRRX__StartNewSearch_v)
-                  0000cba8    00000052                             : BRRX_Scheduler.obj (.text:TestStartTime_v)
-                  0000cbfa    00000052     ez430_chronos_drivers.lib : display.obj (.text:clear_line)
-                  0000cc4c    00000052     date.obj (.text:get_day)
-                  0000cc9e    00000052     CC430_End_Device_915MHz.lib : nwk_ioctl.obj (.text:nwk_rawSend)
-                  0000ccf0    00000052     ez430_chronos_drivers.lib : vti_ps.obj (.text:ps_twi_read)
-                  0000cd42    0000004c     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:SearchPacketCheck_u8)
-                  0000cd8e    0000004c     ez430_chronos_drivers.lib : ports.obj (.text:button_repeat_function)
-                  0000cdda    0000004c                               : vti_ps.obj (.text:ps_get_temp)
-                  0000ce26    0000004c     rts430x.lib : fs_toul.obj (.text)
-                  0000ce72    0000004a                 : fs_cmp.obj (.text)
-                  0000cebc    0000004a                 : fs_ltof.obj (.text)
-                  0000cf06    0000004a     ez430_chronos_drivers.lib : buzzer.obj (.text:toggle_buzzer)
-                  0000cf50    00000048                               : buzzer.obj (.text:start_buzzer)
-                  0000cf98    00000046     BlueRobin_RX_915MHz.lib : BR_Common.obj (.text:BR__CalcRandomTimeOffset_u16)
-                  0000cfde    00000046     ez430_chronos_drivers.lib : pmm.obj (.text:SetVCoreUp)
-                  0000d024    00000046     rts430x.lib : autoinit.obj (.text:_auto_init)
-                  0000d06a    00000046     date.obj (.text:display_date)
-                  0000d0b0    00000046     ez430_chronos_drivers.lib : display.obj (.text:display_hours)
-                  0000d0f6    00000046     CC430_End_Device_915MHz.lib : mrfi.obj (.text:mrfiRadioInterfaceReadReg)
-                  0000d13c    00000046     rts430x.lib : fs_tou.obj (.text)
-                  0000d182    00000046     CC430_End_Device_915MHz.lib : main_ED_BM.obj (.text:simpliciti_main_tx_only)
-                  0000d1c8    00000044     ez430_chronos_drivers.lib : rf1a.obj (.text:ReadBurstReg)
-                  0000d20c    00000044     CC430_End_Device_915MHz.lib : nwk_api.obj (.text:SMPL_Receive)
-                  0000d250    00000044     date.obj (.text:add_day)
-                  0000d294    00000044     CC430_End_Device_915MHz.lib : nwk_ping.obj (.text:smpl_send_ping_reply)
-                  0000d2d8    00000042     slide.obj (.text:harm)
-                  0000d31a    00000042     ez430_chronos_drivers.lib : vti_ps.obj (.text:ps_twi_write)
-                  0000d35c    00000040     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_isValidReply)
-                  0000d39c    00000040     altitude.obj (.text:reset_altitude_measurement)
-                  0000d3dc    00000040     rts430x.lib : div32s.obj (.text)
-                  0000d41c    00000040     altitude.obj (.text:start_altitude_measurement)
-                  0000d45c    0000003e     BlueRobin_RX_915MHz.lib : BRRX_Packet.obj (.text:BRRX__DecodePacket_u8)
-                  0000d49a    0000003e                             : BRRX_API.obj (.text:BRRX__NewInfo_v)
-                  0000d4d8    0000003e                             : BRRX_Scheduler.obj (.text:PacketHit_u8)
-                  0000d516    0000003e     rts430x.lib : asr32.obj (.text:l_asr_const)
-                  0000d554    0000003e                 : lsl32.obj (.text:l_lsl_const)
-                  0000d592    0000003e                 : lsr32.obj (.text:l_lsr_const)
-                  0000d5d0    0000003e     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_getNextConnection)
-                  0000d60e    0000003c     BlueRobin_RX_915MHz.lib : BRRX_Timer.obj (.text:BRRX_TimerTask_v)
-                  0000d64a    0000003c     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_ReplyDelay)
-                  0000d686    0000003c                                 : nwk.obj (.text:nwk_findPeer)
-                  0000d6c2    0000003c                                 : nwk.obj (.text:nwk_isLinkDuplicate)
-                  0000d6fe    0000003c     stopwatch.obj (.text:update_stopwatch_timer)
-                  0000d73a    0000003a     CC430_End_Device_915MHz.lib : mrfi.obj (.text:Mrfi_RxAddrIsFiltered)
-                  0000d774    0000003a                                 : nwk_mgmt.obj (.text:nwk_processMgmt)
-                  0000d7ae    0000003a     util.obj (.text:pin_generate)
-                  0000d7e8    00000038     ez430_chronos_drivers.lib : rf1a.obj (.text:WriteSingleReg)
-                  0000d820    00000038                               : radio.obj (.text:_isr:radio_ISR)
-                  0000d858    00000038     CC430_End_Device_915MHz.lib : nwk.obj (.text:initializeConnection)
-                  0000d890    00000036     slide.obj (.text:half)
-                  0000d8c6    00000036     temperature.obj (.text:norm_arrow)
-                  0000d8fc    00000036     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_putNumObjectIntoMsg)
-                  0000d932    00000036     rts430x.lib : fs_itof.obj (.text)
-                  0000d968    00000034     BlueRobin_RX_915MHz.lib : BR_Common.obj (.text:BR__CalcCRC_u8)
-                  0000d99c    00000034     CC430_End_Device_915MHz.lib : bsp.obj (.text:BSP_Delay)
-                  0000d9d0    00000034                                 : nwk_api.obj (.text:SMPL_Init)
-                  0000da04    00000034     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:TrimRFCLK_Offset_v)
-                  0000da38    00000034     CC430_End_Device_915MHz.lib : mrfi.obj (.text:mrfiRadioInterfaceWriteReg)
-                  0000da6c    00000034                                 : mrfi.obj (.text:mrfiRadioInterfaceWriteTxFifo)
-                  0000daa0    00000032     BlueRobin_RX_915MHz.lib : BRRX_Radio.obj (.text:BRRX_RadioStop_v)
-                  0000dad2    00000032     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_SetLogicalChannel)
-                  0000db04    00000032     ez430_chronos_drivers.lib : vti_as.obj (.text:as_stop)
-                  0000db36    00000032     main.obj (.text:main)
-                  0000db68    00000032     CC430_End_Device_915MHz.lib : nwk_ioctl.obj (.text:nwk_deviceAddress)
-                  0000db9a    00000032     ez430_chronos_drivers.lib : radio.obj (.text:radio_reset)
-                  0000dbcc    00000032     rts430x.lib : fs_ultof.obj (.text)
-                  0000dbfe    00000032     alarm.obj (.text:sx_alarm)
-                  0000dc30    00000030     slide.obj (.text:halfc)
-                  0000dc60    00000030     CC430_End_Device_915MHz.lib : nwk_link.obj (.text:nwk_linkInit)
-                  0000dc90    00000030                                 : nwk_ioctl.obj (.text:nwk_rawReceive)
-                  0000dcc0    00000030                                 : nwk_frame.obj (.text:nwk_sendFrame)
-                  0000dcf0    00000030     slide.obj (.text:split_num)
-                  0000dd20    0000002e     CC430_End_Device_915MHz.lib : mrfi.obj (.text:Mrfi_CalculateRssi)
-                  0000dd4e    0000002e     ez430_chronos_drivers.lib : vti_as.obj (.text:as_init)
-                  0000dd7c    0000002e     date.obj (.text:leaps_count)
-                  0000ddaa    0000002c     CC430_End_Device_915MHz.lib : mrfi.obj (.text:Mrfi_RxModeOff)
-                  0000ddd6    0000002c                                 : nwk_QMgmt.obj (.text:nwk_QadjustOrder)
-                  0000de02    0000002c     rts430x.lib : div16s.obj (.text)
-                  0000de2e    0000002a     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_SetRxAddrFilter)
-                  0000de58    0000002a                                 : mrfi.obj (.text:Mrfi_DelayUsecSem)
-                  0000de82    0000002a     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:SearchPacketMissed_u8)
-                  0000deac    0000002a     ez430_chronos_drivers.lib : timer.obj (.text:Timer0_A3_Start)
-                  0000ded6    0000002a     rts430x.lib : boot.obj (.text:_isr:_c_int00_noexit)
-                  0000df00    0000002a     ez430_chronos_drivers.lib : vti_as.obj (.text:as_get_data)
-                  0000df2a    0000002a     rfbsl.obj (.text:display_rfbsl)
-                  0000df54    0000002a     ez430_chronos_drivers.lib : display.obj (.text:lcd_init)
-                  0000df7e    0000002a     slide.obj (.text:tan)
-                  0000dfa8    00000028     slide.obj (.text:atan)
-                  0000dfd0    00000028     CC430_End_Device_915MHz.lib : nwk.obj (.text:map_lid2idx)
-                  0000dff8    00000028                                 : nwk.obj (.text:nwk_getConnInfo)
-                  0000e020    00000028                                 : nwk_ping.obj (.text:nwk_processPing)
-                  0000e048    00000026     ez430_chronos_drivers.lib : pmm.obj (.text:SetVCore)
-                  0000e06e    00000026                               : pmm.obj (.text:SetVCoreDown)
-                  0000e094    00000026     slide.obj (.text:div)
-                  0000e0ba    00000026     slide.obj (.text:ein)
-                  0000e0e0    00000026     slide.obj (.text:entropy)
-                  0000e106    00000026     CC430_End_Device_915MHz.lib : nwk_link.obj (.text:handleLinkRequest)
-                  0000e12c    00000026     ez430_chronos_drivers.lib : ports.obj (.text:init_buttons)
-                  0000e152    00000026                               : vti_ps.obj (.text:init_pressure_table)
-                  0000e178    00000026     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_checkConnInfo)
-                  0000e19e    00000026                                 : nwk_globals.obj (.text:nwk_globalsInit)
-                  0000e1c4    00000026                                 : nwk_join.obj (.text:nwk_joinInit)
-                  0000e1ea    00000026                                 : nwk_link.obj (.text:nwk_processLink)
-                  0000e210    00000026     rfsimpliciti.obj (.text:sx_rf)
-                  0000e236    00000026     rfsimpliciti.obj (.text:sx_sync)
-                  0000e25c    00000024     BlueRobin_RX_915MHz.lib : BRRX_API.obj (.text:BRRX_GetState_t)
-                  0000e280    00000024     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_Sleep)
-                  0000e2a4    00000024                                 : mrfi.obj (.text:Mrfi_DelayUsec)
-                  0000e2c8    00000024     rts430x.lib : memcmp.obj (.text:memcmp)
-                  0000e2ec    00000024                 : fs_utof.obj (.text)
-                  0000e310    00000022     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_WakeUp)
-                  0000e332    00000022     ez430_chronos_drivers.lib : display.obj (.text:display_value)
-                  0000e354    00000022     CC430_End_Device_915MHz.lib : nwk_frame.obj (.text:nwk_buildAckReqFrame)
-                  0000e376    00000022     stopwatch.obj (.text:start_stopwatch)
-                  0000e398    00000020     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_Rssi)
-                  0000e3b8    00000020                                 : nwk_frame.obj (.text:MRFI_RxCompleteISR)
-                  0000e3d8    00000020                                 : mrfi.obj (.text:MRFI_RxIdle)
-                  0000e3f8    00000020                                 : mrfi.obj (.text:MRFI_RxOn)
-                  0000e418    00000020     alarm.obj (.text:check_alarm)
-                  0000e438    00000020     util.obj (.text:display_pin)
-                  0000e458    00000020     slide.obj (.text:exp)
-                  0000e478    00000020     rts430x.lib : memmov.obj (.text:memmove)
-                  0000e498    00000020     CC430_End_Device_915MHz.lib : nwk_ioctl.obj (.text:nwk_connectionControl)
-                  0000e4b8    00000020     clock.obj (.text:reset_clock)
-                  0000e4d8    00000020     stopwatch.obj (.text:reset_stopwatch)
-                  0000e4f8    00000020     ez430_chronos_drivers.lib : buzzer.obj (.text:stop_buzzer)
-                  0000e518    00000020     alarm.obj (.text:tune)
-                  0000e538    0000001e     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_EnableRxAddrFilter)
-                  0000e556    0000001e                                 : mrfi.obj (.text:Mrfi_RandomBackoffDelay)
-                  0000e574    0000001e     BlueRobin_RX_915MHz.lib : BRRX_Timer.obj (.text:SetAbsoluteTimer_v)
-                  0000e592    0000001e     temperature.obj (.text:convert_C_to_F)
-                  0000e5b0    0000001e     CC430_End_Device_915MHz.lib : nwk_frame.obj (.text:nwk_frameInit)
-                  0000e5ce    0000001e                                 : nwk_globals.obj (.text:nwk_setMyAddress)
-                  0000e5ec    0000001c     ez430_chronos_drivers.lib : display.obj (.text:clear_display_all)
-                  0000e608    0000001c                               : display.obj (.text:display_am_pm_symbol)
-                  0000e624    0000001c     CC430_End_Device_915MHz.lib : nwk_QMgmt.obj (.text:nwk_QInit)
-                  0000e640    0000001c                                 : nwk_join.obj (.text:nwk_processJoin)
-                  0000e65c    0000001c     altitude.obj (.text:stop_altitude_measurement)
-                  0000e678    0000001a     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:GetPacketTolerance_u8)
-                  0000e692    0000001a     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_SetRFPwr)
-                  0000e6ac    0000001a     ez430_chronos_drivers.lib : adc12.obj (.text:_isr:ADC12ISR)
-                  0000e6c6    0000001a     util.obj (.text:mx_util)
-                  0000e6e0    0000001a     stopwatch.obj (.text:stop_stopwatch)
-                  0000e6fa    00000018     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_DelayMs)
-                  0000e712    00000018     temperature.obj (.text:convert_F_to_C)
-                  0000e72a    00000018     clock.obj (.text:convert_hour_to_12H_format)
-                  0000e742    00000018     alarm.obj (.text:reset_alarm)
-                  0000e75a    00000018     date.obj (.text:reset_date)
-                  0000e772    00000016     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_RandomByte)
-                  0000e788    00000016                                 : mrfi.obj (.text:Mrfi_RxModeOn)
-                  0000e79e    00000016     ez430_chronos_drivers.lib : rf1a.obj (.text:ReadSingleReg)
-                  0000e7b4    00000016                               : ports.obj (.text:button_repeat_on)
-                  0000e7ca    00000016     slide.obj (.text:circ)
-                  0000e7e0    00000016     slide.obj (.text:display_slide)
-                  0000e7f6    00000016     ez430_chronos_drivers.lib : display.obj (.text:display_symbol)
-                  0000e80c    00000016     slide.obj (.text:invw)
-                  0000e822    00000016     slide.obj (.text:qfn)
-                  0000e838    00000016     rts430x.lib : div16u.obj (.text)
-                  0000e84e    00000016                 : mult16_f5hw.obj (.text)
-                  0000e864    00000016     slide.obj (.text:sin)
-                  0000e87a    00000016     slide.obj (.text:sqrt)
-                  0000e890    00000016     stopwatch.obj (.text:sx_stopwatch)
-                  0000e8a6    00000014     ez430_chronos_drivers.lib : timer.obj (.text:Timer0_Init)
-                  0000e8ba    00000014     altitude.obj (.text:convert_ft_to_m)
-                  0000e8ce    00000014     altitude.obj (.text:convert_m_to_ft)
-                  0000e8e2    00000014     ez430_chronos_drivers.lib : buzzer.obj (.text:countdown_buzzer)
-                  0000e8f6    00000014     rfsimpliciti.obj (.text:display_rf)
-                  0000e90a    00000014     rfsimpliciti.obj (.text:display_sync)
-                  0000e91e    00000014     date.obj (.text:get_numberOfDays)
-                  0000e932    00000014     CC430_End_Device_915MHz.lib : nwk_api.obj (.text:ioctlPreInitAccessIsOK)
-                  0000e946    00000014     rts430x.lib : memset.obj (.text:memset)
-                  0000e95a    00000012     BlueRobin_RX_915MHz.lib : BR_Common.obj (.text:BR__CalcRandomChannel_u8)
-                  0000e96c    00000012                             : BRRX_Radio.obj (.text:BlueRobin_RadioISR_v)
-                  0000e97e    00000012     slide.obj (.text:acos)
-                  0000e990    00000012     slide.obj (.text:asin)
-                  0000e9a2    00000012     acceleration.obj (.text:is_acceleration_measurement)
-                  0000e9b4    00000012     altitude.obj (.text:is_altitude_measurement)
-                  0000e9c6    00000012     stopwatch.obj (.text:is_stopwatch)
-                  0000e9d8    00000012     rts430x.lib : memcpy.obj (.text:memcpy)
-                  0000e9ea    00000012     CC430_End_Device_915MHz.lib : nwk_join.obj (.text:nwk_getJoinToken)
-                  0000e9fc    00000012                                 : nwk_link.obj (.text:nwk_getLinkToken)
-                  0000ea0e    00000012                                 : nwk_globals.obj (.text:nwk_getMyAddress)
-                  0000ea20    00000012                                 : nwk_join.obj (.text:nwk_setJoinToken)
-                  0000ea32    00000012                                 : nwk_link.obj (.text:nwk_setLinkToken)
-                  0000ea44    00000012     ez430_chronos_drivers.lib : radio.obj (.text:open_radio)
-                  0000ea56    00000012     battery.obj (.text:reset_batt_measurement)
-                  0000ea68    00000012     slide.obj (.text:sx_slide)
-                  0000ea7a    00000010     CC430_End_Device_915MHz.lib : bsp.obj (.text:BSP_InitBoard)
-                  0000ea8a    00000010     ez430_chronos_drivers.lib : radio.obj (.text:close_radio)
-                  0000ea9a    00000010     slide.obj (.text:cos)
-                  0000eaaa    00000010     clock.obj (.text:display_selection_Timeformat1)
-                  0000eaba    00000010     slide.obj (.text:mul)
-                  0000eaca    00000010     ez430_chronos_drivers.lib : radio.obj (.text:radio_powerdown)
-                  0000eada    00000010                               : display.obj (.text:switch_seg)
-                  0000eaea    00000010     date.obj (.text:sx_date)
-                  0000eafa    00000010     clock.obj (.text:sx_time)
-                  0000eb0a    0000000e     util.obj (.text:display_util)
-                  0000eb18    0000000e     clock.obj (.text:is_hour_am)
-                  0000eb26    0000000e     stopwatch.obj (.text:mx_stopwatch)
-                  0000eb34    0000000e     acceleration.obj (.text:reset_acceleration)
-                  0000eb42    0000000e     ez430_chronos_drivers.lib : display.obj (.text:set_blink_rate)
-                  0000eb50    0000000c     BlueRobin_RX_915MHz.lib : BRRX_Timer.obj (.text:BRRX__GetCurrentTime_u16)
-                  0000eb5c    0000000c     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_PostKillSem)
-                  0000eb68    0000000c                                 : mrfi.obj (.text:MRFI_Receive)
-                  0000eb74    0000000c     ez430_chronos_drivers.lib : timer.obj (.text:Timer0_Stop)
-                  0000eb80    0000000c                               : display.obj (.text:clear_display)
-                  0000eb8c    0000000c     acceleration.obj (.text:do_acceleration_measurement)
-                  0000eb98    0000000c     CC430_End_Device_915MHz.lib : nwk_ping.obj (.text:handlePingRequest)
-                  0000eba4    0000000c     main.obj (.text:idle_loop)
-                  0000ebb0    0000000c     rfsimpliciti.obj (.text:is_rf)
-                  0000ebbc    0000000c     temperature.obj (.text:is_temp_measurement)
-                  0000ebc8    0000000c     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_getNumObjectFromMsg)
-                  0000ebd4    0000000c                                 : nwk_globals.obj (.text:nwk_setAPAddress)
-                  0000ebe0    0000000c     ez430_chronos_drivers.lib : vti_ps.obj (.text:ps_start)
-                  0000ebec    0000000c     util.obj (.text:sx_util)
-                  0000ebf8    0000000c     menu.obj (.text:update_alarm)
-                  0000ec04    0000000c     menu.obj (.text:update_battery_voltage)
-                  0000ec10    0000000c     menu.obj (.text:update_stopwatch)
-                  0000ec1c    0000000c     menu.obj (.text:update_temperature)
-                  0000ec28    0000000c     util.obj (.text:update_util)
-                  0000ec34    0000000a     BlueRobin_RX_915MHz.lib : BRRX_Timer.obj (.text:BRRX__StopTimer_v)
-                  0000ec3e    0000000a     ez430_chronos_drivers.lib : ports.obj (.text:button_repeat_off)
-                  0000ec48    0000000a     CC430_End_Device_915MHz.lib : nwk_mgmt.obj (.text:nwk_mgmtInit)
-                  0000ec52    0000000a                                 : nwk_ping.obj (.text:nwk_pingInit)
-                  0000ec5c    0000000a     ez430_chronos_drivers.lib : vti_ps.obj (.text:ps_stop)
-                  0000ec66    0000000a                               : buzzer.obj (.text:reset_buzzer)
-                  0000ec70    0000000a     rfsimpliciti.obj (.text:reset_rf)
-                  0000ec7a    0000000a     temperature.obj (.text:reset_temp_measurement)
-                  0000ec84    0000000a     util.obj (.text:restore_util)
-                  0000ec8e    0000000a     rts430x.lib : fs_neg.obj (.text)
-                  0000ec98    0000000a     altitude.obj (.text:sx_altitude)
-                  0000eca2    0000000a     menu.obj (.text:update_date)
-                  0000ecac    0000000a     menu.obj (.text:update_time)
-                  0000ecb6    00000008     BlueRobin_RX_915MHz.lib : BRRX_Radio.obj (.text:BRRX_GetFS_Offset_s8)
-                  0000ecbe    00000008     ez430_chronos_drivers.lib : timer.obj (.text:Timer0_A3_Stop)
-                  0000ecc6    00000008                               : timer.obj (.text:Timer0_Start)
-                  0000ecce    00000008     slide.obj (.text:inv)
-                  0000ecd6    00000008     slide.obj (.text:lin)
-                  0000ecde    00000008     slide.obj (.text:square)
-                  0000ece6    00000008     alarm.obj (.text:stop_alarm)
-                  0000ecee    00000008     main.obj (.text:to_lpm)
-                  0000ecf6    00000006     BlueRobin_RX_915MHz.lib : BRRX_Timer.obj (.text:BRRX__CallTimer_v)
-                  0000ecfc    00000006     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_GetRadioState)
-                  0000ed02    00000006     ez430_chronos_drivers.lib : display.obj (.text:clear_blink_mem)
-                  0000ed08    00000006     stopwatch.obj (.text:display_stopwatch)
-                  0000ed0e    00000006     main.obj (.text:line1)
-                  0000ed14    00000006     main.obj (.text:line2)
-                  0000ed1a    00000006     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_freeConnection)
-                  0000ed20    00000006                                 : nwk_globals.obj (.text:nwk_getBCastAddress)
-                  0000ed26    00000006                                 : nwk_globals.obj (.text:nwk_getFWVersion)
-                  0000ed2c    00000006                                 : nwk_frame.obj (.text:nwk_getMyRxType)
-                  0000ed32    00000006     ez430_chronos_drivers.lib : display.obj (.text:start_blink)
-                  0000ed38    00000006                               : display.obj (.text:stop_blink)
-                  0000ed3e    00000006     temperature.obj (.text:sx_temperature)
-                  0000ed44    00000004     CC430_End_Device_915MHz.lib : nwk_api.obj (.text:SMPL_Link)
-                  0000ed48    00000004     rts430x.lib : pre_init.obj (.text:_system_pre_init)
-                  0000ed4c    00000004                 : exit.obj (.text:abort)
-                  0000ed50    00000004     slide.obj (.text:halfa)
-                  0000ed54    00000004     slide.obj (.text:halfs)
-                  0000ed58    00000004     bluerobin.obj (.text:is_bluerobin)
-                  0000ed5c    00000004     bluerobin.obj (.text:is_bluerobin_searching)
-                  0000ed60    00000004     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_NVObj)
-                  0000ed64    00000004                                 : nwk_globals.obj (.text:nwk_getProtocolVersion)
-                  0000ed68    00000004                                 : nwk_freq.obj (.text:nwk_processFreq)
-                  0000ed6c    00000004                                 : nwk_security.obj (.text:nwk_processSecurity)
-                  0000ed70    00000004     ez430_chronos_drivers.lib : vti_ps.obj (.text:twi_delay)
-                  0000ed74    00000002     rts430x.lib : _lock.obj (.text:_nop)
-                  0000ed76    00000002     CC430_End_Device_915MHz.lib : nwk_freq.obj (.text:nwk_freqInit)
-                  0000ed78    00000002                                 : nwk_security.obj (.text:nwk_securityInit)
+                  0000ae56    000000b6     rts430x.lib : fs_mpy.obj (.text)
+                  0000af0c    000000b6     CC430_End_Device_915MHz.lib : main_ED_BM.obj (.text:simpliciti_link)
+                  0000afc2    000000b6                                 : main_ED_BM.obj (.text:simpliciti_main_sync)
+                  0000b078    000000b4     date.obj (.text:get_cycle)
+                  0000b12c    000000b2     altitude.obj (.text:display_altitude)
+                  0000b1de    000000b2     slide.obj (.text:irt)
+                  0000b290    000000b2     rfsimpliciti.obj (.text:start_simpliciti_tx_only)
+                  0000b342    000000a2     CC430_End_Device_915MHz.lib : nwk_frame.obj (.text:nwk_retrieveFrame)
+                  0000b3e4    000000a0     rfsimpliciti.obj (.text:simpliciti_get_ed_data_callback)
+                  0000b484    0000009c     CC430_End_Device_915MHz.lib : nwk_ioctl.obj (.text:nwk_radioControl)
+                  0000b520    0000009c     rfsimpliciti.obj (.text:start_simpliciti_sync)
+                  0000b5bc    0000009a     alarm.obj (.text:display_alarm)
+                  0000b656    00000098     ez430_chronos_drivers.lib : vti_ps.obj (.text:ps_twi_sda)
+                  0000b6ee    00000096                               : rf1a.obj (.text:Strobe)
+                  0000b784    00000094     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_nwkInit)
+                  0000b818    00000094     temperature.obj (.text:temperature_measurement)
+                  0000b8ac    00000090     CC430_End_Device_915MHz.lib : mrfi.obj (.text:mrfiRadioInterfaceCmdStrobe)
+                  0000b93c    00000090                                 : nwk_frame.obj (.text:nwk_buildFrame)
+                  0000b9cc    0000008e     rts430x.lib : fs_div.obj (.text)
+                  0000ba5a    0000008c     slide.obj (.text:calc_slide)
+                  0000bae6    0000008c     CC430_End_Device_915MHz.lib : nwk_frame.obj (.text:dispatchFrame)
+                  0000bb72    0000008c                                 : nwk.obj (.text:nwk_isConnectionValid)
+                  0000bbfe    0000008a     altitude.obj (.text:do_altitude_measurement)
+                  0000bc88    00000086     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:GetData_v)
+                  0000bd0e    00000084     ez430_chronos_drivers.lib : timer.obj (.text:_isr:TIMER0_A1_5_ISR)
+                  0000bd92    00000080                               : vti_as.obj (.text:as_start)
+                  0000be12    00000080     CC430_End_Device_915MHz.lib : nwk_frame.obj (.text:nwk_sendAckReply)
+                  0000be92    0000007e     battery.obj (.text:battery_measurement)
+                  0000bf10    0000007e     rts430x.lib : fs_tol.obj (.text)
+                  0000bf8e    0000007c     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:TrimACLK_Offset_v)
+                  0000c00a    0000007a     slide.obj (.text:mx_slide)
+                  0000c084    00000078     main.obj (.text:init_global_variables)
+                  0000c0fc    00000078     slide.obj (.text:mx_slide2)
+                  0000c174    00000078     ez430_chronos_drivers.lib : vti_ps.obj (.text:ps_init)
+                  0000c1ec    00000076     CC430_End_Device_915MHz.lib : nwk_QMgmt.obj (.text:nwk_QfindSlot)
+                  0000c262    00000072     ez430_chronos_drivers.lib : display.obj (.text:display_char)
+                  0000c2d4    00000072                               : vti_ps.obj (.text:ps_read_register)
+                  0000c346    00000070     main.obj (.text:process_requests)
+                  0000c3b6    0000006e     BlueRobin_RX_915MHz.lib : BRRX_Radio.obj (.text:BRRX_RadioReceive_v)
+                  0000c424    0000006c     ez430_chronos_drivers.lib : vti_as.obj (.text:as_read_register)
+                  0000c490    00000068                               : adc12.obj (.text:adc12_single_conversion)
+                  0000c4f8    00000068     clock.obj (.text:clock_tick)
+                  0000c560    00000068     rts430x.lib : fs_toi.obj (.text)
+                  0000c5c8    00000068     CC430_End_Device_915MHz.lib : nwk_link.obj (.text:smpl_send_unlink_reply)
+                  0000c630    00000066     ez430_chronos_drivers.lib : vti_as.obj (.text:as_write_register)
+                  0000c696    00000066                               : vti_ps.obj (.text:ps_get_pa)
+                  0000c6fc    00000064     slide.obj (.text:log)
+                  0000c760    00000064     CC430_End_Device_915MHz.lib : mrfi.obj (.text:mrfiRadioInterfaceReadRxFifo)
+                  0000c7c4    00000062                                 : mrfi.obj (.text:MRFI_RadioIsr)
+                  0000c826    0000005e     BlueRobin_RX_915MHz.lib : BRRX_Radio.obj (.text:BRRX_PacketEndTimerTask_v)
+                  0000c884    0000005e     ez430_chronos_drivers.lib : timer.obj (.text:Timer0_A4_Delay)
+                  0000c8e2    0000005e     battery.obj (.text:display_battery_V)
+                  0000c940    0000005e     ez430_chronos_drivers.lib : display.obj (.text:write_lcd_mem)
+                  0000c99e    0000005a     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:PrepareForFirstPacket_v)
+                  0000c9f8    00000058     slide.obj (.text:display_fn_choice)
+                  0000ca50    00000058     ez430_chronos_drivers.lib : vti_ps.obj (.text:ps_write_register)
+                  0000caa8    00000058     rts430x.lib : div32u.obj (.text)
+                  0000cb00    00000054     rfbsl.obj (.text:sx_rfbsl)
+                  0000cb54    00000052     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:BRRX__StartNewSearch_v)
+                  0000cba6    00000052                             : BRRX_Scheduler.obj (.text:TestStartTime_v)
+                  0000cbf8    00000052     ez430_chronos_drivers.lib : display.obj (.text:clear_line)
+                  0000cc4a    00000052     date.obj (.text:get_day)
+                  0000cc9c    00000052     CC430_End_Device_915MHz.lib : nwk_ioctl.obj (.text:nwk_rawSend)
+                  0000ccee    00000052     ez430_chronos_drivers.lib : vti_ps.obj (.text:ps_twi_read)
+                  0000cd40    0000004c     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:SearchPacketCheck_u8)
+                  0000cd8c    0000004c     ez430_chronos_drivers.lib : ports.obj (.text:button_repeat_function)
+                  0000cdd8    0000004c                               : vti_ps.obj (.text:ps_get_temp)
+                  0000ce24    0000004c     rts430x.lib : fs_toul.obj (.text)
+                  0000ce70    0000004a                 : fs_cmp.obj (.text)
+                  0000ceba    0000004a                 : fs_ltof.obj (.text)
+                  0000cf04    0000004a     ez430_chronos_drivers.lib : buzzer.obj (.text:toggle_buzzer)
+                  0000cf4e    00000048                               : buzzer.obj (.text:start_buzzer)
+                  0000cf96    00000046     BlueRobin_RX_915MHz.lib : BR_Common.obj (.text:BR__CalcRandomTimeOffset_u16)
+                  0000cfdc    00000046     ez430_chronos_drivers.lib : pmm.obj (.text:SetVCoreUp)
+                  0000d022    00000046     rts430x.lib : autoinit.obj (.text:_auto_init)
+                  0000d068    00000046     date.obj (.text:display_date)
+                  0000d0ae    00000046     ez430_chronos_drivers.lib : display.obj (.text:display_hours)
+                  0000d0f4    00000046     CC430_End_Device_915MHz.lib : mrfi.obj (.text:mrfiRadioInterfaceReadReg)
+                  0000d13a    00000046     rts430x.lib : fs_tou.obj (.text)
+                  0000d180    00000046     CC430_End_Device_915MHz.lib : main_ED_BM.obj (.text:simpliciti_main_tx_only)
+                  0000d1c6    00000044     ez430_chronos_drivers.lib : rf1a.obj (.text:ReadBurstReg)
+                  0000d20a    00000044     CC430_End_Device_915MHz.lib : nwk_api.obj (.text:SMPL_Receive)
+                  0000d24e    00000044     date.obj (.text:add_day)
+                  0000d292    00000044     CC430_End_Device_915MHz.lib : nwk_ping.obj (.text:smpl_send_ping_reply)
+                  0000d2d6    00000042     slide.obj (.text:harm)
+                  0000d318    00000042     ez430_chronos_drivers.lib : vti_ps.obj (.text:ps_twi_write)
+                  0000d35a    00000040     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_isValidReply)
+                  0000d39a    00000040     altitude.obj (.text:reset_altitude_measurement)
+                  0000d3da    00000040     rts430x.lib : div32s.obj (.text)
+                  0000d41a    00000040     altitude.obj (.text:start_altitude_measurement)
+                  0000d45a    0000003e     BlueRobin_RX_915MHz.lib : BRRX_Packet.obj (.text:BRRX__DecodePacket_u8)
+                  0000d498    0000003e                             : BRRX_API.obj (.text:BRRX__NewInfo_v)
+                  0000d4d6    0000003e                             : BRRX_Scheduler.obj (.text:PacketHit_u8)
+                  0000d514    0000003e     rts430x.lib : asr32.obj (.text:l_asr_const)
+                  0000d552    0000003e                 : lsl32.obj (.text:l_lsl_const)
+                  0000d590    0000003e                 : lsr32.obj (.text:l_lsr_const)
+                  0000d5ce    0000003e     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_getNextConnection)
+                  0000d60c    0000003c     BlueRobin_RX_915MHz.lib : BRRX_Timer.obj (.text:BRRX_TimerTask_v)
+                  0000d648    0000003c     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_ReplyDelay)
+                  0000d684    0000003c                                 : nwk.obj (.text:nwk_findPeer)
+                  0000d6c0    0000003c                                 : nwk.obj (.text:nwk_isLinkDuplicate)
+                  0000d6fc    0000003c     stopwatch.obj (.text:update_stopwatch_timer)
+                  0000d738    0000003a     CC430_End_Device_915MHz.lib : mrfi.obj (.text:Mrfi_RxAddrIsFiltered)
+                  0000d772    0000003a                                 : nwk_mgmt.obj (.text:nwk_processMgmt)
+                  0000d7ac    0000003a     util.obj (.text:pin_generate)
+                  0000d7e6    00000038     ez430_chronos_drivers.lib : rf1a.obj (.text:WriteSingleReg)
+                  0000d81e    00000038                               : radio.obj (.text:_isr:radio_ISR)
+                  0000d856    00000038     CC430_End_Device_915MHz.lib : nwk.obj (.text:initializeConnection)
+                  0000d88e    00000036     slide.obj (.text:half)
+                  0000d8c4    00000036     temperature.obj (.text:norm_arrow)
+                  0000d8fa    00000036     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_putNumObjectIntoMsg)
+                  0000d930    00000036     rts430x.lib : fs_itof.obj (.text)
+                  0000d966    00000034     BlueRobin_RX_915MHz.lib : BR_Common.obj (.text:BR__CalcCRC_u8)
+                  0000d99a    00000034     CC430_End_Device_915MHz.lib : bsp.obj (.text:BSP_Delay)
+                  0000d9ce    00000034                                 : nwk_api.obj (.text:SMPL_Init)
+                  0000da02    00000034     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:TrimRFCLK_Offset_v)
+                  0000da36    00000034     CC430_End_Device_915MHz.lib : mrfi.obj (.text:mrfiRadioInterfaceWriteReg)
+                  0000da6a    00000034                                 : mrfi.obj (.text:mrfiRadioInterfaceWriteTxFifo)
+                  0000da9e    00000032     BlueRobin_RX_915MHz.lib : BRRX_Radio.obj (.text:BRRX_RadioStop_v)
+                  0000dad0    00000032     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_SetLogicalChannel)
+                  0000db02    00000032     ez430_chronos_drivers.lib : vti_as.obj (.text:as_stop)
+                  0000db34    00000032     main.obj (.text:main)
+                  0000db66    00000032     CC430_End_Device_915MHz.lib : nwk_ioctl.obj (.text:nwk_deviceAddress)
+                  0000db98    00000032     ez430_chronos_drivers.lib : radio.obj (.text:radio_reset)
+                  0000dbca    00000032     rts430x.lib : fs_ultof.obj (.text)
+                  0000dbfc    00000032     alarm.obj (.text:sx_alarm)
+                  0000dc2e    00000030     slide.obj (.text:halfc)
+                  0000dc5e    00000030     CC430_End_Device_915MHz.lib : nwk_link.obj (.text:nwk_linkInit)
+                  0000dc8e    00000030                                 : nwk_ioctl.obj (.text:nwk_rawReceive)
+                  0000dcbe    00000030                                 : nwk_frame.obj (.text:nwk_sendFrame)
+                  0000dcee    00000030     slide.obj (.text:split_num)
+                  0000dd1e    0000002e     CC430_End_Device_915MHz.lib : mrfi.obj (.text:Mrfi_CalculateRssi)
+                  0000dd4c    0000002e     ez430_chronos_drivers.lib : vti_as.obj (.text:as_init)
+                  0000dd7a    0000002e     date.obj (.text:leaps_count)
+                  0000dda8    0000002c     CC430_End_Device_915MHz.lib : mrfi.obj (.text:Mrfi_RxModeOff)
+                  0000ddd4    0000002c                                 : nwk_QMgmt.obj (.text:nwk_QadjustOrder)
+                  0000de00    0000002c     rts430x.lib : div16s.obj (.text)
+                  0000de2c    0000002a     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_SetRxAddrFilter)
+                  0000de56    0000002a                                 : mrfi.obj (.text:Mrfi_DelayUsecSem)
+                  0000de80    0000002a     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:SearchPacketMissed_u8)
+                  0000deaa    0000002a     ez430_chronos_drivers.lib : timer.obj (.text:Timer0_A3_Start)
+                  0000ded4    0000002a     rts430x.lib : boot.obj (.text:_isr:_c_int00_noexit)
+                  0000defe    0000002a     ez430_chronos_drivers.lib : vti_as.obj (.text:as_get_data)
+                  0000df28    0000002a     rfbsl.obj (.text:display_rfbsl)
+                  0000df52    0000002a     ez430_chronos_drivers.lib : display.obj (.text:lcd_init)
+                  0000df7c    0000002a     slide.obj (.text:tan)
+                  0000dfa6    00000028     slide.obj (.text:atan)
+                  0000dfce    00000028     CC430_End_Device_915MHz.lib : nwk.obj (.text:map_lid2idx)
+                  0000dff6    00000028                                 : nwk.obj (.text:nwk_getConnInfo)
+                  0000e01e    00000028                                 : nwk_ping.obj (.text:nwk_processPing)
+                  0000e046    00000026     ez430_chronos_drivers.lib : pmm.obj (.text:SetVCore)
+                  0000e06c    00000026                               : pmm.obj (.text:SetVCoreDown)
+                  0000e092    00000026     slide.obj (.text:div)
+                  0000e0b8    00000026     slide.obj (.text:ein)
+                  0000e0de    00000026     slide.obj (.text:entropy)
+                  0000e104    00000026     CC430_End_Device_915MHz.lib : nwk_link.obj (.text:handleLinkRequest)
+                  0000e12a    00000026     ez430_chronos_drivers.lib : ports.obj (.text:init_buttons)
+                  0000e150    00000026                               : vti_ps.obj (.text:init_pressure_table)
+                  0000e176    00000026     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_checkConnInfo)
+                  0000e19c    00000026                                 : nwk_globals.obj (.text:nwk_globalsInit)
+                  0000e1c2    00000026                                 : nwk_join.obj (.text:nwk_joinInit)
+                  0000e1e8    00000026                                 : nwk_link.obj (.text:nwk_processLink)
+                  0000e20e    00000026     rfsimpliciti.obj (.text:sx_rf)
+                  0000e234    00000026     rfsimpliciti.obj (.text:sx_sync)
+                  0000e25a    00000024     BlueRobin_RX_915MHz.lib : BRRX_API.obj (.text:BRRX_GetState_t)
+                  0000e27e    00000024     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_Sleep)
+                  0000e2a2    00000024                                 : mrfi.obj (.text:Mrfi_DelayUsec)
+                  0000e2c6    00000024     rts430x.lib : memcmp.obj (.text:memcmp)
+                  0000e2ea    00000024                 : fs_utof.obj (.text)
+                  0000e30e    00000022     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_WakeUp)
+                  0000e330    00000022     ez430_chronos_drivers.lib : display.obj (.text:display_value)
+                  0000e352    00000022     CC430_End_Device_915MHz.lib : nwk_frame.obj (.text:nwk_buildAckReqFrame)
+                  0000e374    00000022     stopwatch.obj (.text:start_stopwatch)
+                  0000e396    00000020     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_Rssi)
+                  0000e3b6    00000020                                 : nwk_frame.obj (.text:MRFI_RxCompleteISR)
+                  0000e3d6    00000020                                 : mrfi.obj (.text:MRFI_RxIdle)
+                  0000e3f6    00000020                                 : mrfi.obj (.text:MRFI_RxOn)
+                  0000e416    00000020     alarm.obj (.text:check_alarm)
+                  0000e436    00000020     util.obj (.text:display_pin)
+                  0000e456    00000020     slide.obj (.text:exp)
+                  0000e476    00000020     rts430x.lib : memmov.obj (.text:memmove)
+                  0000e496    00000020     CC430_End_Device_915MHz.lib : nwk_ioctl.obj (.text:nwk_connectionControl)
+                  0000e4b6    00000020     clock.obj (.text:reset_clock)
+                  0000e4d6    00000020     stopwatch.obj (.text:reset_stopwatch)
+                  0000e4f6    00000020     ez430_chronos_drivers.lib : buzzer.obj (.text:stop_buzzer)
+                  0000e516    00000020     alarm.obj (.text:tune)
+                  0000e536    0000001e     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_EnableRxAddrFilter)
+                  0000e554    0000001e                                 : mrfi.obj (.text:Mrfi_RandomBackoffDelay)
+                  0000e572    0000001e     BlueRobin_RX_915MHz.lib : BRRX_Timer.obj (.text:SetAbsoluteTimer_v)
+                  0000e590    0000001e     temperature.obj (.text:convert_C_to_F)
+                  0000e5ae    0000001e     CC430_End_Device_915MHz.lib : nwk_frame.obj (.text:nwk_frameInit)
+                  0000e5cc    0000001e                                 : nwk_globals.obj (.text:nwk_setMyAddress)
+                  0000e5ea    0000001c     ez430_chronos_drivers.lib : display.obj (.text:clear_display_all)
+                  0000e606    0000001c                               : display.obj (.text:display_am_pm_symbol)
+                  0000e622    0000001c     CC430_End_Device_915MHz.lib : nwk_QMgmt.obj (.text:nwk_QInit)
+                  0000e63e    0000001c                                 : nwk_join.obj (.text:nwk_processJoin)
+                  0000e65a    0000001c     altitude.obj (.text:stop_altitude_measurement)
+                  0000e676    0000001a     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.text:GetPacketTolerance_u8)
+                  0000e690    0000001a     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_SetRFPwr)
+                  0000e6aa    0000001a     ez430_chronos_drivers.lib : adc12.obj (.text:_isr:ADC12ISR)
+                  0000e6c4    0000001a     util.obj (.text:mx_util)
+                  0000e6de    0000001a     stopwatch.obj (.text:stop_stopwatch)
+                  0000e6f8    00000018     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_DelayMs)
+                  0000e710    00000018     temperature.obj (.text:convert_F_to_C)
+                  0000e728    00000018     clock.obj (.text:convert_hour_to_12H_format)
+                  0000e740    00000018     alarm.obj (.text:reset_alarm)
+                  0000e758    00000018     date.obj (.text:reset_date)
+                  0000e770    00000016     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_RandomByte)
+                  0000e786    00000016                                 : mrfi.obj (.text:Mrfi_RxModeOn)
+                  0000e79c    00000016     ez430_chronos_drivers.lib : rf1a.obj (.text:ReadSingleReg)
+                  0000e7b2    00000016                               : ports.obj (.text:button_repeat_on)
+                  0000e7c8    00000016     slide.obj (.text:circ)
+                  0000e7de    00000016     slide.obj (.text:display_slide)
+                  0000e7f4    00000016     ez430_chronos_drivers.lib : display.obj (.text:display_symbol)
+                  0000e80a    00000016     slide.obj (.text:invw)
+                  0000e820    00000016     slide.obj (.text:qfn)
+                  0000e836    00000016     rts430x.lib : div16u.obj (.text)
+                  0000e84c    00000016                 : mult16_f5hw.obj (.text)
+                  0000e862    00000016     slide.obj (.text:sin)
+                  0000e878    00000016     slide.obj (.text:sqrt)
+                  0000e88e    00000016     stopwatch.obj (.text:sx_stopwatch)
+                  0000e8a4    00000014     ez430_chronos_drivers.lib : timer.obj (.text:Timer0_Init)
+                  0000e8b8    00000014     altitude.obj (.text:convert_ft_to_m)
+                  0000e8cc    00000014     altitude.obj (.text:convert_m_to_ft)
+                  0000e8e0    00000014     ez430_chronos_drivers.lib : buzzer.obj (.text:countdown_buzzer)
+                  0000e8f4    00000014     rfsimpliciti.obj (.text:display_rf)
+                  0000e908    00000014     rfsimpliciti.obj (.text:display_sync)
+                  0000e91c    00000014     date.obj (.text:get_numberOfDays)
+                  0000e930    00000014     CC430_End_Device_915MHz.lib : nwk_api.obj (.text:ioctlPreInitAccessIsOK)
+                  0000e944    00000014     rts430x.lib : memset.obj (.text:memset)
+                  0000e958    00000012     BlueRobin_RX_915MHz.lib : BR_Common.obj (.text:BR__CalcRandomChannel_u8)
+                  0000e96a    00000012                             : BRRX_Radio.obj (.text:BlueRobin_RadioISR_v)
+                  0000e97c    00000012     slide.obj (.text:acos)
+                  0000e98e    00000012     slide.obj (.text:asin)
+                  0000e9a0    00000012     acceleration.obj (.text:is_acceleration_measurement)
+                  0000e9b2    00000012     altitude.obj (.text:is_altitude_measurement)
+                  0000e9c4    00000012     stopwatch.obj (.text:is_stopwatch)
+                  0000e9d6    00000012     rts430x.lib : memcpy.obj (.text:memcpy)
+                  0000e9e8    00000012     CC430_End_Device_915MHz.lib : nwk_join.obj (.text:nwk_getJoinToken)
+                  0000e9fa    00000012                                 : nwk_link.obj (.text:nwk_getLinkToken)
+                  0000ea0c    00000012                                 : nwk_globals.obj (.text:nwk_getMyAddress)
+                  0000ea1e    00000012                                 : nwk_join.obj (.text:nwk_setJoinToken)
+                  0000ea30    00000012                                 : nwk_link.obj (.text:nwk_setLinkToken)
+                  0000ea42    00000012     ez430_chronos_drivers.lib : radio.obj (.text:open_radio)
+                  0000ea54    00000012     battery.obj (.text:reset_batt_measurement)
+                  0000ea66    00000012     slide.obj (.text:sx_slide)
+                  0000ea78    00000010     CC430_End_Device_915MHz.lib : bsp.obj (.text:BSP_InitBoard)
+                  0000ea88    00000010     ez430_chronos_drivers.lib : radio.obj (.text:close_radio)
+                  0000ea98    00000010     slide.obj (.text:cos)
+                  0000eaa8    00000010     clock.obj (.text:display_selection_Timeformat1)
+                  0000eab8    00000010     slide.obj (.text:mul)
+                  0000eac8    00000010     ez430_chronos_drivers.lib : radio.obj (.text:radio_powerdown)
+                  0000ead8    00000010                               : display.obj (.text:switch_seg)
+                  0000eae8    00000010     date.obj (.text:sx_date)
+                  0000eaf8    00000010     clock.obj (.text:sx_time)
+                  0000eb08    0000000e     util.obj (.text:display_util)
+                  0000eb16    0000000e     clock.obj (.text:is_hour_am)
+                  0000eb24    0000000e     stopwatch.obj (.text:mx_stopwatch)
+                  0000eb32    0000000e     acceleration.obj (.text:reset_acceleration)
+                  0000eb40    0000000e     ez430_chronos_drivers.lib : display.obj (.text:set_blink_rate)
+                  0000eb4e    0000000c     BlueRobin_RX_915MHz.lib : BRRX_Timer.obj (.text:BRRX__GetCurrentTime_u16)
+                  0000eb5a    0000000c     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_PostKillSem)
+                  0000eb66    0000000c                                 : mrfi.obj (.text:MRFI_Receive)
+                  0000eb72    0000000c     ez430_chronos_drivers.lib : timer.obj (.text:Timer0_Stop)
+                  0000eb7e    0000000c                               : display.obj (.text:clear_display)
+                  0000eb8a    0000000c     acceleration.obj (.text:do_acceleration_measurement)
+                  0000eb96    0000000c     CC430_End_Device_915MHz.lib : nwk_ping.obj (.text:handlePingRequest)
+                  0000eba2    0000000c     main.obj (.text:idle_loop)
+                  0000ebae    0000000c     rfsimpliciti.obj (.text:is_rf)
+                  0000ebba    0000000c     temperature.obj (.text:is_temp_measurement)
+                  0000ebc6    0000000c     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_getNumObjectFromMsg)
+                  0000ebd2    0000000c                                 : nwk_globals.obj (.text:nwk_setAPAddress)
+                  0000ebde    0000000c     ez430_chronos_drivers.lib : vti_ps.obj (.text:ps_start)
+                  0000ebea    0000000c     util.obj (.text:sx_util)
+                  0000ebf6    0000000c     menu.obj (.text:update_alarm)
+                  0000ec02    0000000c     menu.obj (.text:update_battery_voltage)
+                  0000ec0e    0000000c     menu.obj (.text:update_stopwatch)
+                  0000ec1a    0000000c     menu.obj (.text:update_temperature)
+                  0000ec26    0000000c     util.obj (.text:update_util)
+                  0000ec32    0000000a     BlueRobin_RX_915MHz.lib : BRRX_Timer.obj (.text:BRRX__StopTimer_v)
+                  0000ec3c    0000000a     ez430_chronos_drivers.lib : ports.obj (.text:button_repeat_off)
+                  0000ec46    0000000a     CC430_End_Device_915MHz.lib : nwk_mgmt.obj (.text:nwk_mgmtInit)
+                  0000ec50    0000000a                                 : nwk_ping.obj (.text:nwk_pingInit)
+                  0000ec5a    0000000a     ez430_chronos_drivers.lib : vti_ps.obj (.text:ps_stop)
+                  0000ec64    0000000a                               : buzzer.obj (.text:reset_buzzer)
+                  0000ec6e    0000000a     rfsimpliciti.obj (.text:reset_rf)
+                  0000ec78    0000000a     temperature.obj (.text:reset_temp_measurement)
+                  0000ec82    0000000a     util.obj (.text:restore_util)
+                  0000ec8c    0000000a     rts430x.lib : fs_neg.obj (.text)
+                  0000ec96    0000000a     altitude.obj (.text:sx_altitude)
+                  0000eca0    0000000a     menu.obj (.text:update_date)
+                  0000ecaa    0000000a     menu.obj (.text:update_time)
+                  0000ecb4    00000008     BlueRobin_RX_915MHz.lib : BRRX_Radio.obj (.text:BRRX_GetFS_Offset_s8)
+                  0000ecbc    00000008     ez430_chronos_drivers.lib : timer.obj (.text:Timer0_A3_Stop)
+                  0000ecc4    00000008                               : timer.obj (.text:Timer0_Start)
+                  0000eccc    00000008     slide.obj (.text:inv)
+                  0000ecd4    00000008     slide.obj (.text:lin)
+                  0000ecdc    00000008     slide.obj (.text:square)
+                  0000ece4    00000008     alarm.obj (.text:stop_alarm)
+                  0000ecec    00000008     main.obj (.text:to_lpm)
+                  0000ecf4    00000006     BlueRobin_RX_915MHz.lib : BRRX_Timer.obj (.text:BRRX__CallTimer_v)
+                  0000ecfa    00000006     CC430_End_Device_915MHz.lib : mrfi.obj (.text:MRFI_GetRadioState)
+                  0000ed00    00000006     ez430_chronos_drivers.lib : display.obj (.text:clear_blink_mem)
+                  0000ed06    00000006     stopwatch.obj (.text:display_stopwatch)
+                  0000ed0c    00000006     main.obj (.text:line1)
+                  0000ed12    00000006     main.obj (.text:line2)
+                  0000ed18    00000006     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_freeConnection)
+                  0000ed1e    00000006                                 : nwk_globals.obj (.text:nwk_getBCastAddress)
+                  0000ed24    00000006                                 : nwk_globals.obj (.text:nwk_getFWVersion)
+                  0000ed2a    00000006                                 : nwk_frame.obj (.text:nwk_getMyRxType)
+                  0000ed30    00000006     ez430_chronos_drivers.lib : display.obj (.text:start_blink)
+                  0000ed36    00000006                               : display.obj (.text:stop_blink)
+                  0000ed3c    00000006     temperature.obj (.text:sx_temperature)
+                  0000ed42    00000004     CC430_End_Device_915MHz.lib : nwk_api.obj (.text:SMPL_Link)
+                  0000ed46    00000004     rts430x.lib : pre_init.obj (.text:_system_pre_init)
+                  0000ed4a    00000004                 : exit.obj (.text:abort)
+                  0000ed4e    00000004     slide.obj (.text:halfa)
+                  0000ed52    00000004     slide.obj (.text:halfs)
+                  0000ed56    00000004     bluerobin.obj (.text:is_bluerobin)
+                  0000ed5a    00000004     bluerobin.obj (.text:is_bluerobin_searching)
+                  0000ed5e    00000004     CC430_End_Device_915MHz.lib : nwk.obj (.text:nwk_NVObj)
+                  0000ed62    00000004                                 : nwk_globals.obj (.text:nwk_getProtocolVersion)
+                  0000ed66    00000004                                 : nwk_freq.obj (.text:nwk_processFreq)
+                  0000ed6a    00000004                                 : nwk_security.obj (.text:nwk_processSecurity)
+                  0000ed6e    00000004     ez430_chronos_drivers.lib : vti_ps.obj (.text:twi_delay)
+                  0000ed72    00000002     rts430x.lib : _lock.obj (.text:_nop)
+                  0000ed74    00000002     CC430_End_Device_915MHz.lib : nwk_freq.obj (.text:nwk_freqInit)
+                  0000ed76    00000002                                 : nwk_security.obj (.text:nwk_securityInit)
 
-.const     0    0000ed7a    0000069b     
-                  0000ed7a    0000021f     ez430_chronos_drivers.lib : display.obj (.const:int_to_array_conversion_table)
-                  0000ef99    00000001     --HOLE-- [fill = 0]
-                  0000ef9a    00000100     BlueRobin_RX_915MHz.lib : BR_Common.obj (.const:RandomValue_u8)
-                  0000f09a    00000090     menu.obj (.const)
-                  0000f12a    00000076     <whole-program> (.const:.string)
-                  0000f1a0    00000060     slide.obj (.const:slide_fn)
-                  0000f200    00000040     CC430_End_Device_915MHz.lib : mrfi.obj (.const:mrfiRadioCfg)
-                  0000f240    0000002b     ez430_chronos_drivers.lib : display.obj (.const:.string:lcd_font)
-                  0000f26b    00000001     --HOLE-- [fill = 0]
-                  0000f26c    0000002a                               : display.obj (.const:.string:segments_bitmask)
-                  0000f296    00000028     slide.obj (.const:pre_scale)
-                  0000f2be    00000028     slide.obj (.const:scale)
-                  0000f2e6    00000022     ez430_chronos_drivers.lib : vti_ps.obj (.const:h0)
-                  0000f308    00000022                               : vti_ps.obj (.const:p0)
-                  0000f32a    00000020     slide.obj (.const:named_calc2)
-                  0000f34a    00000018     slide.obj (.const:.string:idx_scale)
-                  0000f362    00000018     date.obj (.const:days_offset)
-                  0000f37a    00000018     CC430_End_Device_915MHz.lib : nwk_frame.obj (.const:func)
-                  0000f392    00000014     util.obj (.const:util_dispfn)
-                  0000f3a6    00000014     util.obj (.const:util_sxfn)
-                  0000f3ba    00000014     util.obj (.const:util_upfn)
-                  0000f3ce    00000010     slide.obj (.const:named_calc)
-                  0000f3de    0000000c     date.obj (.const:.string:dow_offset)
-                  0000f3ea    0000000c     date.obj (.const:.string:month_days)
-                  0000f3f6    00000009     CC430_End_Device_915MHz.lib : nwk_globals.obj (.const)
-                  0000f3ff    00000001     --HOLE-- [fill = 0]
-                  0000f400    00000006     clock.obj (.const:selection_Timeformat)
-                  0000f406    00000004     BlueRobin_RX_915MHz.lib : BRRX_Resource.obj (.const)
-                  0000f40a    00000004     CC430_End_Device_915MHz.lib : mrfi.obj (.const:mrfiBroadcastAddr)
-                  0000f40e    00000004                                 : mrfi.obj (.const:mrfiLogicalChanTable)
-                  0000f412    00000003                                 : mrfi.obj (.const:mrfiRFPowerTable)
+.const     0    0000ed78    0000069b     
+                  0000ed78    0000021f     ez430_chronos_drivers.lib : display.obj (.const:int_to_array_conversion_table)
+                  0000ef97    00000001     --HOLE-- [fill = 0]
+                  0000ef98    00000100     BlueRobin_RX_915MHz.lib : BR_Common.obj (.const:RandomValue_u8)
+                  0000f098    00000090     menu.obj (.const)
+                  0000f128    00000076     <whole-program> (.const:.string)
+                  0000f19e    00000060     slide.obj (.const:slide_fn)
+                  0000f1fe    00000040     CC430_End_Device_915MHz.lib : mrfi.obj (.const:mrfiRadioCfg)
+                  0000f23e    0000002b     ez430_chronos_drivers.lib : display.obj (.const:.string:lcd_font)
+                  0000f269    00000001     --HOLE-- [fill = 0]
+                  0000f26a    0000002a                               : display.obj (.const:.string:segments_bitmask)
+                  0000f294    00000028     slide.obj (.const:pre_scale)
+                  0000f2bc    00000028     slide.obj (.const:scale)
+                  0000f2e4    00000022     ez430_chronos_drivers.lib : vti_ps.obj (.const:h0)
+                  0000f306    00000022                               : vti_ps.obj (.const:p0)
+                  0000f328    00000020     slide.obj (.const:named_calc2)
+                  0000f348    00000018     slide.obj (.const:.string:idx_scale)
+                  0000f360    00000018     date.obj (.const:days_offset)
+                  0000f378    00000018     CC430_End_Device_915MHz.lib : nwk_frame.obj (.const:func)
+                  0000f390    00000014     util.obj (.const:util_dispfn)
+                  0000f3a4    00000014     util.obj (.const:util_sxfn)
+                  0000f3b8    00000014     util.obj (.const:util_upfn)
+                  0000f3cc    00000010     slide.obj (.const:named_calc)
+                  0000f3dc    0000000c     date.obj (.const:.string:dow_offset)
+                  0000f3e8    0000000c     date.obj (.const:.string:month_days)
+                  0000f3f4    00000009     CC430_End_Device_915MHz.lib : nwk_globals.obj (.const)
+                  0000f3fd    00000001     --HOLE-- [fill = 0]
+                  0000f3fe    00000006     clock.obj (.const:selection_Timeformat)
+                  0000f404    00000004     BlueRobin_RX_915MHz.lib : BRRX_Resource.obj (.const)
+                  0000f408    00000004     CC430_End_Device_915MHz.lib : mrfi.obj (.const:mrfiBroadcastAddr)
+                  0000f40c    00000004                                 : mrfi.obj (.const:mrfiLogicalChanTable)
+                  0000f410    00000003                                 : mrfi.obj (.const:mrfiRFPowerTable)
 
-.cinit     0    0000f416    000001da     
-                  0000f416    000000ce     <whole-program> (.cinit)
-                  0000f4e4    0000004d     CC430_End_Device_915MHz.lib : mrfi.obj (.cinit)
-                  0000f531    00000001     --HOLE-- [fill = 0]
-                  0000f532    00000020                                 : nwk_frame.obj (.cinit)
-                  0000f552    00000019                                 : nwk_link.obj (.cinit)
-                  0000f56b    00000001     --HOLE-- [fill = 0]
-                  0000f56c    00000017     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.cinit)
-                  0000f583    00000001     --HOLE-- [fill = 0]
-                  0000f584    00000017                             : BRRX_Timer.obj (.cinit)
-                  0000f59b    00000001     --HOLE-- [fill = 0]
-                  0000f59c    00000015     CC430_End_Device_915MHz.lib : nwk_join.obj (.cinit)
-                  0000f5b1    00000001     --HOLE-- [fill = 0]
-                  0000f5b2    0000000c     BlueRobin_RX_915MHz.lib : BRRX_Radio.obj (.cinit)
-                  0000f5be    0000000b                             : BRRX_Packet.obj (.cinit)
-                  0000f5c9    00000001     --HOLE-- [fill = 0]
-                  0000f5ca    0000000b     CC430_End_Device_915MHz.lib : nwk_mgmt.obj (.cinit)
-                  0000f5d5    00000001     --HOLE-- [fill = 0]
-                  0000f5d6    00000005                                 : nwk.obj (.cinit)
-                  0000f5db    00000001     --HOLE-- [fill = 0]
-                  0000f5dc    00000005                                 : nwk_api.obj (.cinit)
-                  0000f5e1    00000001     --HOLE-- [fill = 0]
-                  0000f5e2    00000005                                 : nwk_globals.obj (.cinit)
-                  0000f5e7    00000001     --HOLE-- [fill = 0]
-                  0000f5e8    00000005                                 : nwk_ping.obj (.cinit)
-                  0000f5ed    00000001     --HOLE-- [fill = 0]
-                  0000f5ee    00000002     (.pad.cinit) [fill = 0]
+.cinit     0    0000f414    000001e0     
+                  0000f414    000000d4     <whole-program> (.cinit)
+                  0000f4e8    0000004d     CC430_End_Device_915MHz.lib : mrfi.obj (.cinit)
+                  0000f535    00000001     --HOLE-- [fill = 0]
+                  0000f536    00000020                                 : nwk_frame.obj (.cinit)
+                  0000f556    00000019                                 : nwk_link.obj (.cinit)
+                  0000f56f    00000001     --HOLE-- [fill = 0]
+                  0000f570    00000017     BlueRobin_RX_915MHz.lib : BRRX_Scheduler.obj (.cinit)
+                  0000f587    00000001     --HOLE-- [fill = 0]
+                  0000f588    00000017                             : BRRX_Timer.obj (.cinit)
+                  0000f59f    00000001     --HOLE-- [fill = 0]
+                  0000f5a0    00000015     CC430_End_Device_915MHz.lib : nwk_join.obj (.cinit)
+                  0000f5b5    00000001     --HOLE-- [fill = 0]
+                  0000f5b6    0000000c     BlueRobin_RX_915MHz.lib : BRRX_Radio.obj (.cinit)
+                  0000f5c2    0000000b                             : BRRX_Packet.obj (.cinit)
+                  0000f5cd    00000001     --HOLE-- [fill = 0]
+                  0000f5ce    0000000b     CC430_End_Device_915MHz.lib : nwk_mgmt.obj (.cinit)
+                  0000f5d9    00000001     --HOLE-- [fill = 0]
+                  0000f5da    00000005                                 : nwk.obj (.cinit)
+                  0000f5df    00000001     --HOLE-- [fill = 0]
+                  0000f5e0    00000005                                 : nwk_api.obj (.cinit)
+                  0000f5e5    00000001     --HOLE-- [fill = 0]
+                  0000f5e6    00000005                                 : nwk_globals.obj (.cinit)
+                  0000f5eb    00000001     --HOLE-- [fill = 0]
+                  0000f5ec    00000005                                 : nwk_ping.obj (.cinit)
+                  0000f5f1    00000001     --HOLE-- [fill = 0]
+                  0000f5f2    00000002     (.pad.cinit) [fill = 0]
 
 .int48     0    0000ffe0    00000002     
                   0000ffe0    00000002     <whole-program> (.int48)
@@ -613,7 +613,7 @@ address    name
 0000070a   ADC12IFG
 0000070b   ADC12IFG_H
 0000070a   ADC12IFG_L
-0000e6ac   ADC12ISR
+0000e6aa   ADC12ISR
 0000070e   ADC12IV
 0000070f   ADC12IV_H
 0000070e   ADC12IV_L
@@ -696,21 +696,21 @@ address    name
 000009c4   AESASTAT
 000009c5   AESASTAT_H
 000009c4   AESASTAT_L
-0000ecb6   BRRX_GetFS_Offset_s8
-0000e25c   BRRX_GetState_t
-0000c828   BRRX_PacketEndTimerTask_v
-0000c3b8   BRRX_RadioReceive_v
-0000daa0   BRRX_RadioStop_v
-0000d60e   BRRX_TimerTask_v
-0000ecf6   BRRX__CallTimer_v
+0000ecb4   BRRX_GetFS_Offset_s8
+0000e25a   BRRX_GetState_t
+0000c826   BRRX_PacketEndTimerTask_v
+0000c3b6   BRRX_RadioReceive_v
+0000da9e   BRRX_RadioStop_v
+0000d60c   BRRX_TimerTask_v
+0000ecf4   BRRX__CallTimer_v
 00001f14   BRRX__CurrentPacketTime_u16
 00001f16   BRRX__CurrentSignalLevel_u8
-0000d45c   BRRX__DecodePacket_u8
-0000f406   BRRX__First_TXCB_t
-0000eb50   BRRX__GetCurrentTime_u16
-0000f408   BRRX__Last_TXCB_t
+0000d45a   BRRX__DecodePacket_u8
+0000f404   BRRX__First_TXCB_t
+0000eb4e   BRRX__GetCurrentTime_u16
+0000f406   BRRX__Last_TXCB_t
 00001e76   BRRX__MaxSearchTries_u8
-0000d49a   BRRX__NewInfo_v
+0000d498   BRRX__NewInfo_v
 00001ece   BRRX__NextEndTime_u16
 00001ecc   BRRX__NextEventTime_u16
 00001ed1   BRRX__NextFrequencyOffset_s8
@@ -720,19 +720,19 @@ address    name
 0000829a   BRRX__Scheduler_v
 00001e77   BRRX__SearchRatio_u8
 00001e75   BRRX__SignalLevelReduction
-0000cb56   BRRX__StartNewSearch_v
+0000cb54   BRRX__StartNewSearch_v
 00001f12   BRRX__StatusFlags_t
-0000ec34   BRRX__StopTimer_v
+0000ec32   BRRX__StopTimer_v
 00001df6   BRRX__TXCB_t
 00001e78   BRRX__TestMode_u8
 00001ed2   BRRX__TimerState_t
-0000d968   BR__CalcCRC_u8
-0000e95a   BR__CalcRandomChannel_u8
-0000cf98   BR__CalcRandomTimeOffset_u16
-0000d99c   BSP_Delay
-0000ea7a   BSP_InitBoard
-0000e96c   BlueRobin_RadioISR_v
-0000ed4c   C$$EXIT
+0000d966   BR__CalcCRC_u8
+0000e958   BR__CalcRandomChannel_u8
+0000cf96   BR__CalcRandomTimeOffset_u16
+0000d99a   BSP_Delay
+0000ea78   BSP_InitBoard
+0000e96a   BlueRobin_RadioISR_v
+0000ed4a   C$$EXIT
 000008c0   CBCTL0
 000008c1   CBCTL0_H
 000008c0   CBCTL0_L
@@ -891,51 +891,51 @@ address    name
 00000a26   LCDM7
 00000a27   LCDM8
 00000a28   LCDM9
-0000d54e   L_ASR_1
-0000d52a   L_ASR_10
-0000d526   L_ASR_11
-0000d522   L_ASR_12
-0000d51e   L_ASR_13
-0000d51a   L_ASR_14
-0000d516   L_ASR_15
-0000d54a   L_ASR_2
-0000d546   L_ASR_3
-0000d542   L_ASR_4
-0000d53e   L_ASR_5
-0000d53a   L_ASR_6
-0000d536   L_ASR_7
-0000d532   L_ASR_8
-0000d52e   L_ASR_9
-0000d58c   L_LSL_1
-0000d568   L_LSL_10
-0000d564   L_LSL_11
-0000d560   L_LSL_12
-0000d55c   L_LSL_13
-0000d558   L_LSL_14
-0000d554   L_LSL_15
-0000d588   L_LSL_2
-0000d584   L_LSL_3
-0000d580   L_LSL_4
-0000d57c   L_LSL_5
-0000d578   L_LSL_6
-0000d574   L_LSL_7
-0000d570   L_LSL_8
-0000d56c   L_LSL_9
-0000d5ca   L_LSR_1
-0000d5a6   L_LSR_10
-0000d5a2   L_LSR_11
-0000d59e   L_LSR_12
-0000d59a   L_LSR_13
-0000d596   L_LSR_14
-0000d592   L_LSR_15
-0000d5c6   L_LSR_2
-0000d5c2   L_LSR_3
-0000d5be   L_LSR_4
-0000d5ba   L_LSR_5
-0000d5b6   L_LSR_6
-0000d5b2   L_LSR_7
-0000d5ae   L_LSR_8
-0000d5aa   L_LSR_9
+0000d54c   L_ASR_1
+0000d528   L_ASR_10
+0000d524   L_ASR_11
+0000d520   L_ASR_12
+0000d51c   L_ASR_13
+0000d518   L_ASR_14
+0000d514   L_ASR_15
+0000d548   L_ASR_2
+0000d544   L_ASR_3
+0000d540   L_ASR_4
+0000d53c   L_ASR_5
+0000d538   L_ASR_6
+0000d534   L_ASR_7
+0000d530   L_ASR_8
+0000d52c   L_ASR_9
+0000d58a   L_LSL_1
+0000d566   L_LSL_10
+0000d562   L_LSL_11
+0000d55e   L_LSL_12
+0000d55a   L_LSL_13
+0000d556   L_LSL_14
+0000d552   L_LSL_15
+0000d586   L_LSL_2
+0000d582   L_LSL_3
+0000d57e   L_LSL_4
+0000d57a   L_LSL_5
+0000d576   L_LSL_6
+0000d572   L_LSL_7
+0000d56e   L_LSL_8
+0000d56a   L_LSL_9
+0000d5c8   L_LSR_1
+0000d5a4   L_LSR_10
+0000d5a0   L_LSR_11
+0000d59c   L_LSR_12
+0000d598   L_LSR_13
+0000d594   L_LSR_14
+0000d590   L_LSR_15
+0000d5c4   L_LSR_2
+0000d5c0   L_LSR_3
+0000d5bc   L_LSR_4
+0000d5b8   L_LSR_5
+0000d5b4   L_LSR_6
+0000d5b0   L_LSR_7
+0000d5ac   L_LSR_8
+0000d5a8   L_LSR_9
 000004c4   MAC
 000004da   MAC32H
 000004db   MAC32H_H
@@ -975,25 +975,25 @@ address    name
 000004c2   MPYS_L
 000004c1   MPY_H
 000004c0   MPY_L
-0000e6fa   MRFI_DelayMs
-0000e538   MRFI_EnableRxAddrFilter
-0000ecfc   MRFI_GetRadioState
+0000e6f8   MRFI_DelayMs
+0000e536   MRFI_EnableRxAddrFilter
+0000ecfa   MRFI_GetRadioState
 0000908e   MRFI_Init
-0000eb5c   MRFI_PostKillSem
-0000c7c6   MRFI_RadioIsr
-0000e772   MRFI_RandomByte
-0000eb68   MRFI_Receive
-0000d64a   MRFI_ReplyDelay
-0000e398   MRFI_Rssi
-0000e3b8   MRFI_RxCompleteISR
-0000e3d8   MRFI_RxIdle
-0000e3f8   MRFI_RxOn
-0000dad2   MRFI_SetLogicalChannel
-0000e692   MRFI_SetRFPwr
-0000de2e   MRFI_SetRxAddrFilter
-0000e280   MRFI_Sleep
+0000eb5a   MRFI_PostKillSem
+0000c7c4   MRFI_RadioIsr
+0000e770   MRFI_RandomByte
+0000eb66   MRFI_Receive
+0000d648   MRFI_ReplyDelay
+0000e396   MRFI_Rssi
+0000e3b6   MRFI_RxCompleteISR
+0000e3d6   MRFI_RxIdle
+0000e3f6   MRFI_RxOn
+0000dad0   MRFI_SetLogicalChannel
+0000e690   MRFI_SetRFPwr
+0000de2c   MRFI_SetRxAddrFilter
+0000e27e   MRFI_Sleep
 0000ab50   MRFI_Transmit
-0000e310   MRFI_WakeUp
+0000e30e   MRFI_WakeUp
 000004c8   OP2
 000004e2   OP2H
 000004e3   OP2H_H
@@ -1265,9 +1265,9 @@ address    name
 000004b6   RTCYEAR
 000004b7   RTCYEAR_H
 000004b6   RTCYEAR_L
-0000ef9a   RandomValue_u8
-0000d1c8   ReadBurstReg
-0000e79e   ReadSingleReg
+0000ef98   RandomValue_u8
+0000d1c6   ReadBurstReg
+0000e79c   ReadSingleReg
 00000100   SFRIE1
 00000101   SFRIE1_H
 00000100   SFRIE1_L
@@ -1277,10 +1277,10 @@ address    name
 00000104   SFRRPCR
 00000105   SFRRPCR_H
 00000104   SFRRPCR_L
-0000d9d0   SMPL_Init
+0000d9ce   SMPL_Init
 00009afe   SMPL_Ioctl
-0000ed44   SMPL_Link
-0000d20c   SMPL_Receive
+0000ed42   SMPL_Link
+0000d20a   SMPL_Receive
 0000a552   SMPL_SendOpt
 000004ce   SUMEXT
 000004cf   SUMEXT_H
@@ -1327,10 +1327,10 @@ address    name
 0000019a   SYSUNIV
 0000019b   SYSUNIV_H
 0000019a   SYSUNIV_L
-0000e048   SetVCore
-0000e06e   SetVCoreDown
-0000cfde   SetVCoreUp
-0000b6f0   Strobe
+0000e046   SetVCore
+0000e06c   SetVCoreDown
+0000cfdc   SetVCoreUp
+0000b6ee   Strobe
 00000352   TA0CCR0
 00000354   TA0CCR1
 00000356   TA0CCR2
@@ -1356,13 +1356,13 @@ address    name
 000003ae   TA1IV
 00000390   TA1R
 00008516   TIMER0_A0_ISR
-0000bd10   TIMER0_A1_5_ISR
-0000deac   Timer0_A3_Start
-0000ecbe   Timer0_A3_Stop
-0000c886   Timer0_A4_Delay
-0000e8a6   Timer0_Init
-0000ecc6   Timer0_Start
-0000eb74   Timer0_Stop
+0000bd0e   TIMER0_A1_5_ISR
+0000deaa   Timer0_A3_Start
+0000ecbc   Timer0_A3_Stop
+0000c884   Timer0_A4_Delay
+0000e8a4   Timer0_Init
+0000ecc4   Timer0_Start
+0000eb72   Timer0_Stop
 000005d0   UCA0ABCTL
 000005c6   UCA0BRW
 000005c7   UCA0BRW_H
@@ -1430,7 +1430,7 @@ address    name
 0000015c   WDTCTL
 0000015d   WDTCTL_H
 0000015c   WDTCTL_L
-0000d7e8   WriteSingleReg
+0000d7e6   WriteSingleReg
 00002bfc   __STACK_END
 00000050   __STACK_SIZE
 00000001   __TI_args_main
@@ -1439,61 +1439,61 @@ address    name
 ffffffff   __binit__
 00001c00   __bss__
 ffffffff   __c_args__
-0000f416   __cinit__
-0000de02   __divi
-0000d3dc   __divli
-0000e838   __divu
-0000caaa   __divul
+0000f414   __cinit__
+0000de00   __divi
+0000d3da   __divli
+0000e836   __divu
+0000caa8   __divul
 00001f27   __end__
-0000ed7a   __etext__
+0000ed78   __etext__
 00009790   __fs_add
-0000ce72   __fs_cmp
-0000b9ce   __fs_div
-0000d932   __fs_itof
-0000cebc   __fs_ltof
-0000af0c   __fs_mpy
-0000ec8e   __fs_neg
+0000ce70   __fs_cmp
+0000b9cc   __fs_div
+0000d930   __fs_itof
+0000ceba   __fs_ltof
+0000ae56   __fs_mpy
+0000ec8c   __fs_neg
 0000978a   __fs_sub
-0000c562   __fs_toi
-0000bf12   __fs_tol
-0000d13c   __fs_tou
-0000ce26   __fs_toul
-0000dbcc   __fs_ultof
-0000e2ec   __fs_utof
-0000e84e   __mpyi_f5hw
+0000c560   __fs_toi
+0000bf10   __fs_tol
+0000d13a   __fs_tou
+0000ce24   __fs_toul
+0000dbca   __fs_ultof
+0000e2ea   __fs_utof
+0000e84c   __mpyi_f5hw
 ffffffff   __pinit__
-0000de02   __remi
-0000d3dc   __remli
-0000e838   __remu
-0000caaa   __remul
+0000de00   __remi
+0000d3da   __remli
+0000e836   __remu
+0000caa8   __remul
 00008000   __text__
-0000d024   _auto_init
-0000ded6   _c_int00
-0000ded6   _c_int00_noexit
+0000d022   _auto_init
+0000ded4   _c_int00
+0000ded4   _c_int00_noexit
 00001eec   _cleanup_ptr
 00001ef0   _dtors_ptr
 00001ee4   _lock
-0000ed74   _nop
+0000ed72   _nop
 0000fffe   _reset_vector
 00002bac   _stack
-0000ed48   _system_pre_init
+0000ed46   _system_pre_init
 00001ee8   _unlock
-0000ed4c   abort
-0000e97e   acos
+0000ed4a   abort
+0000e97c   acos
 00001f26   adc12_data_ready
 00001f24   adc12_result
-0000c492   adc12_single_conversion
-0000d250   add_day
-0000df00   as_get_data
-0000dd4e   as_init
+0000c490   adc12_single_conversion
+0000d24e   add_day
+0000defe   as_get_data
+0000dd4c   as_init
 00001e6d   as_ok
-0000c426   as_read_register
-0000bd94   as_start
-0000db04   as_stop
-0000c632   as_write_register
-0000e990   asin
-0000dfa8   atan
-0000be94   battery_measurement
+0000c424   as_read_register
+0000bd92   as_start
+0000db02   as_stop
+0000c630   as_write_register
+0000e98e   asin
+0000dfa6   atan
+0000be92   battery_measurement
 ffffffff   binit
 00001f10   brrx_packet_end_cap_value
 00001d1c   burst_end
@@ -1502,63 +1502,63 @@ ffffffff   binit
 00001d30   burst_packet_index
 00001d1a   burst_start
 00001eae   button
-0000cd8e   button_repeat_function
-0000ec3e   button_repeat_off
-0000e7b4   button_repeat_on
-0000ba5c   calc_slide
-0000e418   check_alarm
-0000f416   cinit
-0000e7ca   circ
-0000ed02   clear_blink_mem
-0000eb80   clear_display
-0000e5ec   clear_display_all
-0000cbfa   clear_line
-0000c4fa   clock_tick
-0000ea8a   close_radio
+0000cd8c   button_repeat_function
+0000ec3c   button_repeat_off
+0000e7b2   button_repeat_on
+0000ba5a   calc_slide
+0000e416   check_alarm
+0000f414   cinit
+0000e7c8   circ
+0000ed00   clear_blink_mem
+0000eb7e   clear_display
+0000e5ea   clear_display_all
+0000cbf8   clear_line
+0000c4f8   clock_tick
+0000ea88   close_radio
 00008000   conv_pa_to_meter
-0000e592   convert_C_to_F
-0000e712   convert_F_to_C
-0000e8ba   convert_ft_to_m
-0000e72a   convert_hour_to_12H_format
-0000e8ce   convert_m_to_ft
-0000ea9a   cos
-0000e8e2   countdown_buzzer
+0000e590   convert_C_to_F
+0000e710   convert_F_to_C
+0000e8b8   convert_ft_to_m
+0000e728   convert_hour_to_12H_format
+0000e8cc   convert_m_to_ft
+0000ea98   cos
+0000e8e0   countdown_buzzer
 00001e18   day_names
-0000f362   days_offset
+0000f360   days_offset
 00001c8c   display
-0000b5be   display_alarm
-0000b12e   display_altitude
-0000e608   display_am_pm_symbol
-0000c8e4   display_battery_V
-0000c264   display_char
+0000b5bc   display_alarm
+0000b12c   display_altitude
+0000e606   display_am_pm_symbol
+0000c8e2   display_battery_V
+0000c262   display_char
 0000a812   display_chars
-0000d06a   display_date
-0000c9fa   display_fn_choice
-0000d0b0   display_hours
-0000e438   display_pin
-0000e8f6   display_rf
-0000df2a   display_rfbsl
-0000eaaa   display_selection_Timeformat1
-0000e7e0   display_slide
-0000ed08   display_stopwatch
+0000d068   display_date
+0000c9f8   display_fn_choice
+0000d0ae   display_hours
+0000e436   display_pin
+0000e8f4   display_rf
+0000df28   display_rfbsl
+0000eaa8   display_selection_Timeformat1
+0000e7de   display_slide
+0000ed06   display_stopwatch
 000098ba   display_stopwatchf
-0000e7f6   display_symbol
-0000e90a   display_sync
+0000e7f4   display_symbol
+0000e908   display_sync
 0000aa86   display_temperature
 0000896a   display_time
 00009c1c   display_update
-0000eb0a   display_util
-0000e332   display_value
-0000e094   div
-0000eb8c   do_acceleration_measurement
-0000bc00   do_altitude_measurement
-0000f3de   dow_offset
-0000e0ba   ein
+0000eb08   display_util
+0000e330   display_value
+0000e092   div
+0000eb8a   do_acceleration_measurement
+0000bbfe   do_altitude_measurement
+0000f3dc   dow_offset
+0000e0b8   ein
 00001f27   end
-0000e0e0   entropy
+0000e0de   entropy
 00009f5a   eq
-0000ed7a   etext
-0000e458   exp
+0000ed78   etext
+0000e456   exp
 00001e5e   flip_alt
 00001f0a   flip_temp
 00001e7e   fn_calc
@@ -1569,174 +1569,174 @@ ffffffff   binit
 00001dbc   fptr_lcd_function_line1m
 00001dcc   fptr_lcd_function_line2
 00001dc4   fptr_lcd_function_line2m
-0000ae56   get_cycle
-0000cc4c   get_day
-0000e91e   get_numberOfDays
-0000f2e6   h0
-0000d890   half
-0000ed50   halfa
-0000dc30   halfc
-0000ed54   halfs
-0000d2d8   harm
-0000eba4   idle_loop
-0000f34a   idx_scale
+0000b078   get_cycle
+0000cc4a   get_day
+0000e91c   get_numberOfDays
+0000f2e4   h0
+0000d88e   half
+0000ed4e   halfa
+0000dc2e   halfc
+0000ed52   halfs
+0000d2d6   harm
+0000eba2   idle_loop
+0000f348   idx_scale
 00001e80   in_calc
 0000ac16   init_application
-0000e12c   init_buttons
-0000c086   init_global_variables
-0000e152   init_pressure_table
+0000e12a   init_buttons
+0000c084   init_global_variables
+0000e150   init_pressure_table
 0000acdc   int_to_array
-0000ed7a   int_to_array_conversion_table
+0000ed78   int_to_array_conversion_table
 00001ce2   int_to_array_str
-0000ecce   inv
-0000e80c   invw
-0000b1e0   irt
-0000e9a2   is_acceleration_measurement
-0000e9b4   is_altitude_measurement
-0000ed58   is_bluerobin
-0000ed5c   is_bluerobin_searching
-0000eb18   is_hour_am
-0000ebb0   is_rf
-0000e9c6   is_stopwatch
-0000ebbc   is_temp_measurement
-0000f240   lcd_font
-0000df54   lcd_init
-0000dd7c   leaps_count
-0000ecd6   lin
-0000ed0e   line1
-0000ed14   line2
-0000c6fe   log
-0000db36   main
-0000e2c8   memcmp
-0000e9d8   memcpy
-0000e478   memmove
-0000e946   memset
-0000f0ac   menu_L1_Alarm
-0000f0d0   menu_L1_Altitude
-0000f0be   menu_L1_Temperature
-0000f09a   menu_L1_Time
-0000f0e2   menu_L2_Date
-0000f0f4   menu_L2_Slide
-0000f106   menu_L2_Stopwatch
-0000f118   menu_L2_Util
+0000eccc   inv
+0000e80a   invw
+0000b1de   irt
+0000e9a0   is_acceleration_measurement
+0000e9b2   is_altitude_measurement
+0000ed56   is_bluerobin
+0000ed5a   is_bluerobin_searching
+0000eb16   is_hour_am
+0000ebae   is_rf
+0000e9c4   is_stopwatch
+0000ebba   is_temp_measurement
+0000f23e   lcd_font
+0000df52   lcd_init
+0000dd7a   leaps_count
+0000ecd4   lin
+0000ed0c   line1
+0000ed12   line2
+0000c6fc   log
+0000db34   main
+0000e2c6   memcmp
+0000e9d6   memcpy
+0000e476   memmove
+0000e944   memset
+0000f0aa   menu_L1_Alarm
+0000f0ce   menu_L1_Altitude
+0000f0bc   menu_L1_Temperature
+0000f098   menu_L1_Time
+0000f0e0   menu_L2_Date
+0000f0f2   menu_L2_Slide
+0000f104   menu_L2_Stopwatch
+0000f116   menu_L2_Util
 00001dc0   message
 00001db4   method
-0000f3ea   month_days
-0000f40a   mrfiBroadcastAddr
-0000f200   mrfiRadioCfg
-0000b8ae   mrfiRadioInterfaceCmdStrobe
-0000d0f6   mrfiRadioInterfaceReadReg
-0000c762   mrfiRadioInterfaceReadRxFifo
-0000da38   mrfiRadioInterfaceWriteReg
-0000da6c   mrfiRadioInterfaceWriteTxFifo
-0000eaba   mul
+0000f3e8   month_days
+0000f408   mrfiBroadcastAddr
+0000f1fe   mrfiRadioCfg
+0000b8ac   mrfiRadioInterfaceCmdStrobe
+0000d0f4   mrfiRadioInterfaceReadReg
+0000c760   mrfiRadioInterfaceReadRxFifo
+0000da36   mrfiRadioInterfaceWriteReg
+0000da6a   mrfiRadioInterfaceWriteTxFifo
+0000eab8   mul
 0000a26c   mx_alarm
 0000a172   mx_altitude
 00009226   mx_date
-0000c00c   mx_slide
-0000c0fe   mx_slide2
-0000eb26   mx_stopwatch
+0000c00a   mx_slide
+0000c0fc   mx_slide2
+0000eb24   mx_stopwatch
 0000a066   mx_temperature
 00008ee0   mx_time
-0000e6c6   mx_util
-0000f3ce   named_calc
-0000f32a   named_calc2
-0000d8c6   norm_arrow
-0000ed60   nwk_NVObj
-0000e624   nwk_QInit
-0000ddd6   nwk_QadjustOrder
+0000e6c4   mx_util
+0000f3cc   named_calc
+0000f328   named_calc2
+0000d8c4   norm_arrow
+0000ed5e   nwk_NVObj
+0000e622   nwk_QInit
+0000ddd4   nwk_QadjustOrder
 0000a640   nwk_QfindOldest
-0000c1ee   nwk_QfindSlot
+0000c1ec   nwk_QfindSlot
 0000a8e6   nwk_allocateLocalRxPort
-0000e354   nwk_buildAckReqFrame
-0000b93e   nwk_buildFrame
-0000e178   nwk_checkConnInfo
-0000e498   nwk_connectionControl
-0000db68   nwk_deviceAddress
-0000d686   nwk_findPeer
-0000e5b0   nwk_frameInit
-0000ed1a   nwk_freeConnection
-0000ed76   nwk_freqInit
-0000ed20   nwk_getBCastAddress
-0000dff8   nwk_getConnInfo
-0000ed26   nwk_getFWVersion
-0000e9ea   nwk_getJoinToken
-0000e9fc   nwk_getLinkToken
-0000ea0e   nwk_getMyAddress
-0000ed2c   nwk_getMyRxType
-0000d5d0   nwk_getNextConnection
-0000ebc8   nwk_getNumObjectFromMsg
-0000ed64   nwk_getProtocolVersion
-0000e19e   nwk_globalsInit
-0000bb74   nwk_isConnectionValid
-0000d6c2   nwk_isLinkDuplicate
-0000d35c   nwk_isValidReply
+0000e352   nwk_buildAckReqFrame
+0000b93c   nwk_buildFrame
+0000e176   nwk_checkConnInfo
+0000e496   nwk_connectionControl
+0000db66   nwk_deviceAddress
+0000d684   nwk_findPeer
+0000e5ae   nwk_frameInit
+0000ed18   nwk_freeConnection
+0000ed74   nwk_freqInit
+0000ed1e   nwk_getBCastAddress
+0000dff6   nwk_getConnInfo
+0000ed24   nwk_getFWVersion
+0000e9e8   nwk_getJoinToken
+0000e9fa   nwk_getLinkToken
+0000ea0c   nwk_getMyAddress
+0000ed2a   nwk_getMyRxType
+0000d5ce   nwk_getNextConnection
+0000ebc6   nwk_getNumObjectFromMsg
+0000ed62   nwk_getProtocolVersion
+0000e19c   nwk_globalsInit
+0000bb72   nwk_isConnectionValid
+0000d6c0   nwk_isLinkDuplicate
+0000d35a   nwk_isValidReply
 0000a364   nwk_join
-0000e1c4   nwk_joinInit
+0000e1c2   nwk_joinInit
 000094ee   nwk_link
-0000dc60   nwk_linkInit
-0000ec48   nwk_mgmtInit
-0000b786   nwk_nwkInit
-0000ec52   nwk_pingInit
-0000ed68   nwk_processFreq
-0000e640   nwk_processJoin
-0000e1ea   nwk_processLink
-0000d774   nwk_processMgmt
-0000e020   nwk_processPing
-0000ed6c   nwk_processSecurity
-0000d8fc   nwk_putNumObjectIntoMsg
-0000b486   nwk_radioControl
-0000dc90   nwk_rawReceive
-0000cc9e   nwk_rawSend
-0000b344   nwk_retrieveFrame
-0000ed78   nwk_securityInit
-0000be14   nwk_sendAckReply
-0000dcc0   nwk_sendFrame
-0000ebd4   nwk_setAPAddress
-0000ea20   nwk_setJoinToken
-0000ea32   nwk_setLinkToken
-0000e5ce   nwk_setMyAddress
-0000ea44   open_radio
+0000dc5e   nwk_linkInit
+0000ec46   nwk_mgmtInit
+0000b784   nwk_nwkInit
+0000ec50   nwk_pingInit
+0000ed66   nwk_processFreq
+0000e63e   nwk_processJoin
+0000e1e8   nwk_processLink
+0000d772   nwk_processMgmt
+0000e01e   nwk_processPing
+0000ed6a   nwk_processSecurity
+0000d8fa   nwk_putNumObjectIntoMsg
+0000b484   nwk_radioControl
+0000dc8e   nwk_rawReceive
+0000cc9c   nwk_rawSend
+0000b342   nwk_retrieveFrame
+0000ed76   nwk_securityInit
+0000be12   nwk_sendAckReply
+0000dcbe   nwk_sendFrame
+0000ebd2   nwk_setAPAddress
+0000ea1e   nwk_setJoinToken
+0000ea30   nwk_setLinkToken
+0000e5cc   nwk_setMyAddress
+0000ea42   open_radio
 00001e84   out_calc
 00001d32   p
-0000f308   p0
+0000f306   p0
 00001ef6   pin_gen
-0000d7ae   pin_generate
+0000d7ac   pin_generate
 00001ef8   pin_temp
 ffffffff   pinit
-0000f296   pre_scale
-0000c348   process_requests
-0000c698   ps_get_pa
-0000cdda   ps_get_temp
-0000c176   ps_init
+0000f294   pre_scale
+0000c346   process_requests
+0000c696   ps_get_pa
+0000cdd8   ps_get_temp
+0000c174   ps_init
 00001d76   ps_ok
-0000c2d6   ps_read_register
-0000ebe0   ps_start
-0000ec5c   ps_stop
-0000ccf0   ps_twi_read
-0000b658   ps_twi_sda
-0000d31a   ps_twi_write
-0000ca52   ps_write_register
+0000c2d4   ps_read_register
+0000ebde   ps_start
+0000ec5a   ps_stop
+0000ccee   ps_twi_read
+0000b656   ps_twi_sda
+0000d318   ps_twi_write
+0000ca50   ps_write_register
 00001dd0   ptrMenu_L1
 00001dd2   ptrMenu_L2
-0000e822   qfn
+0000e820   qfn
 00001db8   quick
-0000d820   radio_ISR
-0000eaca   radio_powerdown
-0000db9a   radio_reset
+0000d81e   radio_ISR
+0000eac8   radio_powerdown
+0000db98   radio_reset
 0000a9ba   read_calibration_values
 00001dba   request
-0000eb34   reset_acceleration
-0000e742   reset_alarm
-0000d39c   reset_altitude_measurement
-0000ea56   reset_batt_measurement
-0000ec66   reset_buzzer
-0000e4b8   reset_clock
-0000e75a   reset_date
-0000ec70   reset_rf
-0000e4d8   reset_stopwatch
-0000ec7a   reset_temp_measurement
-0000ec84   restore_util
+0000eb32   reset_acceleration
+0000e740   reset_alarm
+0000d39a   reset_altitude_measurement
+0000ea54   reset_batt_measurement
+0000ec64   reset_buzzer
+0000e4b6   reset_clock
+0000e758   reset_date
+0000ec6e   reset_rf
+0000e4d6   reset_stopwatch
+0000ec78   reset_temp_measurement
+0000ec82   restore_util
 00001ec1   rfBSL_button_confirmation
 00001dc2   rf_frequoffset
 00001ea4   sAccel
@@ -1753,80 +1753,80 @@ ffffffff   pinit
 00001f04   sTemp
 00001e2e   sTime
 00001f00   sTimer
-0000f2be   scale
+0000f2bc   scale
 00001e3e   sday
-0000f26c   segments_bitmask
+0000f26a   segments_bitmask
 00001c8e   segments_lcdmem
-0000f400   selection_Timeformat
-0000eb42   set_blink_rate
+0000f3fe   selection_Timeformat
+0000eb40   set_blink_rate
 00008d24   set_value
 00001e3c   shour
 00001cf2   simpliciti_data
 00001d12   simpliciti_ed_address
 00001cf0   simpliciti_flag
-0000b3e6   simpliciti_get_ed_data_callback
-0000afc2   simpliciti_link
-0000b078   simpliciti_main_sync
-0000d182   simpliciti_main_tx_only
+0000b3e4   simpliciti_get_ed_data_callback
+0000af0c   simpliciti_link
+0000afc2   simpliciti_main_sync
+0000d180   simpliciti_main_tx_only
 00001d16   simpliciti_payload_length
 00001d17   simpliciti_reply_count
 00009640   simpliciti_sync_decode_ap_cmd_callback
 0000a72e   simpliciti_sync_get_data_callback
-0000e864   sin
-0000f1a0   slide_fn
+0000e862   sin
+0000f19e   slide_fn
 00001e3d   sminute
 00001e7a   split_mod
-0000dcf0   split_num
-0000e87a   sqrt
-0000ecde   square
-0000d41c   start_altitude_measurement
-0000ed32   start_blink
-0000cf50   start_buzzer
-0000b522   start_simpliciti_sync
-0000b292   start_simpliciti_tx_only
-0000e376   start_stopwatch
-0000ece6   stop_alarm
-0000e65c   stop_altitude_measurement
-0000ed38   stop_blink
-0000e4f8   stop_buzzer
-0000e6e0   stop_stopwatch
+0000dcee   split_num
+0000e878   sqrt
+0000ecdc   square
+0000d41a   start_altitude_measurement
+0000ed30   start_blink
+0000cf4e   start_buzzer
+0000b520   start_simpliciti_sync
+0000b290   start_simpliciti_tx_only
+0000e374   start_stopwatch
+0000ece4   stop_alarm
+0000e65a   stop_altitude_measurement
+0000ed36   stop_blink
+0000e4f6   stop_buzzer
+0000e6de   stop_stopwatch
 00009d38   stopwatch_tick
-0000eada   switch_seg
-0000dbfe   sx_alarm
-0000ec98   sx_altitude
-0000eaea   sx_date
-0000e210   sx_rf
-0000cb02   sx_rfbsl
-0000ea68   sx_slide
-0000e890   sx_stopwatch
-0000e236   sx_sync
-0000ed3e   sx_temperature
-0000eafa   sx_time
-0000ebec   sx_util
+0000ead8   switch_seg
+0000dbfc   sx_alarm
+0000ec96   sx_altitude
+0000eae8   sx_date
+0000e20e   sx_rf
+0000cb00   sx_rfbsl
+0000ea66   sx_slide
+0000e88e   sx_stopwatch
+0000e234   sx_sync
+0000ed3c   sx_temperature
+0000eaf8   sx_time
+0000ebea   sx_util
 00001db6   sys
-0000df7e   tan
-0000b81a   temperature_measurement
-0000ecee   to_lpm
-0000cf06   toggle_buzzer
+0000df7c   tan
+0000b818   temperature_measurement
+0000ecec   to_lpm
+0000cf04   toggle_buzzer
 00001e44   tricky
-0000e518   tune
+0000e516   tune
 00001e4c   tune_idx
 00001dd4   tune_tmp
-0000ed70   twi_delay
-0000ebf8   update_alarm
-0000ec04   update_battery_voltage
-0000eca2   update_date
+0000ed6e   twi_delay
+0000ebf6   update_alarm
+0000ec02   update_battery_voltage
+0000eca0   update_date
 00008b4c   update_pressure_table
-0000ec10   update_stopwatch
-0000d6fe   update_stopwatch_timer
-0000ec1c   update_temperature
-0000ecac   update_time
-0000ec28   update_util
-0000f392   util_dispfn
-0000f3a6   util_sxfn
-0000f3ba   util_upfn
+0000ec0e   update_stopwatch
+0000d6fc   update_stopwatch_timer
+0000ec1a   update_temperature
+0000ecaa   update_time
+0000ec26   update_util
+0000f390   util_dispfn
+0000f3a4   util_sxfn
+0000f3b8   util_upfn
 00009e4a   wakeup_event
-0000c942   write_lcd_mem
+0000c940   write_lcd_mem
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -2672,392 +2672,392 @@ address    name
 0000ab50   MRFI_Transmit
 0000ac16   init_application
 0000acdc   int_to_array
-0000ae56   get_cycle
-0000af0c   __fs_mpy
-0000afc2   simpliciti_link
-0000b078   simpliciti_main_sync
-0000b12e   display_altitude
-0000b1e0   irt
-0000b292   start_simpliciti_tx_only
-0000b344   nwk_retrieveFrame
-0000b3e6   simpliciti_get_ed_data_callback
-0000b486   nwk_radioControl
-0000b522   start_simpliciti_sync
-0000b5be   display_alarm
-0000b658   ps_twi_sda
-0000b6f0   Strobe
-0000b786   nwk_nwkInit
-0000b81a   temperature_measurement
-0000b8ae   mrfiRadioInterfaceCmdStrobe
-0000b93e   nwk_buildFrame
-0000b9ce   __fs_div
-0000ba5c   calc_slide
-0000bb74   nwk_isConnectionValid
-0000bc00   do_altitude_measurement
-0000bd10   TIMER0_A1_5_ISR
-0000bd94   as_start
-0000be14   nwk_sendAckReply
-0000be94   battery_measurement
-0000bf12   __fs_tol
-0000c00c   mx_slide
-0000c086   init_global_variables
-0000c0fe   mx_slide2
-0000c176   ps_init
-0000c1ee   nwk_QfindSlot
-0000c264   display_char
-0000c2d6   ps_read_register
-0000c348   process_requests
-0000c3b8   BRRX_RadioReceive_v
-0000c426   as_read_register
-0000c492   adc12_single_conversion
-0000c4fa   clock_tick
-0000c562   __fs_toi
-0000c632   as_write_register
-0000c698   ps_get_pa
-0000c6fe   log
-0000c762   mrfiRadioInterfaceReadRxFifo
-0000c7c6   MRFI_RadioIsr
-0000c828   BRRX_PacketEndTimerTask_v
-0000c886   Timer0_A4_Delay
-0000c8e4   display_battery_V
-0000c942   write_lcd_mem
-0000c9fa   display_fn_choice
-0000ca52   ps_write_register
-0000caaa   __divul
-0000caaa   __remul
-0000cb02   sx_rfbsl
-0000cb56   BRRX__StartNewSearch_v
-0000cbfa   clear_line
-0000cc4c   get_day
-0000cc9e   nwk_rawSend
-0000ccf0   ps_twi_read
-0000cd8e   button_repeat_function
-0000cdda   ps_get_temp
-0000ce26   __fs_toul
-0000ce72   __fs_cmp
-0000cebc   __fs_ltof
-0000cf06   toggle_buzzer
-0000cf50   start_buzzer
-0000cf98   BR__CalcRandomTimeOffset_u16
-0000cfde   SetVCoreUp
-0000d024   _auto_init
-0000d06a   display_date
-0000d0b0   display_hours
-0000d0f6   mrfiRadioInterfaceReadReg
-0000d13c   __fs_tou
-0000d182   simpliciti_main_tx_only
-0000d1c8   ReadBurstReg
-0000d20c   SMPL_Receive
-0000d250   add_day
-0000d2d8   harm
-0000d31a   ps_twi_write
-0000d35c   nwk_isValidReply
-0000d39c   reset_altitude_measurement
-0000d3dc   __divli
-0000d3dc   __remli
-0000d41c   start_altitude_measurement
-0000d45c   BRRX__DecodePacket_u8
-0000d49a   BRRX__NewInfo_v
-0000d516   L_ASR_15
-0000d51a   L_ASR_14
-0000d51e   L_ASR_13
-0000d522   L_ASR_12
-0000d526   L_ASR_11
-0000d52a   L_ASR_10
-0000d52e   L_ASR_9
-0000d532   L_ASR_8
-0000d536   L_ASR_7
-0000d53a   L_ASR_6
-0000d53e   L_ASR_5
-0000d542   L_ASR_4
-0000d546   L_ASR_3
-0000d54a   L_ASR_2
-0000d54e   L_ASR_1
-0000d554   L_LSL_15
-0000d558   L_LSL_14
-0000d55c   L_LSL_13
-0000d560   L_LSL_12
-0000d564   L_LSL_11
-0000d568   L_LSL_10
-0000d56c   L_LSL_9
-0000d570   L_LSL_8
-0000d574   L_LSL_7
-0000d578   L_LSL_6
-0000d57c   L_LSL_5
-0000d580   L_LSL_4
-0000d584   L_LSL_3
-0000d588   L_LSL_2
-0000d58c   L_LSL_1
-0000d592   L_LSR_15
-0000d596   L_LSR_14
-0000d59a   L_LSR_13
-0000d59e   L_LSR_12
-0000d5a2   L_LSR_11
-0000d5a6   L_LSR_10
-0000d5aa   L_LSR_9
-0000d5ae   L_LSR_8
-0000d5b2   L_LSR_7
-0000d5b6   L_LSR_6
-0000d5ba   L_LSR_5
-0000d5be   L_LSR_4
-0000d5c2   L_LSR_3
-0000d5c6   L_LSR_2
-0000d5ca   L_LSR_1
-0000d5d0   nwk_getNextConnection
-0000d60e   BRRX_TimerTask_v
-0000d64a   MRFI_ReplyDelay
-0000d686   nwk_findPeer
-0000d6c2   nwk_isLinkDuplicate
-0000d6fe   update_stopwatch_timer
-0000d774   nwk_processMgmt
-0000d7ae   pin_generate
-0000d7e8   WriteSingleReg
-0000d820   radio_ISR
-0000d890   half
-0000d8c6   norm_arrow
-0000d8fc   nwk_putNumObjectIntoMsg
-0000d932   __fs_itof
-0000d968   BR__CalcCRC_u8
-0000d99c   BSP_Delay
-0000d9d0   SMPL_Init
-0000da38   mrfiRadioInterfaceWriteReg
-0000da6c   mrfiRadioInterfaceWriteTxFifo
-0000daa0   BRRX_RadioStop_v
-0000dad2   MRFI_SetLogicalChannel
-0000db04   as_stop
-0000db36   main
-0000db68   nwk_deviceAddress
-0000db9a   radio_reset
-0000dbcc   __fs_ultof
-0000dbfe   sx_alarm
-0000dc30   halfc
-0000dc60   nwk_linkInit
-0000dc90   nwk_rawReceive
-0000dcc0   nwk_sendFrame
-0000dcf0   split_num
-0000dd4e   as_init
-0000dd7c   leaps_count
-0000ddd6   nwk_QadjustOrder
-0000de02   __divi
-0000de02   __remi
-0000de2e   MRFI_SetRxAddrFilter
-0000deac   Timer0_A3_Start
-0000ded6   _c_int00
-0000ded6   _c_int00_noexit
-0000df00   as_get_data
-0000df2a   display_rfbsl
-0000df54   lcd_init
-0000df7e   tan
-0000dfa8   atan
-0000dff8   nwk_getConnInfo
-0000e020   nwk_processPing
-0000e048   SetVCore
-0000e06e   SetVCoreDown
-0000e094   div
-0000e0ba   ein
-0000e0e0   entropy
-0000e12c   init_buttons
-0000e152   init_pressure_table
-0000e178   nwk_checkConnInfo
-0000e19e   nwk_globalsInit
-0000e1c4   nwk_joinInit
-0000e1ea   nwk_processLink
-0000e210   sx_rf
-0000e236   sx_sync
-0000e25c   BRRX_GetState_t
-0000e280   MRFI_Sleep
-0000e2c8   memcmp
-0000e2ec   __fs_utof
-0000e310   MRFI_WakeUp
-0000e332   display_value
-0000e354   nwk_buildAckReqFrame
-0000e376   start_stopwatch
-0000e398   MRFI_Rssi
-0000e3b8   MRFI_RxCompleteISR
-0000e3d8   MRFI_RxIdle
-0000e3f8   MRFI_RxOn
-0000e418   check_alarm
-0000e438   display_pin
-0000e458   exp
-0000e478   memmove
-0000e498   nwk_connectionControl
-0000e4b8   reset_clock
-0000e4d8   reset_stopwatch
-0000e4f8   stop_buzzer
-0000e518   tune
-0000e538   MRFI_EnableRxAddrFilter
-0000e592   convert_C_to_F
-0000e5b0   nwk_frameInit
-0000e5ce   nwk_setMyAddress
-0000e5ec   clear_display_all
-0000e608   display_am_pm_symbol
-0000e624   nwk_QInit
-0000e640   nwk_processJoin
-0000e65c   stop_altitude_measurement
-0000e692   MRFI_SetRFPwr
-0000e6ac   ADC12ISR
-0000e6c6   mx_util
-0000e6e0   stop_stopwatch
-0000e6fa   MRFI_DelayMs
-0000e712   convert_F_to_C
-0000e72a   convert_hour_to_12H_format
-0000e742   reset_alarm
-0000e75a   reset_date
-0000e772   MRFI_RandomByte
-0000e79e   ReadSingleReg
-0000e7b4   button_repeat_on
-0000e7ca   circ
-0000e7e0   display_slide
-0000e7f6   display_symbol
-0000e80c   invw
-0000e822   qfn
-0000e838   __divu
-0000e838   __remu
-0000e84e   __mpyi_f5hw
-0000e864   sin
-0000e87a   sqrt
-0000e890   sx_stopwatch
-0000e8a6   Timer0_Init
-0000e8ba   convert_ft_to_m
-0000e8ce   convert_m_to_ft
-0000e8e2   countdown_buzzer
-0000e8f6   display_rf
-0000e90a   display_sync
-0000e91e   get_numberOfDays
-0000e946   memset
-0000e95a   BR__CalcRandomChannel_u8
-0000e96c   BlueRobin_RadioISR_v
-0000e97e   acos
-0000e990   asin
-0000e9a2   is_acceleration_measurement
-0000e9b4   is_altitude_measurement
-0000e9c6   is_stopwatch
-0000e9d8   memcpy
-0000e9ea   nwk_getJoinToken
-0000e9fc   nwk_getLinkToken
-0000ea0e   nwk_getMyAddress
-0000ea20   nwk_setJoinToken
-0000ea32   nwk_setLinkToken
-0000ea44   open_radio
-0000ea56   reset_batt_measurement
-0000ea68   sx_slide
-0000ea7a   BSP_InitBoard
-0000ea8a   close_radio
-0000ea9a   cos
-0000eaaa   display_selection_Timeformat1
-0000eaba   mul
-0000eaca   radio_powerdown
-0000eada   switch_seg
-0000eaea   sx_date
-0000eafa   sx_time
-0000eb0a   display_util
-0000eb18   is_hour_am
-0000eb26   mx_stopwatch
-0000eb34   reset_acceleration
-0000eb42   set_blink_rate
-0000eb50   BRRX__GetCurrentTime_u16
-0000eb5c   MRFI_PostKillSem
-0000eb68   MRFI_Receive
-0000eb74   Timer0_Stop
-0000eb80   clear_display
-0000eb8c   do_acceleration_measurement
-0000eba4   idle_loop
-0000ebb0   is_rf
-0000ebbc   is_temp_measurement
-0000ebc8   nwk_getNumObjectFromMsg
-0000ebd4   nwk_setAPAddress
-0000ebe0   ps_start
-0000ebec   sx_util
-0000ebf8   update_alarm
-0000ec04   update_battery_voltage
-0000ec10   update_stopwatch
-0000ec1c   update_temperature
-0000ec28   update_util
-0000ec34   BRRX__StopTimer_v
-0000ec3e   button_repeat_off
-0000ec48   nwk_mgmtInit
-0000ec52   nwk_pingInit
-0000ec5c   ps_stop
-0000ec66   reset_buzzer
-0000ec70   reset_rf
-0000ec7a   reset_temp_measurement
-0000ec84   restore_util
-0000ec8e   __fs_neg
-0000ec98   sx_altitude
-0000eca2   update_date
-0000ecac   update_time
-0000ecb6   BRRX_GetFS_Offset_s8
-0000ecbe   Timer0_A3_Stop
-0000ecc6   Timer0_Start
-0000ecce   inv
-0000ecd6   lin
-0000ecde   square
-0000ece6   stop_alarm
-0000ecee   to_lpm
-0000ecf6   BRRX__CallTimer_v
-0000ecfc   MRFI_GetRadioState
-0000ed02   clear_blink_mem
-0000ed08   display_stopwatch
-0000ed0e   line1
-0000ed14   line2
-0000ed1a   nwk_freeConnection
-0000ed20   nwk_getBCastAddress
-0000ed26   nwk_getFWVersion
-0000ed2c   nwk_getMyRxType
-0000ed32   start_blink
-0000ed38   stop_blink
-0000ed3e   sx_temperature
-0000ed44   SMPL_Link
-0000ed48   _system_pre_init
-0000ed4c   C$$EXIT
-0000ed4c   abort
-0000ed50   halfa
-0000ed54   halfs
-0000ed58   is_bluerobin
-0000ed5c   is_bluerobin_searching
-0000ed60   nwk_NVObj
-0000ed64   nwk_getProtocolVersion
-0000ed68   nwk_processFreq
-0000ed6c   nwk_processSecurity
-0000ed70   twi_delay
-0000ed74   _nop
-0000ed76   nwk_freqInit
-0000ed78   nwk_securityInit
-0000ed7a   __etext__
-0000ed7a   etext
-0000ed7a   int_to_array_conversion_table
-0000ef9a   RandomValue_u8
-0000f09a   menu_L1_Time
-0000f0ac   menu_L1_Alarm
-0000f0be   menu_L1_Temperature
-0000f0d0   menu_L1_Altitude
-0000f0e2   menu_L2_Date
-0000f0f4   menu_L2_Slide
-0000f106   menu_L2_Stopwatch
-0000f118   menu_L2_Util
-0000f1a0   slide_fn
-0000f200   mrfiRadioCfg
-0000f240   lcd_font
-0000f26c   segments_bitmask
-0000f296   pre_scale
-0000f2be   scale
-0000f2e6   h0
-0000f308   p0
-0000f32a   named_calc2
-0000f34a   idx_scale
-0000f362   days_offset
-0000f392   util_dispfn
-0000f3a6   util_sxfn
-0000f3ba   util_upfn
-0000f3ce   named_calc
-0000f3de   dow_offset
-0000f3ea   month_days
-0000f400   selection_Timeformat
-0000f406   BRRX__First_TXCB_t
-0000f408   BRRX__Last_TXCB_t
-0000f40a   mrfiBroadcastAddr
-0000f416   __cinit__
-0000f416   cinit
+0000ae56   __fs_mpy
+0000af0c   simpliciti_link
+0000afc2   simpliciti_main_sync
+0000b078   get_cycle
+0000b12c   display_altitude
+0000b1de   irt
+0000b290   start_simpliciti_tx_only
+0000b342   nwk_retrieveFrame
+0000b3e4   simpliciti_get_ed_data_callback
+0000b484   nwk_radioControl
+0000b520   start_simpliciti_sync
+0000b5bc   display_alarm
+0000b656   ps_twi_sda
+0000b6ee   Strobe
+0000b784   nwk_nwkInit
+0000b818   temperature_measurement
+0000b8ac   mrfiRadioInterfaceCmdStrobe
+0000b93c   nwk_buildFrame
+0000b9cc   __fs_div
+0000ba5a   calc_slide
+0000bb72   nwk_isConnectionValid
+0000bbfe   do_altitude_measurement
+0000bd0e   TIMER0_A1_5_ISR
+0000bd92   as_start
+0000be12   nwk_sendAckReply
+0000be92   battery_measurement
+0000bf10   __fs_tol
+0000c00a   mx_slide
+0000c084   init_global_variables
+0000c0fc   mx_slide2
+0000c174   ps_init
+0000c1ec   nwk_QfindSlot
+0000c262   display_char
+0000c2d4   ps_read_register
+0000c346   process_requests
+0000c3b6   BRRX_RadioReceive_v
+0000c424   as_read_register
+0000c490   adc12_single_conversion
+0000c4f8   clock_tick
+0000c560   __fs_toi
+0000c630   as_write_register
+0000c696   ps_get_pa
+0000c6fc   log
+0000c760   mrfiRadioInterfaceReadRxFifo
+0000c7c4   MRFI_RadioIsr
+0000c826   BRRX_PacketEndTimerTask_v
+0000c884   Timer0_A4_Delay
+0000c8e2   display_battery_V
+0000c940   write_lcd_mem
+0000c9f8   display_fn_choice
+0000ca50   ps_write_register
+0000caa8   __divul
+0000caa8   __remul
+0000cb00   sx_rfbsl
+0000cb54   BRRX__StartNewSearch_v
+0000cbf8   clear_line
+0000cc4a   get_day
+0000cc9c   nwk_rawSend
+0000ccee   ps_twi_read
+0000cd8c   button_repeat_function
+0000cdd8   ps_get_temp
+0000ce24   __fs_toul
+0000ce70   __fs_cmp
+0000ceba   __fs_ltof
+0000cf04   toggle_buzzer
+0000cf4e   start_buzzer
+0000cf96   BR__CalcRandomTimeOffset_u16
+0000cfdc   SetVCoreUp
+0000d022   _auto_init
+0000d068   display_date
+0000d0ae   display_hours
+0000d0f4   mrfiRadioInterfaceReadReg
+0000d13a   __fs_tou
+0000d180   simpliciti_main_tx_only
+0000d1c6   ReadBurstReg
+0000d20a   SMPL_Receive
+0000d24e   add_day
+0000d2d6   harm
+0000d318   ps_twi_write
+0000d35a   nwk_isValidReply
+0000d39a   reset_altitude_measurement
+0000d3da   __divli
+0000d3da   __remli
+0000d41a   start_altitude_measurement
+0000d45a   BRRX__DecodePacket_u8
+0000d498   BRRX__NewInfo_v
+0000d514   L_ASR_15
+0000d518   L_ASR_14
+0000d51c   L_ASR_13
+0000d520   L_ASR_12
+0000d524   L_ASR_11
+0000d528   L_ASR_10
+0000d52c   L_ASR_9
+0000d530   L_ASR_8
+0000d534   L_ASR_7
+0000d538   L_ASR_6
+0000d53c   L_ASR_5
+0000d540   L_ASR_4
+0000d544   L_ASR_3
+0000d548   L_ASR_2
+0000d54c   L_ASR_1
+0000d552   L_LSL_15
+0000d556   L_LSL_14
+0000d55a   L_LSL_13
+0000d55e   L_LSL_12
+0000d562   L_LSL_11
+0000d566   L_LSL_10
+0000d56a   L_LSL_9
+0000d56e   L_LSL_8
+0000d572   L_LSL_7
+0000d576   L_LSL_6
+0000d57a   L_LSL_5
+0000d57e   L_LSL_4
+0000d582   L_LSL_3
+0000d586   L_LSL_2
+0000d58a   L_LSL_1
+0000d590   L_LSR_15
+0000d594   L_LSR_14
+0000d598   L_LSR_13
+0000d59c   L_LSR_12
+0000d5a0   L_LSR_11
+0000d5a4   L_LSR_10
+0000d5a8   L_LSR_9
+0000d5ac   L_LSR_8
+0000d5b0   L_LSR_7
+0000d5b4   L_LSR_6
+0000d5b8   L_LSR_5
+0000d5bc   L_LSR_4
+0000d5c0   L_LSR_3
+0000d5c4   L_LSR_2
+0000d5c8   L_LSR_1
+0000d5ce   nwk_getNextConnection
+0000d60c   BRRX_TimerTask_v
+0000d648   MRFI_ReplyDelay
+0000d684   nwk_findPeer
+0000d6c0   nwk_isLinkDuplicate
+0000d6fc   update_stopwatch_timer
+0000d772   nwk_processMgmt
+0000d7ac   pin_generate
+0000d7e6   WriteSingleReg
+0000d81e   radio_ISR
+0000d88e   half
+0000d8c4   norm_arrow
+0000d8fa   nwk_putNumObjectIntoMsg
+0000d930   __fs_itof
+0000d966   BR__CalcCRC_u8
+0000d99a   BSP_Delay
+0000d9ce   SMPL_Init
+0000da36   mrfiRadioInterfaceWriteReg
+0000da6a   mrfiRadioInterfaceWriteTxFifo
+0000da9e   BRRX_RadioStop_v
+0000dad0   MRFI_SetLogicalChannel
+0000db02   as_stop
+0000db34   main
+0000db66   nwk_deviceAddress
+0000db98   radio_reset
+0000dbca   __fs_ultof
+0000dbfc   sx_alarm
+0000dc2e   halfc
+0000dc5e   nwk_linkInit
+0000dc8e   nwk_rawReceive
+0000dcbe   nwk_sendFrame
+0000dcee   split_num
+0000dd4c   as_init
+0000dd7a   leaps_count
+0000ddd4   nwk_QadjustOrder
+0000de00   __divi
+0000de00   __remi
+0000de2c   MRFI_SetRxAddrFilter
+0000deaa   Timer0_A3_Start
+0000ded4   _c_int00
+0000ded4   _c_int00_noexit
+0000defe   as_get_data
+0000df28   display_rfbsl
+0000df52   lcd_init
+0000df7c   tan
+0000dfa6   atan
+0000dff6   nwk_getConnInfo
+0000e01e   nwk_processPing
+0000e046   SetVCore
+0000e06c   SetVCoreDown
+0000e092   div
+0000e0b8   ein
+0000e0de   entropy
+0000e12a   init_buttons
+0000e150   init_pressure_table
+0000e176   nwk_checkConnInfo
+0000e19c   nwk_globalsInit
+0000e1c2   nwk_joinInit
+0000e1e8   nwk_processLink
+0000e20e   sx_rf
+0000e234   sx_sync
+0000e25a   BRRX_GetState_t
+0000e27e   MRFI_Sleep
+0000e2c6   memcmp
+0000e2ea   __fs_utof
+0000e30e   MRFI_WakeUp
+0000e330   display_value
+0000e352   nwk_buildAckReqFrame
+0000e374   start_stopwatch
+0000e396   MRFI_Rssi
+0000e3b6   MRFI_RxCompleteISR
+0000e3d6   MRFI_RxIdle
+0000e3f6   MRFI_RxOn
+0000e416   check_alarm
+0000e436   display_pin
+0000e456   exp
+0000e476   memmove
+0000e496   nwk_connectionControl
+0000e4b6   reset_clock
+0000e4d6   reset_stopwatch
+0000e4f6   stop_buzzer
+0000e516   tune
+0000e536   MRFI_EnableRxAddrFilter
+0000e590   convert_C_to_F
+0000e5ae   nwk_frameInit
+0000e5cc   nwk_setMyAddress
+0000e5ea   clear_display_all
+0000e606   display_am_pm_symbol
+0000e622   nwk_QInit
+0000e63e   nwk_processJoin
+0000e65a   stop_altitude_measurement
+0000e690   MRFI_SetRFPwr
+0000e6aa   ADC12ISR
+0000e6c4   mx_util
+0000e6de   stop_stopwatch
+0000e6f8   MRFI_DelayMs
+0000e710   convert_F_to_C
+0000e728   convert_hour_to_12H_format
+0000e740   reset_alarm
+0000e758   reset_date
+0000e770   MRFI_RandomByte
+0000e79c   ReadSingleReg
+0000e7b2   button_repeat_on
+0000e7c8   circ
+0000e7de   display_slide
+0000e7f4   display_symbol
+0000e80a   invw
+0000e820   qfn
+0000e836   __divu
+0000e836   __remu
+0000e84c   __mpyi_f5hw
+0000e862   sin
+0000e878   sqrt
+0000e88e   sx_stopwatch
+0000e8a4   Timer0_Init
+0000e8b8   convert_ft_to_m
+0000e8cc   convert_m_to_ft
+0000e8e0   countdown_buzzer
+0000e8f4   display_rf
+0000e908   display_sync
+0000e91c   get_numberOfDays
+0000e944   memset
+0000e958   BR__CalcRandomChannel_u8
+0000e96a   BlueRobin_RadioISR_v
+0000e97c   acos
+0000e98e   asin
+0000e9a0   is_acceleration_measurement
+0000e9b2   is_altitude_measurement
+0000e9c4   is_stopwatch
+0000e9d6   memcpy
+0000e9e8   nwk_getJoinToken
+0000e9fa   nwk_getLinkToken
+0000ea0c   nwk_getMyAddress
+0000ea1e   nwk_setJoinToken
+0000ea30   nwk_setLinkToken
+0000ea42   open_radio
+0000ea54   reset_batt_measurement
+0000ea66   sx_slide
+0000ea78   BSP_InitBoard
+0000ea88   close_radio
+0000ea98   cos
+0000eaa8   display_selection_Timeformat1
+0000eab8   mul
+0000eac8   radio_powerdown
+0000ead8   switch_seg
+0000eae8   sx_date
+0000eaf8   sx_time
+0000eb08   display_util
+0000eb16   is_hour_am
+0000eb24   mx_stopwatch
+0000eb32   reset_acceleration
+0000eb40   set_blink_rate
+0000eb4e   BRRX__GetCurrentTime_u16
+0000eb5a   MRFI_PostKillSem
+0000eb66   MRFI_Receive
+0000eb72   Timer0_Stop
+0000eb7e   clear_display
+0000eb8a   do_acceleration_measurement
+0000eba2   idle_loop
+0000ebae   is_rf
+0000ebba   is_temp_measurement
+0000ebc6   nwk_getNumObjectFromMsg
+0000ebd2   nwk_setAPAddress
+0000ebde   ps_start
+0000ebea   sx_util
+0000ebf6   update_alarm
+0000ec02   update_battery_voltage
+0000ec0e   update_stopwatch
+0000ec1a   update_temperature
+0000ec26   update_util
+0000ec32   BRRX__StopTimer_v
+0000ec3c   button_repeat_off
+0000ec46   nwk_mgmtInit
+0000ec50   nwk_pingInit
+0000ec5a   ps_stop
+0000ec64   reset_buzzer
+0000ec6e   reset_rf
+0000ec78   reset_temp_measurement
+0000ec82   restore_util
+0000ec8c   __fs_neg
+0000ec96   sx_altitude
+0000eca0   update_date
+0000ecaa   update_time
+0000ecb4   BRRX_GetFS_Offset_s8
+0000ecbc   Timer0_A3_Stop
+0000ecc4   Timer0_Start
+0000eccc   inv
+0000ecd4   lin
+0000ecdc   square
+0000ece4   stop_alarm
+0000ecec   to_lpm
+0000ecf4   BRRX__CallTimer_v
+0000ecfa   MRFI_GetRadioState
+0000ed00   clear_blink_mem
+0000ed06   display_stopwatch
+0000ed0c   line1
+0000ed12   line2
+0000ed18   nwk_freeConnection
+0000ed1e   nwk_getBCastAddress
+0000ed24   nwk_getFWVersion
+0000ed2a   nwk_getMyRxType
+0000ed30   start_blink
+0000ed36   stop_blink
+0000ed3c   sx_temperature
+0000ed42   SMPL_Link
+0000ed46   _system_pre_init
+0000ed4a   C$$EXIT
+0000ed4a   abort
+0000ed4e   halfa
+0000ed52   halfs
+0000ed56   is_bluerobin
+0000ed5a   is_bluerobin_searching
+0000ed5e   nwk_NVObj
+0000ed62   nwk_getProtocolVersion
+0000ed66   nwk_processFreq
+0000ed6a   nwk_processSecurity
+0000ed6e   twi_delay
+0000ed72   _nop
+0000ed74   nwk_freqInit
+0000ed76   nwk_securityInit
+0000ed78   __etext__
+0000ed78   etext
+0000ed78   int_to_array_conversion_table
+0000ef98   RandomValue_u8
+0000f098   menu_L1_Time
+0000f0aa   menu_L1_Alarm
+0000f0bc   menu_L1_Temperature
+0000f0ce   menu_L1_Altitude
+0000f0e0   menu_L2_Date
+0000f0f2   menu_L2_Slide
+0000f104   menu_L2_Stopwatch
+0000f116   menu_L2_Util
+0000f19e   slide_fn
+0000f1fe   mrfiRadioCfg
+0000f23e   lcd_font
+0000f26a   segments_bitmask
+0000f294   pre_scale
+0000f2bc   scale
+0000f2e4   h0
+0000f306   p0
+0000f328   named_calc2
+0000f348   idx_scale
+0000f360   days_offset
+0000f390   util_dispfn
+0000f3a4   util_sxfn
+0000f3b8   util_upfn
+0000f3cc   named_calc
+0000f3dc   dow_offset
+0000f3e8   month_days
+0000f3fe   selection_Timeformat
+0000f404   BRRX__First_TXCB_t
+0000f406   BRRX__Last_TXCB_t
+0000f408   mrfiBroadcastAddr
+0000f414   __cinit__
+0000f414   cinit
 0000fffe   _reset_vector
 ffffffff   __binit__
 ffffffff   __c_args__

@@ -243,7 +243,7 @@ const float scale[] = { 	10000.0F, 10000.0F, 100.0F, 1.08573620476e+3F, 12732.39
 					1.0F, 1000.0F, 1.0F, 100.0F, 10000.0F };
 
 s8 fn_calc;
-s8 fn_calc2 = 0;//minor fix... to v5
+s8 fn_calc2 = 0;//minor fix... to v5.1
 s32 in_calc = 5000;
 u16 out_calc = 0;
 
