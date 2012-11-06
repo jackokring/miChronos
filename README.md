@@ -19,7 +19,7 @@ Day of Week
 
 Slide Rule
 ----------
-(v5) So the latest is to have a 4 digit slide rule calculation aid. This gives better inverse conversion for say antilogs.
+(v5.1) So the latest is to have a 4 digit slide rule calculation aid. This gives better inverse conversion for say antilogs.
 The slide rule is placed just after the date on the bottom line. Pressing DOWN selects the function set. Pressing #HOLD selects the entry mode after selecting one of four functions indicated by pairs of digits in corresponding corners. Using UP and DOWN (HOLD for fast) set the input. Press # to calculate. Press STAR to EXIT.
 
 The functions are scaled for effect. Calculation of inverse functions is somewhat involved repeated use and estimation. The functions are listed below, and should be with knowledge enough to go a long way in maths. The understanding of why this function set was provided is in itself a long lesson in maths. There are four groups of functions. An extra two functions per group are provided by long press of STAR and #.
@@ -79,7 +79,7 @@ Utility Menu
 
 Bytes
 -----
-The bytes left in version v5 is 2427. The intent is to make some custom software in these bytes. There are still some further size savings possible, but they would increase power consumption in standby time display, due to an extra function call overhead. As time display is the main use a watch is put, this is somewhat important. Reclaiming some byte space in the setting routines, is however useful, even though this takes a fraction more power, as the setting modes are infrequently used, even though utility is perhaps the focus of this project. Everyone sleeps. I now have to think of some brilliant modes for later versions.
+The bytes left in version v5.1 is 2423. The intent is to make some custom software in these bytes. There are still some further size savings possible, but they would increase power consumption in standby time display, due to an extra function call overhead. As time display is the main use a watch is put, this is somewhat important. Reclaiming some byte space in the setting routines, is however useful, even though this takes a fraction more power, as the setting modes are infrequently used, even though utility is perhaps the focus of this project. Everyone sleeps. I now have to think of some brilliant modes for later versions.
 
 Energy
 ------
