@@ -1,4 +1,4 @@
-// (C) Jacko edited to turn into a slide rule LINE2
+// (C)2012, 2013 Jacko edited to turn into a slide rule LINE2
 // *************************************************************************************************
 //
 //      Copyright (C) 2009 Texas Instruments Incorporated - http://www.ti.com/
@@ -93,12 +93,12 @@ float sqrt(float x) {
 	return x * irt(x);
 }
 
-float half(float x, s8 sgn) {		/* x/(1+sqrt(1+x*x)) */
-	return x * inv(1.0F + sqrt(1.0F + (sgn > 0 ? square(x) : -square(x))));
+float half(float x, float sgn) {		/* x/(1+sqrt(1+x*x)) */
+	return x * inv(1.0F + sqrt(1.0F + sgn * square(x) ));
 }
 
 float halfa(float x) {
-	return half(x, 1);
+	return half(x, 1.0F);
 }
 
 //OSAF FN (flags and function produced)
@@ -143,7 +143,7 @@ float log(float x) { //base e
 }
 
 float atan(float x) {
-	return eq(half(half(x, 1), 1), 1, 1, 1, 0) * 4.0F;
+	return eq(halfa(halfa(x)), 1, 1, 1, 0) * 4.0F;
 }
 
 float circ(float x) {
@@ -194,7 +194,7 @@ float harm(float x) {
 //extra eight functions
 //on root
 float halfs(float x) {
-	return half(x, -1);
+	return half(x, -1.0F);
 }
 
 float halfc(float x) {
