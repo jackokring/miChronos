@@ -101,9 +101,9 @@ u8 update_battery_voltage()
 // *************************************************************************************************
 // User navigation ( [____] = default menum item after reset )
 //
-//      LINE1:  [Time] -> Alarm -> Temperature -> Altitude -> Heart rate -> Speed -> Acceleration
+//      LINE1:  [Time] -> Alarm -> Temperature -> Altitude
 //
-//      LINE2:  [Date] -> Stopwatch -> Battery  -> ACC -> PPT -> SYNC -> Calories/Distance --> RFBSL
+//      LINE2:  [Date] -> SlideRule -> Stopwatch -> (Battery -> ACC -> SYNC -> RFBSL)
 // *************************************************************************************************
 
 // Line1 - Time
@@ -213,5 +213,13 @@ const struct menum menu_L2_Util = {
     FUNCTION(mx_util),                  // sub menum function
     FUNCTION(display_util),          // display function
     FUNCTION(update_util),            // new display data
+    &menu_L2_Util2,
+};
+
+const struct menum menu_L2_Util2 = {
+    FUNCTION(sx_util2),               // direct function
+    FUNCTION(mx_util2),                  // sub menum function
+    FUNCTION(display_util2),          // display function
+    FUNCTION(update_util2),            // new display data
     &menu_L2_Date,
 };
