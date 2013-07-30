@@ -1,9 +1,17 @@
 miChronos
 =========
+White Board New Kit
+-----------------
+Thereis a release for the new white board kits, with the new sensor type. I can not as yet compile for this as the CCS needs a full licence for this. Until there is perhaps some libraries made up.
+
+Notes on Source
+--------------
 Edited source of the eZ430-Chronos development kit. Some changes for smaller space and less power, and a calculation slide rule application. Designed with the 16KB limit of the free CCS from Texas Instruments in mind. Things to note:
 
   * It is impossible to remove the drivers library, as this contains 4 symbols to use the radio (appears so).
   * It is impossible to lose the float support, as the function update-pressure-table remains linked (appears so).
+
+I have added the Control Center to the source in a folder, as the download link is not there.
 
 Sidereal and Moon Day
 ---------------------
