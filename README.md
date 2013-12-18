@@ -2,7 +2,7 @@ miChronos
 =========
 White Board New Kit
 -----------------
-Thereis a release for the new white board kits, with the new sensor type. I can not as yet compile for this as the CCS needs a full licence for this. Until there is perhaps some libraries made up.
+There is a release for the new white board kits, with the new sensor type. I can not as yet compile for this as the CCS needs a full licence for this. Until there is perhaps some libraries made up.
 
 Notes on Source
 --------------

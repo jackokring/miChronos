@@ -206,16 +206,18 @@ const struct menum menu_L2_RFBSL = {
     &menu_L2_Date,
 }; */
 
-// Line2 - RFBSL
+// Line2 - UTILS
 
 const struct menum menu_L2_Util = {
     FUNCTION(sx_util),               // direct function
     FUNCTION(mx_util),                  // sub menum function
     FUNCTION(display_util),          // display function
     FUNCTION(update_util),            // new display data
-    &menu_L2_Util2,
+//    &menu_L2_Util2,
+	&menu_L2_Date,
 };
 
+/* NOT YET!!
 const struct menum menu_L2_Util2 = {
     FUNCTION(sx_util2),               // direct function
     FUNCTION(mx_util2),                  // sub menum function
@@ -223,3 +225,4 @@ const struct menum menu_L2_Util2 = {
     FUNCTION(update_util2),            // new display data
     &menu_L2_Date,
 };
+*/
